@@ -17,6 +17,10 @@
 		74D1BAE526E0362700A2A88E /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D1BAE426E0362700A2A88E /* MainCoordinator.swift */; };
 		74D1BAE726E03D7000A2A88E /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D1BAE626E03D7000A2A88E /* MainViewModel.swift */; };
 		74D1BAE926E03EC100A2A88E /* MVVMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D1BAE826E03EC100A2A88E /* MVVMViewController.swift */; };
+		74D1BAEC26E1227600A2A88E /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D1BAEB26E1227600A2A88E /* JSONParser.swift */; };
+		74D1BAEE26E1363300A2A88E /* League.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D1BAED26E1363300A2A88E /* League.swift */; };
+		74D1BAF226E13A4300A2A88E /* URL+FromOptionalString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D1BAF126E13A4300A2A88E /* URL+FromOptionalString.swift */; };
+		74D1BAF426E1421B00A2A88E /* URLBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D1BAF326E1421B00A2A88E /* URLBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +36,10 @@
 		74D1BAE426E0362700A2A88E /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		74D1BAE626E03D7000A2A88E /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		74D1BAE826E03EC100A2A88E /* MVVMViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVMViewController.swift; sourceTree = "<group>"; };
+		74D1BAEB26E1227600A2A88E /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
+		74D1BAED26E1363300A2A88E /* League.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = League.swift; sourceTree = "<group>"; };
+		74D1BAF126E13A4300A2A88E /* URL+FromOptionalString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+FromOptionalString.swift"; sourceTree = "<group>"; };
+		74D1BAF326E1421B00A2A88E /* URLBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +73,10 @@
 			isa = PBXGroup;
 			children = (
 				74D1BA6A26DED58F00A2A88E /* Abstract */,
+				74D1BAEF26E1364000A2A88E /* Models */,
 				74D1BADF26E0352F00A2A88E /* Modules */,
+				74D1BAEA26E121F100A2A88E /* Services */,
+				74D1BAF026E139D900A2A88E /* Extensions */,
 				74D1BADE26E0351D00A2A88E /* Resources */,
 				74D1BA6D26DEDE8D00A2A88E /* Supports */,
 			);
@@ -88,6 +99,7 @@
 				74D1BA6726DECFEF00A2A88E /* Coordinating.swift */,
 				74D1BA6E26DEDFA400A2A88E /* ApiConfig.swift */,
 				74D1BAE826E03EC100A2A88E /* MVVMViewController.swift */,
+				74D1BAF326E1421B00A2A88E /* URLBuilder.swift */,
 			);
 			path = Abstract;
 			sourceTree = "<group>";
@@ -125,6 +137,30 @@
 				74D1BAE226E0360300A2A88E /* MainViewController.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		74D1BAEA26E121F100A2A88E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				74D1BAEB26E1227600A2A88E /* JSONParser.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		74D1BAEF26E1364000A2A88E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				74D1BAED26E1363300A2A88E /* League.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		74D1BAF026E139D900A2A88E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				74D1BAF126E13A4300A2A88E /* URL+FromOptionalString.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,11 +255,15 @@
 			files = (
 				74D1BAE926E03EC100A2A88E /* MVVMViewController.swift in Sources */,
 				74D1BAE726E03D7000A2A88E /* MainViewModel.swift in Sources */,
+				74D1BAEC26E1227600A2A88E /* JSONParser.swift in Sources */,
 				74D1BA6F26DEDFA400A2A88E /* ApiConfig.swift in Sources */,
 				74D1BAE526E0362700A2A88E /* MainCoordinator.swift in Sources */,
+				74D1BAF426E1421B00A2A88E /* URLBuilder.swift in Sources */,
 				74D1BA6C26DED5AF00A2A88E /* AppCoordinator.swift in Sources */,
 				74D1BA5326DDA16200A2A88E /* AppDelegate.swift in Sources */,
 				74D1BA6826DECFEF00A2A88E /* Coordinating.swift in Sources */,
+				74D1BAEE26E1363300A2A88E /* League.swift in Sources */,
+				74D1BAF226E13A4300A2A88E /* URL+FromOptionalString.swift in Sources */,
 				74D1BAE326E0360300A2A88E /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

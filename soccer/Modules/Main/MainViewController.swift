@@ -12,7 +12,13 @@ final class MainViewController: MVVMViewController<MainViewModelProtocol> {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    view.backgroundColor = .green
+    viewModel.fetchLeagues { print() }
+
+    view.backgroundColor = .systemBackground
+    print(viewModel.leagues)
+    DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+      print(self.viewModel.leagues)
+    }
   }
 
 }
