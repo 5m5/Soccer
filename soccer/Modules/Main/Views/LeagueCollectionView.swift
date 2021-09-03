@@ -12,8 +12,11 @@ class LeagueCollectionView: UICollectionView {
   init() {
     let layout = UICollectionViewFlowLayout()
     layout.scrollDirection = .horizontal
+    layout.minimumLineSpacing = 16
 
     super.init(frame: .zero, collectionViewLayout: layout)
+
+    showsHorizontalScrollIndicator = false
 
     translatesAutoresizingMaskIntoConstraints = false
     backgroundColor = .systemBackground

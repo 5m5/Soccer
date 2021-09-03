@@ -32,10 +32,10 @@ final class MainViewController: MVVMViewController<MainViewModelProtocol> {
     let safeArea = view.safeAreaLayoutGuide
     NSLayoutConstraint.activate([
       leagueCollectionView.topAnchor.constraint(equalTo: safeArea.topAnchor),
-      leagueCollectionView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 8),
+      leagueCollectionView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 16),
       leagueCollectionView.trailingAnchor.constraint(
         equalTo: safeArea.trailingAnchor,
-        constant: -8),
+        constant: 16),
 
       leagueCollectionView.heightAnchor.constraint(
         equalTo: safeArea.heightAnchor,
@@ -71,8 +71,20 @@ extension MainViewController: UICollectionViewDataSource {
       for: indexPath
     ) as? LeagueCollectionViewCell else { return UICollectionViewCell() }
 
-    cell.viewModel = LeagueCellViewModel(league: viewModel.leagues.first!)
+    cell.viewModel = viewModel.leagueCellViewModel(for: indexPath)
     return cell
   }
 
+}
+
+extension MainViewController: UICollectionViewDelegateFlowLayout {
+  func collectionView(
+    _ collectionView: UICollectionView,
+    layout collectionViewLayout: UICollectionViewLayout,
+    sizeForItemAt indexPath: IndexPath
+  ) -> CGSize {
+    let insets = collectionView.contentInset
+    let height = collectionView.bounds.height - insets.top - insets.bottom - 1
+    return CGSize(width: collectionView.bounds.width / 4, height: height)
+  }
 }

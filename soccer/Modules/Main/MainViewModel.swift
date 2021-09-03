@@ -11,6 +11,7 @@ protocol MainViewModelProtocol: AnyObject {
   var leagues: [League] { get }
   var leaguesCount: Int { get }
   func fetchLeagues(completion: @escaping () -> Void)
+  func leagueCellViewModel(for indexPath: IndexPath) -> LeagueCellViewModelProtocol
 }
 
 final class MainViewModel: MainViewModelProtocol {
@@ -40,6 +41,11 @@ final class MainViewModel: MainViewModelProtocol {
         }
       }
     }
+  }
+
+  func leagueCellViewModel(for indexPath: IndexPath) -> LeagueCellViewModelProtocol {
+    let league = leagues[indexPath.row]
+    return LeagueCellViewModel(league: league)
   }
 
 }

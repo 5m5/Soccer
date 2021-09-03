@@ -24,6 +24,7 @@
 		74D1BAF626E18D1800A2A88E /* LeagueCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D1BAF526E18D1800A2A88E /* LeagueCollectionView.swift */; };
 		74D1BAF826E1913A00A2A88E /* LeagueCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D1BAF726E1913900A2A88E /* LeagueCollectionViewCell.swift */; };
 		74D1BAFC26E1921B00A2A88E /* LeagueCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D1BAFB26E1921B00A2A88E /* LeagueCellViewModel.swift */; };
+		74D1BB0226E2BDB400A2A88E /* ImageDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D1BB0126E2BDB400A2A88E /* ImageDataService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		74D1BAF726E1913900A2A88E /* LeagueCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueCollectionViewCell.swift; sourceTree = "<group>"; };
 		74D1BAFB26E1921B00A2A88E /* LeagueCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueCellViewModel.swift; sourceTree = "<group>"; };
 		74D1BAFE26E1A56E00A2A88E /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		74D1BB0126E2BDB400A2A88E /* ImageDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDataService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				74D1BAEB26E1227600A2A88E /* JSONParser.swift */,
+				74D1BB0126E2BDB400A2A88E /* ImageDataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 				74D1BAEE26E1363300A2A88E /* League.swift in Sources */,
 				74D1BAF226E13A4300A2A88E /* URL+FromOptionalString.swift in Sources */,
 				74D1BAE326E0360300A2A88E /* MainViewController.swift in Sources */,
+				74D1BB0226E2BDB400A2A88E /* ImageDataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
