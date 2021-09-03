@@ -93,6 +93,9 @@ line_length:
   ignores_comments: true
   error: 100
 
+trailing_comma:
+  mandatory_comma: true
+
 multiline_arguments:
   first_argument_location: next_line
   only_enforce_after_first_closure_on_first_line: true

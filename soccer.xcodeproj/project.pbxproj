@@ -46,6 +46,7 @@
 		74D1BAF526E18D1800A2A88E /* LeagueCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueCollectionView.swift; sourceTree = "<group>"; };
 		74D1BAF726E1913900A2A88E /* LeagueCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueCollectionViewCell.swift; sourceTree = "<group>"; };
 		74D1BAFB26E1921B00A2A88E /* LeagueCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueCellViewModel.swift; sourceTree = "<group>"; };
+		74D1BAFE26E1A56E00A2A88E /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +63,7 @@
 		74D1BA4626DDA16200A2A88E = {
 			isa = PBXGroup;
 			children = (
+				74D1BAFE26E1A56E00A2A88E /* .swiftlint.yml */,
 				74D1BA5126DDA16200A2A88E /* soccer */,
 				74D1BA5026DDA16200A2A88E /* Products */,
 			);
