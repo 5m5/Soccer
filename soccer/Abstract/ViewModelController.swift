@@ -7,13 +7,13 @@
 
 import UIKit
 
-protocol MVVMViewControllerProtocol: UIViewController {
+protocol ViewModelControllerProtocol: UIViewController {
   associatedtype ViewModel
   var viewModel: ViewModel { get }
   init(viewModel: ViewModel)
 }
 
-class MVVMViewController<ViewModel>: UIViewController, MVVMViewControllerProtocol {
+class ViewModelController<ViewModel>: UIViewController, ViewModelControllerProtocol {
 
   // MARK: - Internal Properties
   var viewModel: ViewModel
