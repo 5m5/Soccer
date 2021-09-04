@@ -10,24 +10,10 @@ import UIKit
 class LeagueCollectionViewCell: UICollectionViewCell {
 
   var viewModel: LeagueCellViewModelProtocol? {
-    didSet {
-      guard let viewModel = viewModel else { preconditionFailure("Can't unwrap viewModel") }
-      DispatchQueue.global().async {
-        guard
-          let urlString = viewModel.league.logo,
-          let url = URL(string: urlString),
-          let data = try? Data(contentsOf: url),
-          let image = UIImage(data: data) else { return }
-
-        DispatchQueue.main.async { [weak self] in
-          guard let self = self else { return }
-
-          self.imageView.image = image
-        }
-      }
-    }
+    didSet { asyncLoadImage() }
   }
 
+  // MARK: - Private Properties
   private lazy var imageView: UIImageView = {
     let imageView = UIImageView()
     imageView.contentMode = .scaleAspectFit
@@ -35,6 +21,7 @@ class LeagueCollectionViewCell: UICollectionViewCell {
     return imageView
   }()
 
+  // MARK: - Lifecycle
   override init(frame: CGRect) {
     super.init(frame: frame)
 
@@ -70,6 +57,22 @@ class LeagueCollectionViewCell: UICollectionViewCell {
   override func prepareForReuse() {
     super.prepareForReuse()
     imageView.image = nil
+  }
+
+  // MARK: - Private Methods
+  private func asyncLoadImage() {
+    guard let viewModel = viewModel else { preconditionFailure("Can't unwrap viewModel") }
+
+    DispatchQueue.global().async {
+      guard
+        let data = viewModel.imageData,
+        let image = UIImage(data: data) else { return }
+
+      DispatchQueue.main.async { [weak self] in
+        guard let self = self else { return }
+        self.imageView.image = image
+      }
+    }
   }
 
 }
