@@ -11,34 +11,27 @@ class LeagueCollectionViewCell: UICollectionViewCell {
 
   var viewModel: LeagueCellViewModelProtocol? {
     didSet {
-      guard let viewModel = viewModel else { preconditionFailure("Can't unwrap viewModel") }
-      DispatchQueue.global().async {
-        if let imageData = viewModel.imageData {
-          DispatchQueue.main.async { [weak self] in
-            guard let self = self else { return }
-            self.imageView.image = UIImage(data: imageData)
-          }
-        }
-      }
+      asyncLoadImage()
     }
   }
 
+  // MARK: - Private Properties
   private lazy var imageView: UIImageView = {
-    // TODO: Временно системное изображение
-    let image = UIImage(systemName: "pencil")
-    let imageView = UIImageView(image: image)
+    let imageView = UIImageView()
     imageView.contentMode = .scaleAspectFit
     imageView.translatesAutoresizingMaskIntoConstraints = false
-    imageView.layer.cornerRadius = 10
-    imageView.layer.borderWidth = 2
-    imageView.layer.borderColor = UIColor.systemGray.cgColor
     return imageView
   }()
 
+  // MARK: - Lifecycle
   override init(frame: CGRect) {
     super.init(frame: frame)
 
     addSubview(imageView)
+
+    layer.cornerRadius = 10
+    layer.borderWidth = 2
+    layer.borderColor = UIColor.systemGray.cgColor
 
     let constant: CGFloat = 5
     NSLayoutConstraint.activate([
@@ -61,6 +54,27 @@ class LeagueCollectionViewCell: UICollectionViewCell {
   @available(*, unavailable)
   required init?(coder: NSCoder) {
     fatalError("This class does not support NSCoder")
+  }
+
+  override func prepareForReuse() {
+    super.prepareForReuse()
+    imageView.image = nil
+  }
+
+  // MARK: - Private Methods
+  private func asyncLoadImage() {
+    guard let viewModel = viewModel else { preconditionFailure("Can't unwrap viewModel") }
+
+    DispatchQueue.global().async {
+      guard
+        let data = viewModel.imageData,
+        let image = UIImage(data: data) else { return }
+
+      DispatchQueue.main.async { [weak self] in
+        guard let self = self else { return }
+        self.imageView.image = image
+      }
+    }
   }
 
 }

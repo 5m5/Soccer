@@ -15,10 +15,8 @@ final class ImageDataService {
   func imageDataFrom(url: URL?) -> Data? {
     var data: Data?
 
-    //DispatchQueue.global().async {
-      guard let url = url else { return nil }
-      data = try? Data(contentsOf: url)
-    //}
+    guard let url = url else { return nil }
+    data = try? Data(contentsOf: url)
 
     return data
   }
