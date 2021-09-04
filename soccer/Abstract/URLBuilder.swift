@@ -13,7 +13,7 @@ enum EndPoints: String {
   case livescore = "Livescore"
 }
 
-fileprivate enum ApiConfig {
+private enum ApiConfig {
   static let apiKey = (
     value: "2328f44d0dmsh6aabaae99954adcp14f0bcjsneb7df30c356b",
     key: "x-rapidapi-key"
