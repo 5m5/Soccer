@@ -16,8 +16,13 @@ struct League: Codable {
   lazy var logoURL: URL? = { .from(string: logo) }()
 }
 
+struct Season: Codable {
+  let year: Int
+}
+
 struct LeagueResponse: Codable {
   let league: League
+  let seasons: [Season]
 }
 
 struct LeagueResult: Codable {
