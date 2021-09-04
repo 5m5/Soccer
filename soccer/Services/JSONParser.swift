@@ -17,8 +17,12 @@ enum NetworkError: Error {
 final class JSONParser<T: Codable> {
   typealias ResultCompletion<T> = (Result<T, Error>) -> Void
 
-  func fetch(url: URL, completion: @escaping ResultCompletion<T>) {
-    let dataTask = URLSession.shared.dataTask(with: url) { data, response, error in
+  func fetch(urlRequest: URLRequest, completion: @escaping ResultCompletion<T>) {
+    #if DEBUG
+    print(urlRequest.url ?? "Wrong request")
+    #endif
+
+    let dataTask = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
       if let error = error {
         completion(.failure(error))
       }

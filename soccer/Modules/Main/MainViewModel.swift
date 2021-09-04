@@ -8,7 +8,7 @@
 import Foundation
 
 protocol MainViewModelProtocol: AnyObject {
-  var leagues: [League] { get }
+  var leagues: [LeagueResponse] { get }
   var leaguesCount: Int { get }
   func fetchLeagues(completion: @escaping () -> Void)
   func leagueCellViewModel(for indexPath: IndexPath) -> LeagueCellViewModelProtocol
@@ -16,21 +16,21 @@ protocol MainViewModelProtocol: AnyObject {
 
 final class MainViewModel: MainViewModelProtocol {
 
-  var leagues: [League] = []
+  var leagues: [LeagueResponse] = []
   var leaguesCount: Int { leagues.count }
 
   func fetchLeagues(completion: @escaping () -> Void) {
-    let parser = JSONParser<LeagueResponse>()
+    let parser = JSONParser<LeagueResult>()
 
     let urlBuilder = URLBuilder()
-    guard let url = urlBuilder.with(endPoint: .leagues).url else { return }
+    let urlRequest = urlBuilder.with(endPoint: .leagues).urlRequest
 
-    parser.fetch(url: url) { result in
+    parser.fetch(urlRequest: urlRequest) { result in
       switch result {
       case .success(let leagues):
         DispatchQueue.main.async { [weak self] in
           guard let self = self else { return }
-          self.leagues = leagues.result
+          self.leagues = leagues.response
           completion()
         }
       case .failure(let error):
@@ -44,8 +44,8 @@ final class MainViewModel: MainViewModelProtocol {
   }
 
   func leagueCellViewModel(for indexPath: IndexPath) -> LeagueCellViewModelProtocol {
-    let league = leagues[indexPath.row]
-    return LeagueCellViewModel(league: league)
+    let leagueResponse = leagues[indexPath.row]
+    return LeagueCellViewModel(league: leagueResponse.league)
   }
 
 }

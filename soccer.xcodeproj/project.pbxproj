@@ -12,7 +12,6 @@
 		74D1BA5F26DDA16600A2A88E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74D1BA5D26DDA16600A2A88E /* LaunchScreen.storyboard */; };
 		74D1BA6826DECFEF00A2A88E /* Coordinating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D1BA6726DECFEF00A2A88E /* Coordinating.swift */; };
 		74D1BA6C26DED5AF00A2A88E /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D1BA6B26DED5AF00A2A88E /* AppCoordinator.swift */; };
-		74D1BA6F26DEDFA400A2A88E /* ApiConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D1BA6E26DEDFA400A2A88E /* ApiConfig.swift */; };
 		74D1BAE326E0360300A2A88E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D1BAE226E0360300A2A88E /* MainViewController.swift */; };
 		74D1BAE526E0362700A2A88E /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D1BAE426E0362700A2A88E /* MainCoordinator.swift */; };
 		74D1BAE726E03D7000A2A88E /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D1BAE626E03D7000A2A88E /* MainViewModel.swift */; };
@@ -35,7 +34,6 @@
 		74D1BA6026DDA16600A2A88E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74D1BA6726DECFEF00A2A88E /* Coordinating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinating.swift; sourceTree = "<group>"; };
 		74D1BA6B26DED5AF00A2A88E /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
-		74D1BA6E26DEDFA400A2A88E /* ApiConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConfig.swift; sourceTree = "<group>"; };
 		74D1BAE226E0360300A2A88E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		74D1BAE426E0362700A2A88E /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		74D1BAE626E03D7000A2A88E /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
@@ -107,7 +105,6 @@
 			isa = PBXGroup;
 			children = (
 				74D1BA6726DECFEF00A2A88E /* Coordinating.swift */,
-				74D1BA6E26DEDFA400A2A88E /* ApiConfig.swift */,
 				74D1BAE826E03EC100A2A88E /* MVVMViewController.swift */,
 				74D1BAF326E1421B00A2A88E /* URLBuilder.swift */,
 			);
@@ -288,7 +285,6 @@
 				74D1BAFC26E1921B00A2A88E /* LeagueCellViewModel.swift in Sources */,
 				74D1BAE726E03D7000A2A88E /* MainViewModel.swift in Sources */,
 				74D1BAEC26E1227600A2A88E /* JSONParser.swift in Sources */,
-				74D1BA6F26DEDFA400A2A88E /* ApiConfig.swift in Sources */,
 				74D1BAF826E1913A00A2A88E /* LeagueCollectionViewCell.swift in Sources */,
 				74D1BAE526E0362700A2A88E /* MainCoordinator.swift in Sources */,
 				74D1BAF426E1421B00A2A88E /* URLBuilder.swift in Sources */,
