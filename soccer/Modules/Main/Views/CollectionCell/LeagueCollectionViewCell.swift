@@ -13,25 +13,25 @@ class LeagueCollectionViewCell: UICollectionViewCell {
     didSet {
       guard let viewModel = viewModel else { preconditionFailure("Can't unwrap viewModel") }
       DispatchQueue.global().async {
-        if let imageData = viewModel.imageData {
-          DispatchQueue.main.async { [weak self] in
-            guard let self = self else { return }
-            self.imageView.image = UIImage(data: imageData)
-          }
+        guard
+          let urlString = viewModel.league.logo,
+          let url = URL(string: urlString),
+          let data = try? Data(contentsOf: url),
+          let image = UIImage(data: data) else { return }
+
+        DispatchQueue.main.async { [weak self] in
+          guard let self = self else { return }
+
+          self.imageView.image = image
         }
       }
     }
   }
 
   private lazy var imageView: UIImageView = {
-    // TODO: Временно системное изображение
-    let image = UIImage(systemName: "pencil")
-    let imageView = UIImageView(image: image)
+    let imageView = UIImageView()
     imageView.contentMode = .scaleAspectFit
     imageView.translatesAutoresizingMaskIntoConstraints = false
-    imageView.layer.cornerRadius = 10
-    imageView.layer.borderWidth = 2
-    imageView.layer.borderColor = UIColor.systemGray.cgColor
     return imageView
   }()
 
@@ -39,6 +39,10 @@ class LeagueCollectionViewCell: UICollectionViewCell {
     super.init(frame: frame)
 
     addSubview(imageView)
+
+    layer.cornerRadius = 10
+    layer.borderWidth = 2
+    layer.borderColor = UIColor.systemGray.cgColor
 
     let constant: CGFloat = 5
     NSLayoutConstraint.activate([
@@ -61,6 +65,11 @@ class LeagueCollectionViewCell: UICollectionViewCell {
   @available(*, unavailable)
   required init?(coder: NSCoder) {
     fatalError("This class does not support NSCoder")
+  }
+
+  override func prepareForReuse() {
+    super.prepareForReuse()
+    imageView.image = nil
   }
 
 }
