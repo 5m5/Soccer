@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class MainViewController: MVVMViewController<MainViewModelProtocol> {
+final class MainViewController: ViewModelController<MainViewModelProtocol> {
 
   // MARK: - Private Properties
   private lazy var leagueCollectionView: LeagueCollectionView = {

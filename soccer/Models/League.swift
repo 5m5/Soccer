@@ -8,26 +8,23 @@
 import Foundation
 
 struct League: Codable {
-  var key: String
-  var name: String
-  var countryKey: String
-  var countryName: String
-  var leagueLogoStringPath: String?
-  var countryLogoStringPath: String?
+  let id: Int
+  let name: String
+  let type: String
+  let logo: String?
 
-  lazy var leagueLogoURL: URL? = { .from(string: leagueLogoStringPath) }()
-  lazy var countryLogoURL: URL? = { .from(string: countryLogoStringPath) }()
+  lazy var logoURL: URL? = { .from(string: logo) }()
+}
 
-  private enum CodingKeys: String, CodingKey {
-    case key = "league_key"
-    case name = "league_name"
-    case countryKey = "country_key"
-    case countryName = "country_name"
-    case leagueLogoStringPath = "league_logo"
-    case countryLogoStringPath = "country_logo"
-  }
+struct Season: Codable {
+  let year: Int
 }
 
 struct LeagueResponse: Codable {
-  var result: [League]
+  let league: League
+  let seasons: [Season]
+}
+
+struct LeagueResult: Codable {
+  let response: [LeagueResponse]
 }
