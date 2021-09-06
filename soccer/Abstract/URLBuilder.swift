@@ -9,8 +9,7 @@ import Foundation
 
 enum EndPoints: String {
   case leagues = "leagues"
-  case teams = "Teams"
-  case livescore = "Livescore"
+  case matches = "fixtures"
 }
 
 private enum ApiConfig {
@@ -27,6 +26,8 @@ protocol URLBuilding: AnyObject {
   var urlRequest: URLRequest { get }
 
   func with(endPoint: EndPoints) -> Self
+  func with(seasonYear: Int) -> Self
+  func with(leagueID: Int) -> Self
 }
 
 final class URLBuilder {
@@ -45,12 +46,21 @@ final class URLBuilder {
 extension URLBuilder: URLBuilding {
   @discardableResult
   func with(endPoint: EndPoints) -> Self {
-    urlRequest.url?.appendPathComponent(EndPoints.leagues.rawValue)
-    //guard let url = urlRequest.url else { return self } // TODO: Возможно, обернуть в precondition
-    var components = URLComponents(url: urlRequest.url!, resolvingAgainstBaseURL: true)
-    // Показываем только те лиги, сезон в которых уже начался
-    let queryItem = URLQueryItem(name: "current", value: "true")
-    components?.queryItems?.append(queryItem)
+    urlRequest.url?.appendPathComponent(endPoint.rawValue)
+    return self
+  }
+
+  @discardableResult
+  func with(seasonYear: Int) -> Self {
+    let queryItem = URLQueryItem(name: "season", value: "\(seasonYear)")
+    urlRequest.append(queryItem: queryItem)
+    return self
+  }
+
+  @discardableResult
+  func with(leagueID: Int) -> Self {
+    let queryItem = URLQueryItem(name: "league", value: "\(leagueID)")
+    urlRequest.append(queryItem: queryItem)
     return self
   }
 

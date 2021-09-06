@@ -16,6 +16,26 @@ protocol MainViewModelProtocol: AnyObject {
 
 final class MainViewModel: MainViewModelProtocol {
 
+  init() {
+    let urlBuilder = URLBuilder()
+    let urlRequest = urlBuilder.with(endPoint: .matches).with(seasonYear: 2021).with(leagueID: 140)
+      .urlRequest
+
+    let parser = JSONParser<MatchResult>()
+    parser.fetch(urlRequest: urlRequest) { result in
+      switch result {
+      case .success(let leagues):
+          print(leagues)
+      case .failure(let error):
+        if error is NetworkError {
+          print(error)
+        } else {
+          print(error.localizedDescription)
+        }
+      }
+    }
+  }
+
   var leagues: [LeagueResponse] = []
   var leaguesCount: Int { leagues.count }
 

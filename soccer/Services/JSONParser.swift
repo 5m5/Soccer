@@ -19,7 +19,7 @@ final class JSONParser<T: Codable> {
 
   func fetch(urlRequest: URLRequest, completion: @escaping ResultCompletion<T>) {
     #if DEBUG
-    print(urlRequest.url ?? "Wrong request")
+    print(urlRequest)
     #endif
 
     let dataTask = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
