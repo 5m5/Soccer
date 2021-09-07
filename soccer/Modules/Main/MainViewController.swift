@@ -16,6 +16,12 @@ final class MainViewController: ViewModelController<MainViewModelProtocol> {
     return $0
   }(LeagueCollectionView())
 
+  private lazy var matchTableView: MatchTableView = {
+    $0.delegate = self
+    $0.dataSource = self
+    return $0
+  }(MatchTableView())
+
   // MARK: - Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -23,24 +29,47 @@ final class MainViewController: ViewModelController<MainViewModelProtocol> {
     viewModel.fetchLeagues { [weak self] in
       guard let self = self else { return }
       self.leagueCollectionView.reloadData()
+      self.leagueCollectionView.selectItem(
+        at: IndexPath(item: 0, section: 0),
+        animated: true,
+        scrollPosition: .left
+      )
+
+      self.viewModel.fetchMatches {
+        self.matchTableView.reloadData()
+      }
+
     }
 
     view.backgroundColor = .systemBackground
 
     view.addSubview(leagueCollectionView)
+    view.addSubview(matchTableView)
 
     let safeArea = view.safeAreaLayoutGuide
+    let constant: CGFloat = 16
     NSLayoutConstraint.activate([
       leagueCollectionView.topAnchor.constraint(equalTo: safeArea.topAnchor),
-      leagueCollectionView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 16),
+      leagueCollectionView.leadingAnchor.constraint(
+        equalTo: safeArea.leadingAnchor,
+        constant: constant),
+
       leagueCollectionView.trailingAnchor.constraint(
         equalTo: safeArea.trailingAnchor,
-        constant: 16),
+        constant: -constant),
 
       leagueCollectionView.heightAnchor.constraint(
         equalTo: safeArea.heightAnchor,
         multiplier: 1 / 4
       ),
+
+      matchTableView.topAnchor.constraint(
+        equalTo: leagueCollectionView.bottomAnchor,
+        constant: constant
+      ),
+      matchTableView.leadingAnchor.constraint(equalTo: leagueCollectionView.leadingAnchor),
+      matchTableView.trailingAnchor.constraint(equalTo: leagueCollectionView.trailingAnchor),
+      matchTableView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -constant),
 
     ])
   }
@@ -77,6 +106,7 @@ extension MainViewController: UICollectionViewDataSource {
 
 }
 
+// MARK: - UICollectionViewDelegateFlowLayout
 extension MainViewController: UICollectionViewDelegateFlowLayout {
   func collectionView(
     _ collectionView: UICollectionView,
@@ -87,4 +117,31 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
     let height = collectionView.bounds.height - insets.top - insets.bottom - 1
     return CGSize(width: collectionView.bounds.width / 4, height: height)
   }
+}
+
+// MARK: - UITableViewDelegate
+extension MainViewController: UITableViewDelegate {
+
+}
+
+// MARK: - UITableViewDataSource
+extension MainViewController: UITableViewDataSource {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    viewModel.matchesCount
+  }
+
+  func numberOfSections(in tableView: UITableView) -> Int {
+    1
+  }
+
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let identifier = MatchCellViewModel.identifier
+    guard let cell = tableView.dequeueReusableCell(
+      withIdentifier: identifier
+    ) as? MatchTableViewCell else { return UITableViewCell() }
+
+    cell.viewModel = viewModel.matchCellViewModel(for: indexPath)
+    return cell
+  }
+
 }

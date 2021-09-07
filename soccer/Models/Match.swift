@@ -7,7 +7,7 @@
 
 import Foundation
 
-// MARK: - Top level
+// MARK: - Level 1
 // MARK: - MatchResult
 struct MatchResult: Codable {
   let response: [MatchResponse]
@@ -20,19 +20,22 @@ struct MatchResult: Codable {
 
 }
 
-// MARK: - Level 1
+// MARK: - Level 2
 // MARK: - MatchResponse
 struct MatchResponse: Codable {
   let match: Match
   let teams: TeamResponse
+  let goals: Goals
 
   private enum CodingKeys: String, CodingKey {
     case match = "fixture"
     case teams
+    case goals
   }
+
 }
 
-// MARK: - Level 2
+// MARK: - Level 3
 // MARK: - Match
 struct Match: Codable {
   let id: Int
@@ -45,7 +48,13 @@ struct TeamResponse: Codable {
   let away: Team
 }
 
-// MARK: - Level 3
+// MARK: - Goals
+struct Goals: Codable {
+  let home: Int?
+  let away: Int?
+}
+
+// MARK: - Level 4
 // MARK: - Team
 struct Team: Codable {
   let id: Int

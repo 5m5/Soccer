@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7489ADCD26E413D900C4E4E9 /* LeagueTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7489ADCC26E413D900C4E4E9 /* LeagueTableView.swift */; };
+		7489ADCD26E413D900C4E4E9 /* MatchTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7489ADCC26E413D900C4E4E9 /* MatchTableView.swift */; };
 		7489ADD026E4148800C4E4E9 /* MatchCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7489ADCF26E4148800C4E4E9 /* MatchCellViewModel.swift */; };
 		7489ADD226E414A600C4E4E9 /* MatchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7489ADD126E414A600C4E4E9 /* MatchTableViewCell.swift */; };
 		7489ADD426E4195300C4E4E9 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7489ADD326E4195300C4E4E9 /* Match.swift */; };
@@ -32,7 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7489ADCC26E413D900C4E4E9 /* LeagueTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueTableView.swift; sourceTree = "<group>"; };
+		7489ADCC26E413D900C4E4E9 /* MatchTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTableView.swift; sourceTree = "<group>"; };
 		7489ADCF26E4148800C4E4E9 /* MatchCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchCellViewModel.swift; sourceTree = "<group>"; };
 		7489ADD126E414A600C4E4E9 /* MatchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTableViewCell.swift; sourceTree = "<group>"; };
 		7489ADD326E4195300C4E4E9 /* Match.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
@@ -82,7 +82,7 @@
 		7489ADCB26E413BE00C4E4E9 /* Table */ = {
 			isa = PBXGroup;
 			children = (
-				7489ADCC26E413D900C4E4E9 /* LeagueTableView.swift */,
+				7489ADCC26E413D900C4E4E9 /* MatchTableView.swift */,
 				7489ADCE26E4143B00C4E4E9 /* TableCell */,
 			);
 			path = Table;
@@ -223,8 +223,8 @@
 		74D1BAFA26E191AA00A2A88E /* CollectionCell */ = {
 			isa = PBXGroup;
 			children = (
-				74D1BAF726E1913900A2A88E /* LeagueCollectionViewCell.swift */,
 				74D1BAFB26E1921B00A2A88E /* LeagueCellViewModel.swift */,
+				74D1BAF726E1913900A2A88E /* LeagueCollectionViewCell.swift */,
 			);
 			path = CollectionCell;
 			sourceTree = "<group>";
@@ -325,7 +325,7 @@
 				74D1BAE726E03D7000A2A88E /* MainViewModel.swift in Sources */,
 				74D1BAEC26E1227600A2A88E /* JSONParser.swift in Sources */,
 				74D1BAF826E1913A00A2A88E /* LeagueCollectionViewCell.swift in Sources */,
-				7489ADCD26E413D900C4E4E9 /* LeagueTableView.swift in Sources */,
+				7489ADCD26E413D900C4E4E9 /* MatchTableView.swift in Sources */,
 				74D1BAE526E0362700A2A88E /* MainCoordinator.swift in Sources */,
 				7489ADD426E4195300C4E4E9 /* Match.swift in Sources */,
 				74D1BAF426E1421B00A2A88E /* URLBuilder.swift in Sources */,

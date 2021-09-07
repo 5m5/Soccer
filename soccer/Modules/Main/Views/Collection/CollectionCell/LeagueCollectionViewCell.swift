@@ -27,10 +27,6 @@ class LeagueCollectionViewCell: UICollectionViewCell {
 
     addSubview(imageView)
 
-    layer.cornerRadius = 10
-    layer.borderWidth = 2
-    layer.borderColor = UIColor.systemGray.cgColor
-
     let constant: CGFloat = 5
     NSLayoutConstraint.activate([
       imageView.leadingAnchor.constraint(
@@ -52,6 +48,14 @@ class LeagueCollectionViewCell: UICollectionViewCell {
   @available(*, unavailable)
   required init?(coder: NSCoder) {
     fatalError("This class does not support NSCoder")
+  }
+
+  override func layoutSubviews() {
+    super.layoutSubviews()
+
+    layer.cornerRadius = 10
+    layer.borderWidth = 2
+    layer.borderColor = isSelected ? UIColor.systemBlue.cgColor : UIColor.systemGray.cgColor
   }
 
   override func prepareForReuse() {

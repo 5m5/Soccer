@@ -7,14 +7,14 @@
 
 import UIKit
 
-class LeagueTableView: UITableView {
+class MatchTableView: UITableView {
 
   override init(frame: CGRect, style: UITableView.Style) {
     super.init(frame: frame, style: style)
 
-
+    translatesAutoresizingMaskIntoConstraints = false
+    register(MatchTableViewCell.self, forCellReuseIdentifier: MatchCellViewModel.identifier)
   }
-
 
   @available(*, unavailable)
   required init?(coder: NSCoder) {
