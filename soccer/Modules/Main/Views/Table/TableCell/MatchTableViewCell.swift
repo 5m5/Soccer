@@ -14,8 +14,11 @@ class MatchTableViewCell: UITableViewCell {
     didSet { setupData() }
   }
 
-  private lazy var homeScoreLabel: UILabel = {
-    $0.font = UIFont(name: "Didot Bold", size: 18)
+  private lazy var homeImageView = imageView()
+  private lazy var awayImageView = imageView()
+
+  private lazy var scoreLabel: UILabel = {
+    $0.font = UIFont(name: "Didot Bold", size: 22)
     $0.textColor = .label
     $0.textAlignment = .center
     $0.translatesAutoresizingMaskIntoConstraints = false
@@ -24,10 +27,12 @@ class MatchTableViewCell: UITableViewCell {
 
   private lazy var stackView: UIStackView = {
     $0.translatesAutoresizingMaskIntoConstraints = false
-    $0.alignment = .firstBaseline
-    $0.distribution = .fillEqually
+    $0.alignment = .center
+    $0.distribution = .equalCentering
     $0.axis = .horizontal
-    $0.addArrangedSubview(homeScoreLabel)
+    $0.addArrangedSubview(homeImageView)
+    $0.addArrangedSubview(scoreLabel)
+    $0.addArrangedSubview(awayImageView)
     return $0
   }(UIStackView())
 
@@ -35,7 +40,35 @@ class MatchTableViewCell: UITableViewCell {
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
 
+    setupSubviews()
+  }
+
+  @available(*, unavailable)
+  required init?(coder: NSCoder) {
+    fatalError("This class does not support NSCoder")
+  }
+
+}
+
+// MARK: - Private Methods
+private extension MatchTableViewCell {
+
+  func setupData() {
+    guard let viewModel = viewModel else { preconditionFailure("Can't unwrap viewModel") }
+    scoreLabel.text = viewModel.scoreLabelText
+  }
+
+  private func setupSubviews() {
     addSubview(stackView)
+    setupConstraints()
+  }
+
+  private func setupConstraints() {
+    setupStackViewConstraints()
+    setupImagesConstraints()
+  }
+
+  private func setupStackViewConstraints() {
     NSLayoutConstraint.activate([
       stackView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
       stackView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
@@ -44,19 +77,21 @@ class MatchTableViewCell: UITableViewCell {
     ])
   }
 
-  @available(*, unavailable)
-  required init?(coder: NSCoder) {
-    fatalError("This class does not support NSCoder")
+  private func setupImagesConstraints() {
+    NSLayoutConstraint.activate([
+      homeImageView.widthAnchor.constraint(equalToConstant: 60),
+      homeImageView.heightAnchor.constraint(equalTo: homeImageView.widthAnchor),
+
+      awayImageView.widthAnchor.constraint(equalTo: homeImageView.widthAnchor),
+      awayImageView.heightAnchor.constraint(equalTo: awayImageView.widthAnchor),
+    ])
   }
 
-  // MARK: - Private Methods
-  private func setupData() {
-    guard let viewModel = viewModel else { preconditionFailure("Can't unwrap viewModel") }
-
-    let goals = viewModel.matchResponse.goals
-    let homeScore = goals.home ?? 0
-    let awayScore = goals.away ?? 0
-    homeScoreLabel.text = "\(homeScore) : \(awayScore)"
+  private func imageView() -> UIImageView {
+    let imageView = UIImageView()
+    imageView.contentMode = .scaleAspectFit
+    imageView.translatesAutoresizingMaskIntoConstraints = false
+    return imageView
   }
 
 }
