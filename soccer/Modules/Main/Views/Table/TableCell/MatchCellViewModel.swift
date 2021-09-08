@@ -10,7 +10,10 @@ import Foundation
 protocol MatchCellViewModelProtocol: AnyObject {
   var matchResponse: MatchResponse { get }
   var imagesData: (home: Data?, away: Data?) { get }
+  var teamNames: (home: String, away: String) { get }
+  var scoreLabelFont: (name: String, size: Int) { get }
   var scoreLabelText: String { get }
+  var defaultImageName: String { get }
   init(matchResponse: MatchResponse)
 }
 
@@ -27,6 +30,15 @@ final class MatchCellViewModel: MatchCellViewModelProtocol {
     let away = imageService.imageData(urlString: teams.away.logo)
     return (home: home, away: away)
   }
+
+  var teamNames: (home: String, away: String) {
+    let teams = matchResponse.teams
+    return (home: teams.home.name, away: teams.away.name)
+  }
+
+  var scoreLabelFont = (name: "Avenir-Light", size: 22)
+
+  var defaultImageName = "football_club"
 
   var scoreLabelText: String {
     let goals = matchResponse.goals

@@ -19,6 +19,7 @@ final class MainViewController: ViewModelController<MainViewModelProtocol> {
   private lazy var matchTableView: MatchTableView = {
     $0.delegate = self
     $0.dataSource = self
+    $0.rowHeight = 70
     return $0
   }(MatchTableView())
 

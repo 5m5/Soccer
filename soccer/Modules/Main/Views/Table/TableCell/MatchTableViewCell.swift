@@ -14,16 +14,13 @@ class MatchTableViewCell: UITableViewCell {
     didSet { setupData() }
   }
 
+  // MARK: - Private Properties
+  // Слева направо
   private lazy var homeImageView = imageView()
+  private lazy var homeTeamLabel = teamNameLabel()
+  private lazy var scoreLabel = setupScoreLabel()
+  private lazy var awayTeamLabel = teamNameLabel()
   private lazy var awayImageView = imageView()
-
-  private lazy var scoreLabel: UILabel = {
-    $0.font = UIFont(name: "Didot Bold", size: 22)
-    $0.textColor = .label
-    $0.textAlignment = .center
-    $0.translatesAutoresizingMaskIntoConstraints = false
-    return $0
-  }(UILabel())
 
   private lazy var stackView: UIStackView = {
     $0.translatesAutoresizingMaskIntoConstraints = false
@@ -31,7 +28,9 @@ class MatchTableViewCell: UITableViewCell {
     $0.distribution = .equalCentering
     $0.axis = .horizontal
     $0.addArrangedSubview(homeImageView)
+    $0.addArrangedSubview(homeTeamLabel)
     $0.addArrangedSubview(scoreLabel)
+    $0.addArrangedSubview(awayTeamLabel)
     $0.addArrangedSubview(awayImageView)
     return $0
   }(UIStackView())
@@ -62,12 +61,18 @@ private extension MatchTableViewCell {
   func setupData() {
     guard let viewModel = viewModel else { preconditionFailure("Can't unwrap viewModel") }
     scoreLabel.text = viewModel.scoreLabelText
+
+    let scoreLabelFont = viewModel.scoreLabelFont
+    scoreLabel.font = UIFont(name: scoreLabelFont.name, size: CGFloat(scoreLabelFont.size))
+    let teamNames = viewModel.teamNames
+    homeTeamLabel.text = teamNames.home
+    awayTeamLabel.text = teamNames.away
     asyncLoadImages(viewModel: viewModel)
   }
 
   func asyncLoadImages(viewModel: MatchCellViewModelProtocol) {
     DispatchQueue.global().async {
-      let defaultImage = UIImage(named: "football_club")
+      let defaultImage = UIImage(named: viewModel.defaultImageName)
       var homeImage = defaultImage
       var awayImage = defaultImage
 
@@ -89,17 +94,17 @@ private extension MatchTableViewCell {
     }
   }
 
-  private func setupSubviews() {
+  func setupSubviews() {
     addSubview(stackView)
     setupConstraints()
   }
 
-  private func setupConstraints() {
+  func setupConstraints() {
     setupStackViewConstraints()
     setupImagesConstraints()
   }
 
-  private func setupStackViewConstraints() {
+  func setupStackViewConstraints() {
     NSLayoutConstraint.activate([
       stackView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
       stackView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
@@ -108,9 +113,9 @@ private extension MatchTableViewCell {
     ])
   }
 
-  private func setupImagesConstraints() {
+  func setupImagesConstraints() {
     NSLayoutConstraint.activate([
-      homeImageView.widthAnchor.constraint(equalToConstant: 40),
+      homeImageView.widthAnchor.constraint(equalToConstant: 50),
       homeImageView.heightAnchor.constraint(equalTo: homeImageView.widthAnchor),
 
       awayImageView.widthAnchor.constraint(equalTo: homeImageView.widthAnchor),
@@ -118,12 +123,29 @@ private extension MatchTableViewCell {
     ])
   }
 
-  private func imageView() -> UIImageView {
+  func setupScoreLabel() -> UILabel {
+    let label = UILabel()
+    label.textColor = .label
+    label.textAlignment = .center
+    label.translatesAutoresizingMaskIntoConstraints = false
+    return label
+  }
+
+  func imageView() -> UIImageView {
     let imageView = UIImageView()
     imageView.contentMode = .scaleAspectFit
     imageView.adjustsImageSizeForAccessibilityContentSizeCategory = true
     imageView.translatesAutoresizingMaskIntoConstraints = false
     return imageView
+  }
+
+  func teamNameLabel() -> UILabel {
+    let label = UILabel()
+    label.textColor = .label
+    label.numberOfLines = 2
+    label.textAlignment = .center
+    label.translatesAutoresizingMaskIntoConstraints = false
+    return label
   }
 
 }
