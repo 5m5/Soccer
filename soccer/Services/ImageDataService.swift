@@ -12,11 +12,13 @@ final class ImageDataService {
 
   private init() { }
 
-  func imageDataFrom(url: URL?) -> Data? {
-    var data: Data?
+  func imageData(urlString: String?) -> Data? {
 
-    guard let url = url else { return nil }
-    data = try? Data(contentsOf: url)
+    guard
+      let urlString = urlString,
+      let url = URL(string: urlString) else { return nil }
+
+    let data = try? Data(contentsOf: url)
 
     return data
   }

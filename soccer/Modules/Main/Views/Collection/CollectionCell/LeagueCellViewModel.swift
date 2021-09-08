@@ -17,7 +17,7 @@ final class LeagueCellViewModel: LeagueCellViewModelProtocol {
   static let identifier = "leagueCell"
 
   var league: League
-  var imageData: Data? { ImageDataService.shared.imageDataFrom(url: league.logoURL) }
+  var imageData: Data? { ImageDataService.shared.imageData(urlString: league.logo) }
 
   init(league: League) {
     self.league = league

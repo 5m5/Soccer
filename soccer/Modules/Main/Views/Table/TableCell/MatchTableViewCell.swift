@@ -48,6 +48,12 @@ class MatchTableViewCell: UITableViewCell {
     fatalError("This class does not support NSCoder")
   }
 
+  override func prepareForReuse() {
+    super.prepareForReuse()
+    homeImageView.image = nil
+    awayImageView.image = nil
+  }
+
 }
 
 // MARK: - Private Methods
@@ -56,6 +62,31 @@ private extension MatchTableViewCell {
   func setupData() {
     guard let viewModel = viewModel else { preconditionFailure("Can't unwrap viewModel") }
     scoreLabel.text = viewModel.scoreLabelText
+    asyncLoadImages(viewModel: viewModel)
+  }
+
+  func asyncLoadImages(viewModel: MatchCellViewModelProtocol) {
+    DispatchQueue.global().async {
+      let defaultImage = UIImage(named: "football_club")
+      var homeImage = defaultImage
+      var awayImage = defaultImage
+
+      let imagesData = viewModel.imagesData
+
+      if let data = imagesData.home, let image = UIImage(data: data) {
+        homeImage = image
+      }
+
+      if let data = imagesData.away, let image = UIImage(data: data) {
+        awayImage = image
+      }
+
+      DispatchQueue.main.async { [weak self] in
+        guard let self = self else { return }
+        self.homeImageView.image = homeImage
+        self.awayImageView.image = awayImage
+      }
+    }
   }
 
   private func setupSubviews() {
@@ -79,7 +110,7 @@ private extension MatchTableViewCell {
 
   private func setupImagesConstraints() {
     NSLayoutConstraint.activate([
-      homeImageView.widthAnchor.constraint(equalToConstant: 60),
+      homeImageView.widthAnchor.constraint(equalToConstant: 40),
       homeImageView.heightAnchor.constraint(equalTo: homeImageView.widthAnchor),
 
       awayImageView.widthAnchor.constraint(equalTo: homeImageView.widthAnchor),
@@ -90,6 +121,7 @@ private extension MatchTableViewCell {
   private func imageView() -> UIImageView {
     let imageView = UIImageView()
     imageView.contentMode = .scaleAspectFit
+    imageView.adjustsImageSizeForAccessibilityContentSizeCategory = true
     imageView.translatesAutoresizingMaskIntoConstraints = false
     return imageView
   }

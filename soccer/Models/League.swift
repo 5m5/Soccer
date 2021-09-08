@@ -34,8 +34,6 @@ struct League: Codable {
   let name: String
   let type: String
   let logo: String?
-
-  lazy var logoURL: URL? = { .from(string: logo) }()
 }
 
 // MARK: - Season

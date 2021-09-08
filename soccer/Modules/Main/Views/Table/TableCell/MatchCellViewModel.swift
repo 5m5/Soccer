@@ -9,7 +9,7 @@ import Foundation
 
 protocol MatchCellViewModelProtocol: AnyObject {
   var matchResponse: MatchResponse { get }
-  //var homeImageData: Data? { get }
+  var imagesData: (home: Data?, away: Data?) { get }
   var scoreLabelText: String { get }
   init(matchResponse: MatchResponse)
 }
@@ -19,6 +19,14 @@ final class MatchCellViewModel: MatchCellViewModelProtocol {
   static let identifier = "matchCell"
 
   var matchResponse: MatchResponse
+
+  var imagesData: (home: Data?, away: Data?) {
+    let teams = matchResponse.teams
+    let imageService = ImageDataService.shared
+    let home = imageService.imageData(urlString: teams.home.logo)
+    let away = imageService.imageData(urlString: teams.away.logo)
+    return (home: home, away: away)
+  }
 
   var scoreLabelText: String {
     let goals = matchResponse.goals

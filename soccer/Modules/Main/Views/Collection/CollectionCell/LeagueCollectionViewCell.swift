@@ -17,6 +17,7 @@ class LeagueCollectionViewCell: UICollectionViewCell {
   private lazy var imageView: UIImageView = {
     let imageView = UIImageView()
     imageView.contentMode = .scaleAspectFit
+    imageView.adjustsImageSizeForAccessibilityContentSizeCategory = true
     imageView.translatesAutoresizingMaskIntoConstraints = false
     return imageView
   }()
@@ -68,9 +69,11 @@ class LeagueCollectionViewCell: UICollectionViewCell {
     guard let viewModel = viewModel else { preconditionFailure("Can't unwrap viewModel") }
 
     DispatchQueue.global().async {
-      guard
-        let data = viewModel.imageData,
-        let image = UIImage(data: data) else { return }
+      var image = UIImage(named: "football_player")
+
+      if let data = viewModel.imageData, let leagueLogoImage = UIImage(data: data) {
+        image = leagueLogoImage
+      }
 
       DispatchQueue.main.async { [weak self] in
         guard let self = self else { return }
