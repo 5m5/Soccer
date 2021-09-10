@@ -1,5 +1,5 @@
 //
-//  MVVMViewController.swift
+//  ViewModelController.swift
 //  soccer
 //
 //  Created by Mikhail Andreev on 02.09.2021.
