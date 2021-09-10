@@ -35,18 +35,21 @@ final class MainViewModel: MainViewModelProtocol {
   var matches: [MatchResponse] = []
   var matchesCount = 0
 
+  private var endPoint = EndPointFactory()
+
   func collectionView(didSelectItemAt indexPath: IndexPath, completion: @escaping () -> Void) {
     let index = indexPath.row
+    // FIXME: если нет сети, приложение упадет
     let leagueResponse = leagues[index]
     let leagueId = leagueResponse.league.id
+    // Пока отображаем только последние сезоны лиг
     guard let season = leagueResponse.seasons.max(by: { $0.year < $1.year }) else { return }
     let seasonYear = season.year
 
     let parser = JSONParser<MatchResult>()
 
-    let urlBuilder = URLBuilder()
+    let urlBuilder = endPoint.matches()
     let urlRequest = urlBuilder
-      .with(endPoint: .matches)
       .with(seasonYear: seasonYear)
       .with(leagueID: leagueId)
       .urlRequest
@@ -63,8 +66,8 @@ final class MainViewModel: MainViewModelProtocol {
   func fetchLeagues(completion: @escaping () -> Void) {
     let parser = JSONParser<LeagueResult>()
 
-    let urlBuilder = URLBuilder()
-    let urlRequest = urlBuilder.with(endPoint: .leagues).urlRequest
+    let urlBuilder = endPoint.leagues()
+    let urlRequest = urlBuilder.urlRequest
 
     fetch(parser: parser, urlRequest: urlRequest) { [weak self] leagues in
       guard let self = self else { return }
