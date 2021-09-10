@@ -12,6 +12,8 @@ class MatchTableView: UITableView {
   override init(frame: CGRect, style: UITableView.Style) {
     super.init(frame: frame, style: style)
 
+    rowHeight = 90
+    separatorStyle = .none
     translatesAutoresizingMaskIntoConstraints = false
     register(MatchTableViewCell.self, forCellReuseIdentifier: MatchCellViewModel.identifier)
   }

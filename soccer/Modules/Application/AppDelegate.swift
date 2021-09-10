@@ -23,6 +23,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
   ) -> Bool {
 
     FirebaseApp.configure()
+    makeNavigationBarTransparent()
 
     window = UIWindow()
     let appCoordinator = AppCoordinator()
@@ -30,6 +31,16 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     window?.rootViewController = appCoordinator.presenter
     window?.makeKeyAndVisible()
     return true
+  }
+
+}
+
+private extension AppDelegate {
+  func makeNavigationBarTransparent() {
+    let appearance = UINavigationBar.appearance()
+    appearance.setBackgroundImage(UIImage(), for: .default)
+    appearance.shadowImage = UIImage()
+    appearance.isTranslucent = true
   }
 
 }

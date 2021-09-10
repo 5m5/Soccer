@@ -23,9 +23,18 @@ final class AppCoordinator: Coordinating {
 
   // MARK: - Internal Methods
   func start() {
+    configurateNavigationBar()
+
     let child = MainCoordinator(presenter: presenter)
     childCoordinators.append(child)
     child.start()
+  }
+
+}
+
+private extension AppCoordinator {
+  func configurateNavigationBar() {
+
   }
 
 }

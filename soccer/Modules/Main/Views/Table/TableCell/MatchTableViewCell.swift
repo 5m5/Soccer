@@ -39,6 +39,7 @@ class MatchTableViewCell: UITableViewCell {
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
 
+    contentView.backgroundColor = .secondarySystemBackground
     setupSubviews()
   }
 
@@ -51,6 +52,17 @@ class MatchTableViewCell: UITableViewCell {
     super.prepareForReuse()
     homeImageView.image = nil
     awayImageView.image = nil
+  }
+
+  override func layoutSubviews() {
+    super.layoutSubviews()
+
+    let constant: CGFloat = 10
+    let insets = UIEdgeInsets(top: constant, left: 0, bottom: constant, right: 0)
+    contentView.frame = contentView.frame.inset(by: insets)
+    let contentLayer = contentView.layer
+    contentLayer.cornerRadius = 12
+    contentLayer.masksToBounds = true
   }
 
 }
@@ -105,9 +117,17 @@ private extension MatchTableViewCell {
   }
 
   func setupStackViewConstraints() {
+    let constant: CGFloat = 5
+
     NSLayoutConstraint.activate([
-      stackView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
-      stackView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+      stackView.leadingAnchor.constraint(
+        equalTo: safeAreaLayoutGuide.leadingAnchor,
+        constant: constant
+      ),
+      stackView.trailingAnchor.constraint(
+        equalTo: safeAreaLayoutGuide.trailingAnchor,
+        constant: -constant
+      ),
       stackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
       stackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
     ])

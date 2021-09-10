@@ -56,12 +56,18 @@ class LeagueCollectionViewCell: UICollectionViewCell {
 
     layer.cornerRadius = 10
     layer.borderWidth = 2
-    layer.borderColor = isSelected ? UIColor.systemBlue.cgColor : UIColor.systemGray.cgColor
+    layer.borderColor = UIColor.systemGray.cgColor
   }
 
   override func prepareForReuse() {
     super.prepareForReuse()
     imageView.image = nil
+  }
+
+  override var isSelected: Bool {
+    willSet {
+      layer.borderColor = (newValue ? UIColor.systemBlue : UIColor.systemGray).cgColor
+    }
   }
 
   // MARK: - Private Methods

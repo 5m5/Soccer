@@ -9,12 +9,15 @@ import Foundation
 
 // MARK: - Protocol
 protocol MainViewModelProtocol: AnyObject {
+  var title: String { get }
+  var constraintMargin: Int { get }
+  var collectionViewHeightMultiplier: Float { get }
   var leagues: [LeagueResponse] { get }
   var leaguesCount: Int { get }
   var matches: [MatchResponse] { get }
   var matchesCount: Int { get }
   func fetchLeagues(completion: @escaping () -> Void)
-  func fetchMatches(completion: @escaping () -> Void)
+  func collectionView(didSelectItemAt indexPath: IndexPath, completion: @escaping () -> Void)
   func leagueCellViewModel(for indexPath: IndexPath) -> LeagueCellViewModelProtocol
   func matchCellViewModel(for indexPath: IndexPath) -> MatchCellViewModelProtocol
 }
@@ -22,11 +25,40 @@ protocol MainViewModelProtocol: AnyObject {
 // MARK: - Implementation
 final class MainViewModel: MainViewModelProtocol {
 
+  var title = "Matches history"
+  var constraintMargin = 16
+  var collectionViewHeightMultiplier: Float = 0.25
+
   var leagues: [LeagueResponse] = []
-  var leaguesCount: Int = 0
+  var leaguesCount = 0
 
   var matches: [MatchResponse] = []
-  var matchesCount: Int = 0
+  var matchesCount = 0
+
+  func collectionView(didSelectItemAt indexPath: IndexPath, completion: @escaping () -> Void) {
+    let index = indexPath.row
+    let leagueResponse = leagues[index]
+    let leagueId = leagueResponse.league.id
+    guard let season = leagueResponse.seasons.max(by: { $0.year < $1.year }) else { return }
+    let seasonYear = season.year
+
+    let parser = JSONParser<MatchResult>()
+
+    let urlBuilder = URLBuilder()
+    let urlRequest = urlBuilder
+      .with(endPoint: .matches)
+      .with(seasonYear: seasonYear)
+      .with(leagueID: leagueId)
+      .urlRequest
+
+    fetch(parser: parser, urlRequest: urlRequest) { [weak self] matches in
+      guard let self = self else { return }
+
+      self.matches = matches.response
+      self.matchesCount = matches.count
+      completion()
+    }
+  }
 
   func fetchLeagues(completion: @escaping () -> Void) {
     let parser = JSONParser<LeagueResult>()
@@ -39,25 +71,6 @@ final class MainViewModel: MainViewModelProtocol {
 
       self.leagues = leagues.response
       self.leaguesCount = leagues.count
-      completion()
-    }
-  }
-
-  func fetchMatches(completion: @escaping () -> Void) {
-    let parser = JSONParser<MatchResult>()
-
-    let urlBuilder = URLBuilder()
-    let urlRequest = urlBuilder
-      .with(endPoint: .matches)
-      .with(seasonYear: 2021)
-      .with(leagueID: 140)
-      .urlRequest
-
-    fetch(parser: parser, urlRequest: urlRequest) { [weak self] matches in
-      guard let self = self else { return }
-
-      self.matches = matches.response
-      self.matchesCount = matches.count
       completion()
     }
   }
@@ -75,8 +88,8 @@ final class MainViewModel: MainViewModelProtocol {
 }
 
 // MARK: - Private methods
-extension MainViewModel {
-  private func fetch<T: Codable>(
+private extension MainViewModel {
+  func fetch<T: Codable>(
     parser: JSONParser<T>,
     urlRequest: URLRequest,
     completion: @escaping (T) -> Void
