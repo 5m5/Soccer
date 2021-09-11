@@ -40,6 +40,7 @@ class MatchTableViewCell: UITableViewCell {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
 
     contentView.backgroundColor = .secondarySystemBackground
+    selectionStyle = .none
     setupSubviews()
   }
 

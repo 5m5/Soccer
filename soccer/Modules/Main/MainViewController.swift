@@ -10,8 +10,10 @@ import UIKit
 final class MainViewController: ViewModelController<MainViewModelProtocol> {
 
   // MARK: - Private Properties
-  private lazy var leagueCollectionView: LeagueCollectionView = makeCollectionView()
-  private lazy var matchTableView: MatchTableView = makeTableView()
+  private lazy var leagueCollectionView = makeCollectionView()
+  private lazy var matchTableView = makeTableView()
+  private lazy var selectLeagueLabel = makeLabel()
+  private lazy var leagueNameLabel = makeLabel()
 
   // MARK: - Lifecycle
   override func viewDidLoad() {
@@ -54,25 +56,60 @@ private extension MainViewController {
     return tableView
   }
 
+  func makeLabel() -> UILabel {
+    let label = UILabel()
+    let font = viewModel.labelsFont
+    label.font = UIFont(name: font.name, size: CGFloat(font.size))
+    label.textAlignment = .left
+    label.translatesAutoresizingMaskIntoConstraints = false
+    return label
+  }
+
   func setupView() {
     title = viewModel.title
+    selectLeagueLabel.text = viewModel.leaguesLabelTitle
     view.backgroundColor = .systemBackground
-    view.addSubview(leagueCollectionView)
-    view.addSubview(matchTableView)
+    addSubviews()
 
     let safeArea = view.safeAreaLayoutGuide
     let margin = CGFloat(viewModel.constraintMargin)
     setupConstraints(safeArea: safeArea, margin: margin)
   }
 
+  func addSubviews() {
+    view.addSubview(leagueCollectionView)
+    view.addSubview(matchTableView)
+    view.addSubview(selectLeagueLabel)
+    view.addSubview(leagueNameLabel)
+  }
+
   func setupConstraints(safeArea: UILayoutGuide, margin: CGFloat) {
+    setupLabelsConstraints(safeArea: safeArea, margin: margin)
     setupCollectionViewConstraints(safeArea: safeArea, margin: margin)
     setupTableViewConstraints(safeArea: safeArea, margin: margin)
   }
 
+  func setupLabelsConstraints(safeArea: UILayoutGuide, margin: CGFloat) {
+    NSLayoutConstraint.activate([
+      selectLeagueLabel.topAnchor.constraint(equalTo: safeArea.topAnchor),
+      selectLeagueLabel.leadingAnchor.constraint(equalTo: leagueCollectionView.leadingAnchor),
+      selectLeagueLabel.trailingAnchor.constraint(equalTo: leagueCollectionView.trailingAnchor),
+
+      leagueNameLabel.topAnchor.constraint(
+        equalTo: leagueCollectionView.bottomAnchor,
+        constant: margin
+      ),
+      leagueNameLabel.leadingAnchor.constraint(equalTo: selectLeagueLabel.leadingAnchor),
+      leagueNameLabel.trailingAnchor.constraint(equalTo: selectLeagueLabel.trailingAnchor),
+    ])
+  }
+
   func setupCollectionViewConstraints(safeArea: UILayoutGuide, margin: CGFloat) {
     NSLayoutConstraint.activate([
-      leagueCollectionView.topAnchor.constraint(equalTo: safeArea.topAnchor),
+      leagueCollectionView.topAnchor.constraint(
+        equalTo: selectLeagueLabel.bottomAnchor,
+        constant: margin
+      ),
 
       leagueCollectionView.leadingAnchor.constraint(
         equalTo: safeArea.leadingAnchor,
@@ -93,7 +130,7 @@ private extension MainViewController {
   func setupTableViewConstraints(safeArea: UILayoutGuide, margin: CGFloat) {
     NSLayoutConstraint.activate([
       matchTableView.topAnchor.constraint(
-        equalTo: leagueCollectionView.bottomAnchor,
+        equalTo: leagueNameLabel.bottomAnchor,
         constant: margin
       ),
 
@@ -112,6 +149,8 @@ extension MainViewController: UICollectionViewDelegate {
       guard let self = self else { return }
       self.matchTableView.reloadData()
     }
+    // По идее это вне блока, который в сеть ходит, так что можно вне замыкания
+    self.leagueNameLabel.text = self.viewModel.leagueName
 
     leagueCollectionView.scrollToItem(at: indexPath, at: .left, animated: true)
   }

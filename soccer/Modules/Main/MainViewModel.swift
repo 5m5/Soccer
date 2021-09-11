@@ -12,9 +12,14 @@ protocol MainViewModelProtocol: AnyObject {
   var coordinator: MainCoordinator? { get }
   var title: String { get }
   var constraintMargin: Int { get }
+
+  var labelsFont: (name: String, size: Int) { get }
+  var leaguesLabelTitle: String { get }
   var collectionViewHeightMultiplier: Float { get }
   var leagues: [LeagueResponse] { get }
   var leaguesCount: Int { get }
+  var leagueName: String { get }
+
   var matches: [MatchResponse] { get }
   var matchesCount: Int { get }
   func fetchLeagues(completion: @escaping () -> Void)
@@ -31,10 +36,13 @@ final class MainViewModel: MainViewModelProtocol {
 
   var title = "Matches history"
   var constraintMargin = 16
+  var labelsFont = (name: "Legacy", size: 28)
+  var leaguesLabelTitle = "Select league"
   var collectionViewHeightMultiplier: Float = 0.25
 
   var leagues: [LeagueResponse] = []
   var leaguesCount = 0
+  var leagueName = ""
 
   var matches: [MatchResponse] = []
   var matchesCount = 0
@@ -45,7 +53,10 @@ final class MainViewModel: MainViewModelProtocol {
     let index = indexPath.row
     // FIXME: если нет сети, приложение упадет
     let leagueResponse = leagues[index]
-    let leagueId = leagueResponse.league.id
+    let league = leagueResponse.league
+    let leagueId = league.id
+
+    leagueName = league.name
     // Пока отображаем только последние сезоны лиг
     guard let season = leagueResponse.seasons.max(by: { $0.year < $1.year }) else { return }
     let seasonYear = season.year

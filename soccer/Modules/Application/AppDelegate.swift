@@ -24,6 +24,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     FirebaseApp.configure()
     makeNavigationBarTransparent()
+    navigationBarFont()
 
     window = UIWindow()
     let appCoordinator = AppCoordinator()
@@ -41,6 +42,11 @@ private extension AppDelegate {
     appearance.setBackgroundImage(UIImage(), for: .default)
     appearance.shadowImage = UIImage()
     appearance.isTranslucent = true
+  }
+
+  func navigationBarFont() {
+    let font = UIFont(name: "Legacy", size: 20) as Any
+    UINavigationBar.appearance().titleTextAttributes = [.font: font]
   }
 
 }
