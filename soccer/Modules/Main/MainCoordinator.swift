@@ -8,7 +8,7 @@
 import UIKit
 
 final class MainCoordinator: Coordinating {
-  // MARK: - Internal Properties
+  // MARK: - Protocol Properties
   var childCoordinators: [Coordinating] = []
   var presenter: UINavigationController
 
@@ -17,11 +17,19 @@ final class MainCoordinator: Coordinating {
     self.presenter = presenter
   }
 
-  // MARK: - Internal Methods
+  // MARK: - Protocol Methods
   func start() {
     let viewModel = MainViewModel()
+    viewModel.coordinator = self
     let viewController = MainViewController(viewModel: viewModel)
     presenter.pushViewController(viewController, animated: true)
+  }
+
+  // MARK: - Internal Methods
+  func tableViewCellTapped(matchId: Int) {
+    let child = StatisticCoordinator(presenter: presenter, matchId: matchId)
+    childCoordinators.append(child)
+    child.start()
   }
 
 }

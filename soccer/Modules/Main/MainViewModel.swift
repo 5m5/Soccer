@@ -9,6 +9,7 @@ import Foundation
 
 // MARK: - Protocol
 protocol MainViewModelProtocol: AnyObject {
+  var coordinator: MainCoordinator? { get }
   var title: String { get }
   var constraintMargin: Int { get }
   var collectionViewHeightMultiplier: Float { get }
@@ -18,12 +19,15 @@ protocol MainViewModelProtocol: AnyObject {
   var matchesCount: Int { get }
   func fetchLeagues(completion: @escaping () -> Void)
   func collectionView(didSelectItemAt indexPath: IndexPath, completion: @escaping () -> Void)
+  func tableView(didSelectRowAt indexPath: IndexPath)
   func leagueCellViewModel(for indexPath: IndexPath) -> LeagueCellViewModelProtocol
   func matchCellViewModel(for indexPath: IndexPath) -> MatchCellViewModelProtocol
 }
 
 // MARK: - Implementation
 final class MainViewModel: MainViewModelProtocol {
+  // Сделать weak, если возникнет необходимость иметь ViewModel как поле класса координатора
+  var coordinator: MainCoordinator?
 
   var title = "Matches history"
   var constraintMargin = 16
@@ -61,6 +65,14 @@ final class MainViewModel: MainViewModelProtocol {
       self.matchesCount = matches.count
       completion()
     }
+  }
+
+  func tableView(didSelectRowAt indexPath: IndexPath) {
+    let index = indexPath.row
+    let matchResponse = matches[index]
+    print(matchResponse.match.id)
+
+    coordinator?.tableViewCellTapped(matchId: matchResponse.match.id)
   }
 
   func fetchLeagues(completion: @escaping () -> Void) {

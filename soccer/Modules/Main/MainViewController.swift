@@ -158,6 +158,9 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
 
 // MARK: - UITableViewDelegate
 extension MainViewController: UITableViewDelegate {
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    viewModel.tableView(didSelectRowAt: indexPath)
+  }
 
 }
 
