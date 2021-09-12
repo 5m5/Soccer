@@ -17,7 +17,7 @@ final class LeagueBuilder: LeagueBuilderProtocol {
 
   init(urlRequest: URLRequest) {
     self.urlRequest = urlRequest
-    self.urlRequest.url?.appendPathComponent(EndPoints.leagues.rawValue)
+    self.urlRequest.url?.appendPathComponent(EndPoints.leagues)
   }
 
 }

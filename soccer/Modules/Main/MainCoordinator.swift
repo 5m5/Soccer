@@ -9,7 +9,11 @@ import UIKit
 
 final class MainCoordinator: Coordinating {
   // MARK: - Protocol Properties
-  var childCoordinators: [Coordinating] = []
+  var childCoordinators: [Coordinating] = [] {
+    didSet {
+      print("size: \(childCoordinators.count)")
+    }
+  }
   var presenter: UINavigationController
 
   // MARK: - Lifecycle
@@ -26,8 +30,8 @@ final class MainCoordinator: Coordinating {
   }
 
   // MARK: - Internal Methods
-  func tableViewCellTapped(matchId: Int) {
-    let child = StatisticCoordinator(presenter: presenter, matchId: matchId)
+  func tableViewCellTapped(matchResponse: MatchResponse) {
+    let child = StatisticCoordinator(presenter: presenter, matchResponse: matchResponse)
     childCoordinators.append(child)
     child.start()
   }

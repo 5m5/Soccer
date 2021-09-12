@@ -73,6 +73,9 @@ final class MainViewModel: MainViewModelProtocol {
       guard let self = self else { return }
 
       self.matches = matches.response
+      self.matches.sort {
+        $0.match.timestamp > $1.match.timestamp
+      }
       self.matchesCount = matches.count
       completion()
     }
@@ -83,7 +86,8 @@ final class MainViewModel: MainViewModelProtocol {
     let matchResponse = matches[index]
     print(matchResponse.match.id)
 
-    coordinator?.tableViewCellTapped(matchId: matchResponse.match.id)
+    precondition(coordinator != nil, "Coordinator should not be nil")
+    coordinator?.tableViewCellTapped(matchResponse: matchResponse)
   }
 
   func fetchLeagues(completion: @escaping () -> Void) {

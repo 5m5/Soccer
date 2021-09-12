@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		743A645626ED769300E0C944 /* StatisticTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743A645526ED769300E0C944 /* StatisticTableViewCell.swift */; };
+		743A645926ED7D8000E0C944 /* StatisticCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743A645826ED7D8000E0C944 /* StatisticCellViewModel.swift */; };
 		7489ADCD26E413D900C4E4E9 /* MatchTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7489ADCC26E413D900C4E4E9 /* MatchTableView.swift */; };
 		7489ADD026E4148800C4E4E9 /* MatchCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7489ADCF26E4148800C4E4E9 /* MatchCellViewModel.swift */; };
 		7489ADD226E414A600C4E4E9 /* MatchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7489ADD126E414A600C4E4E9 /* MatchTableViewCell.swift */; };
@@ -44,6 +46,9 @@
 		7489AE4F26EC220100C4E4E9 /* StatisticCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7489AE4E26EC220100C4E4E9 /* StatisticCoordinator.swift */; };
 		7489AE5126EC229900C4E4E9 /* StatisticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7489AE5026EC229900C4E4E9 /* StatisticViewController.swift */; };
 		7489AE5326EC23A600C4E4E9 /* StatisticViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7489AE5226EC23A600C4E4E9 /* StatisticViewModel.swift */; };
+		7489AE5526ED0CD000C4E4E9 /* Statistic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7489AE5426ED0CD000C4E4E9 /* Statistic.swift */; };
+		7489AE5726ED108300C4E4E9 /* StatisticBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7489AE5626ED108300C4E4E9 /* StatisticBuilder.swift */; };
+		7489AE5926ED1FB600C4E4E9 /* MatchProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7489AE5826ED1FB600C4E4E9 /* MatchProxy.swift */; };
 		74D1BA5326DDA16200A2A88E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D1BA5226DDA16200A2A88E /* AppDelegate.swift */; };
 		74D1BA5C26DDA16600A2A88E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74D1BA5B26DDA16600A2A88E /* Assets.xcassets */; };
 		74D1BA5F26DDA16600A2A88E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74D1BA5D26DDA16600A2A88E /* LaunchScreen.storyboard */; };
@@ -87,6 +92,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		743A645526ED769300E0C944 /* StatisticTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticTableViewCell.swift; sourceTree = "<group>"; };
+		743A645826ED7D8000E0C944 /* StatisticCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticCellViewModel.swift; sourceTree = "<group>"; };
 		7489ADCC26E413D900C4E4E9 /* MatchTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTableView.swift; sourceTree = "<group>"; };
 		7489ADCF26E4148800C4E4E9 /* MatchCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchCellViewModel.swift; sourceTree = "<group>"; };
 		7489ADD126E414A600C4E4E9 /* MatchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTableViewCell.swift; sourceTree = "<group>"; };
@@ -114,6 +121,9 @@
 		7489AE4E26EC220100C4E4E9 /* StatisticCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticCoordinator.swift; sourceTree = "<group>"; };
 		7489AE5026EC229900C4E4E9 /* StatisticViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StatisticViewController.swift; path = soccer/Modules/Statistic/StatisticViewController.swift; sourceTree = SOURCE_ROOT; };
 		7489AE5226EC23A600C4E4E9 /* StatisticViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticViewModel.swift; sourceTree = "<group>"; };
+		7489AE5426ED0CD000C4E4E9 /* Statistic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistic.swift; sourceTree = "<group>"; };
+		7489AE5626ED108300C4E4E9 /* StatisticBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticBuilder.swift; sourceTree = "<group>"; };
+		7489AE5826ED1FB600C4E4E9 /* MatchProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchProxy.swift; sourceTree = "<group>"; };
 		74D1BA4F26DDA16200A2A88E /* soccer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = soccer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74D1BA5226DDA16200A2A88E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74D1BA5B26DDA16600A2A88E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -156,6 +166,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		743A645726ED76C600E0C944 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				743A645826ED7D8000E0C944 /* StatisticCellViewModel.swift */,
+				743A645526ED769300E0C944 /* StatisticTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		7489ADCA26E413A800C4E4E9 /* Collection */ = {
 			isa = PBXGroup;
 			children = (
@@ -215,8 +234,9 @@
 			isa = PBXGroup;
 			children = (
 				7489AE4E26EC220100C4E4E9 /* StatisticCoordinator.swift */,
-				7489AE5026EC229900C4E4E9 /* StatisticViewController.swift */,
 				7489AE5226EC23A600C4E4E9 /* StatisticViewModel.swift */,
+				7489AE5026EC229900C4E4E9 /* StatisticViewController.swift */,
+				743A645726ED76C600E0C944 /* Views */,
 			);
 			path = Statistic;
 			sourceTree = "<group>";
@@ -273,6 +293,7 @@
 				74D1BAF326E1421B00A2A88E /* URLBuilder.swift */,
 				7489AE4526EAFBF900C4E4E9 /* LeagueBuilder.swift */,
 				7489AE4B26EB01D300C4E4E9 /* MatchBuilder.swift */,
+				7489AE5626ED108300C4E4E9 /* StatisticBuilder.swift */,
 			);
 			path = Abstract;
 			sourceTree = "<group>";
@@ -330,6 +351,8 @@
 			children = (
 				74D1BAED26E1363300A2A88E /* League.swift */,
 				7489ADD326E4195300C4E4E9 /* Match.swift */,
+				7489AE5426ED0CD000C4E4E9 /* Statistic.swift */,
+				7489AE5826ED1FB600C4E4E9 /* MatchProxy.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -476,15 +499,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7489AE5726ED108300C4E4E9 /* StatisticBuilder.swift in Sources */,
 				74D1BAF626E18D1800A2A88E /* LeagueCollectionView.swift in Sources */,
 				74D1BAE926E03EC100A2A88E /* ViewModelController.swift in Sources */,
 				74D1BAFC26E1921B00A2A88E /* LeagueCellViewModel.swift in Sources */,
 				7489AE5126EC229900C4E4E9 /* StatisticViewController.swift in Sources */,
 				74D1BAE726E03D7000A2A88E /* MainViewModel.swift in Sources */,
+				7489AE5926ED1FB600C4E4E9 /* MatchProxy.swift in Sources */,
 				74D1BAEC26E1227600A2A88E /* JSONParser.swift in Sources */,
 				74D1BAF826E1913A00A2A88E /* LeagueCollectionViewCell.swift in Sources */,
 				7489ADCD26E413D900C4E4E9 /* MatchTableView.swift in Sources */,
 				74D1BAE526E0362700A2A88E /* MainCoordinator.swift in Sources */,
+				7489AE5526ED0CD000C4E4E9 /* Statistic.swift in Sources */,
+				743A645926ED7D8000E0C944 /* StatisticCellViewModel.swift in Sources */,
 				7489ADD426E4195300C4E4E9 /* Match.swift in Sources */,
 				7489AE4F26EC220100C4E4E9 /* StatisticCoordinator.swift in Sources */,
 				74D1BAF426E1421B00A2A88E /* URLBuilder.swift in Sources */,
@@ -499,6 +526,7 @@
 				74D1BAEE26E1363300A2A88E /* League.swift in Sources */,
 				7489ADD226E414A600C4E4E9 /* MatchTableViewCell.swift in Sources */,
 				74D1BAE326E0360300A2A88E /* MainViewController.swift in Sources */,
+				743A645626ED769300E0C944 /* StatisticTableViewCell.swift in Sources */,
 				74D1BB0226E2BDB400A2A88E /* ImageDataService.swift in Sources */,
 				7489ADD026E4148800C4E4E9 /* MatchCellViewModel.swift in Sources */,
 				7489AE4826EAFCBA00C4E4E9 /* APIConfig.swift in Sources */,

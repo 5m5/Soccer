@@ -141,6 +141,8 @@ private extension MatchTableViewCell {
 
       awayImageView.widthAnchor.constraint(equalTo: homeImageView.widthAnchor),
       awayImageView.heightAnchor.constraint(equalTo: awayImageView.widthAnchor),
+
+      scoreLabel.centerXAnchor.constraint(equalTo: stackView.centerXAnchor),
     ])
   }
 
@@ -164,6 +166,7 @@ private extension MatchTableViewCell {
     let label = UILabel()
     label.textColor = .label
     label.numberOfLines = 2
+    label.lineBreakMode = .byWordWrapping
     label.textAlignment = .center
     label.translatesAutoresizingMaskIntoConstraints = false
     return label

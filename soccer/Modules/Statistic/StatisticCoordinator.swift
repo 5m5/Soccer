@@ -13,17 +13,17 @@ final class StatisticCoordinator: Coordinating {
   var presenter: UINavigationController
 
   // MARK: - Internal Properties
-  var matchId: Int
+  var matchResponse: MatchResponse
 
   // MARK: - Lifecycle
-  init(presenter: UINavigationController, matchId: Int) {
+  init(presenter: UINavigationController, matchResponse: MatchResponse) {
     self.presenter = presenter
-    self.matchId = matchId
+    self.matchResponse = matchResponse
   }
 
   // MARK: - Protocol Methods
   func start() {
-    let viewModel = StatisticViewModel(matchId: matchId)
+    let viewModel = StatisticViewModel(matchResponse: matchResponse)
     let viewController = StatisticViewController(viewModel: viewModel)
     presenter.pushViewController(viewController, animated: true)
   }

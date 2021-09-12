@@ -18,7 +18,7 @@ final class MatchBuilder: MatchBuilderProtocol {
 
   init(urlRequest: URLRequest) {
     self.urlRequest = urlRequest
-    self.urlRequest.url?.appendPathComponent(EndPoints.matches.rawValue)
+    self.urlRequest.url?.appendPathComponent(EndPoints.matches)
 
     // Пока отображаем только завершившиеся матчи
     let queryItem = URLQueryItem(name: "status", value: "FT")

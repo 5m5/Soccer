@@ -33,4 +33,8 @@ final class EndPointFactory: EndPointFactoryProtocol {
     MatchBuilder(urlRequest: urlRequest)
   }
 
+  func statistics() -> StatisticBuilderProtocol {
+    StatisticBuilder(urlRequest: urlRequest)
+  }
+
 }

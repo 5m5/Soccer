@@ -7,9 +7,10 @@
 
 import Foundation
 
-enum EndPoints: String {
-  case leagues = "leagues"
-  case matches = "fixtures"
+enum EndPoints {
+  static let leagues = "leagues"
+  static let matches = "fixtures"
+  static let statistics = "\(matches)/statistics"
 }
 
 enum APIConfig {
