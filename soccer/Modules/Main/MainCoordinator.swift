@@ -7,13 +7,9 @@
 
 import UIKit
 
-final class MainCoordinator: Coordinating {
+final class MainCoordinator: NSObject, Coordinating {
   // MARK: - Protocol Properties
-  var childCoordinators: [Coordinating] = [] {
-    didSet {
-      print("size: \(childCoordinators.count)")
-    }
-  }
+  var childCoordinators: [Coordinating] = []
   var presenter: UINavigationController
 
   // MARK: - Lifecycle
@@ -23,6 +19,8 @@ final class MainCoordinator: Coordinating {
 
   // MARK: - Protocol Methods
   func start() {
+    presenter.delegate = self
+
     let viewModel = MainViewModel()
     viewModel.coordinator = self
     let viewController = MainViewController(viewModel: viewModel)
@@ -34,6 +32,24 @@ final class MainCoordinator: Coordinating {
     let child = StatisticCoordinator(presenter: presenter, matchResponse: matchResponse)
     childCoordinators.append(child)
     child.start()
+  }
+
+}
+
+// MARK: - UINavigationControllerDelegate
+extension MainCoordinator: UINavigationControllerDelegate {
+  func navigationController(
+    _ navigationController: UINavigationController,
+    didShow viewController: UIViewController,
+    animated: Bool
+  ) {
+    guard
+      let fromViewController = presenter.transitionCoordinator?.viewController(forKey: .from),
+      !presenter.viewControllers.contains(fromViewController),
+      let viewController = fromViewController as? StatisticViewController,
+      let coordinator = viewController.viewModel.coordinator else { return }
+
+    finish(child: coordinator)
   }
 
 }

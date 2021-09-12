@@ -24,6 +24,7 @@ final class StatisticCoordinator: Coordinating {
   // MARK: - Protocol Methods
   func start() {
     let viewModel = StatisticViewModel(matchResponse: matchResponse)
+    viewModel.coordinator = self
     let viewController = StatisticViewController(viewModel: viewModel)
     presenter.pushViewController(viewController, animated: true)
   }

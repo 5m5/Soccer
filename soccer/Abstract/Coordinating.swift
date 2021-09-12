@@ -12,9 +12,14 @@ protocol Coordinating: AnyObject {
   var presenter: UINavigationController { get set }
 
   func start()
-  func finish()
+  func finish(child: Coordinating)
 }
 
 extension Coordinating {
-  func finish() {}
+  func finish(child: Coordinating) {
+    for (index, coordinator) in childCoordinators.enumerated() where coordinator === child {
+      childCoordinators.remove(at: index)
+      break
+    }
+  }
 }

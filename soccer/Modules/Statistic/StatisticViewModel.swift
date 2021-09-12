@@ -8,6 +8,7 @@
 import Foundation
 
 protocol StatisticViewModelProtocol: AnyObject {
+  var coordinator: StatisticCoordinator? { get }
   var matchResponse: MatchResponse { get }
   var statistics: [StatisticResponse] { get }
   var statisticsCount: Int { get }
@@ -23,6 +24,8 @@ protocol StatisticViewModelProtocol: AnyObject {
 }
 
 final class StatisticViewModel: StatisticViewModelProtocol {
+  // Сделать weak, если возникнет необходимость иметь ViewModel как поле класса координатора
+  var coordinator: StatisticCoordinator?
   var matchResponse: MatchResponse
   var statisticResponse: [StatisticResponse] = []
 
