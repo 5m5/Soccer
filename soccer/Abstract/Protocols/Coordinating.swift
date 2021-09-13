@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: - Protocol
 protocol Coordinating: AnyObject {
   var childCoordinators: [Coordinating] { get set }
   var presenter: UINavigationController { get set }
@@ -15,6 +16,7 @@ protocol Coordinating: AnyObject {
   func finish(child: Coordinating)
 }
 
+// MARK: - Extension
 extension Coordinating {
   func finish(child: Coordinating) {
     for (index, coordinator) in childCoordinators.enumerated() where coordinator === child {

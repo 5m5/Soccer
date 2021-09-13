@@ -7,11 +7,13 @@
 
 import Foundation
 
+// MARK: - Protocol
 protocol MatchBuilderProtocol: URLBuilderProtocol {
   func with(seasonYear: Int) -> Self
   func with(leagueID: Int) -> Self
 }
 
+// MARK: - Implementation
 final class MatchBuilder: MatchBuilderProtocol {
 
   var urlRequest: URLRequest

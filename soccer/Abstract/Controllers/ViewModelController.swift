@@ -7,12 +7,14 @@
 
 import UIKit
 
+// MARK: - Protocol
 protocol ViewModelControllerProtocol: UIViewController {
   associatedtype ViewModel
   var viewModel: ViewModel { get }
   init(viewModel: ViewModel)
 }
 
+// MARK: - Implementation
 class ViewModelController<ViewModel>: UIViewController, ViewModelControllerProtocol {
 
   // MARK: - Internal Properties

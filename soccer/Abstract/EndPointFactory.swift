@@ -7,12 +7,14 @@
 
 import Foundation
 
+// MARK: - Protocol
 protocol EndPointFactoryProtocol: AnyObject {
   init()
   func leagues() -> LeagueBuilderProtocol
   func matches() -> MatchBuilderProtocol
 }
 
+// MARK: - Implementation
 final class EndPointFactory: EndPointFactoryProtocol {
 
   private var urlRequest: URLRequest

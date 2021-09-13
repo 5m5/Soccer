@@ -7,10 +7,12 @@
 
 import Foundation
 
+// MARK: - Protocol
 protocol StatisticBuilderProtocol: URLBuilderProtocol {
   func with(matchId: Int) -> Self
 }
 
+// MARK: - Implementation
 final class StatisticBuilder: StatisticBuilderProtocol {
   var urlRequest: URLRequest
 

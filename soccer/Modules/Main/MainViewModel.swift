@@ -51,7 +51,6 @@ final class MainViewModel: MainViewModelProtocol {
 
   func collectionView(didSelectItemAt indexPath: IndexPath, completion: @escaping () -> Void) {
     let index = indexPath.row
-    // FIXME: если нет сети, приложение упадет
     let leagueResponse = leagues[index]
     let league = leagueResponse.league
     let leagueId = league.id
@@ -72,10 +71,7 @@ final class MainViewModel: MainViewModelProtocol {
     fetch(parser: parser, urlRequest: urlRequest) { [weak self] matches in
       guard let self = self else { return }
 
-      self.matches = matches.response
-      self.matches.sort {
-        $0.match.timestamp > $1.match.timestamp
-      }
+      self.matches = matches.response.sorted { $0.match.timestamp > $1.match.timestamp }
       self.matchesCount = matches.count
       completion()
     }

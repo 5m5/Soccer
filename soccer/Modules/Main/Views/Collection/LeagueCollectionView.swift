@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LeagueCollectionView: UICollectionView {
+final class LeagueCollectionView: UICollectionView {
 
   init() {
     let layout = UICollectionViewFlowLayout()

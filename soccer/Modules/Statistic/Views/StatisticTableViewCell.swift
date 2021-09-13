@@ -41,6 +41,7 @@ final class StatisticTableViewCell: UITableViewCell {
 
 }
 
+// MARK: - Private Methods
 private extension StatisticTableViewCell {
   func setupView() {
     addSubview(stackView)

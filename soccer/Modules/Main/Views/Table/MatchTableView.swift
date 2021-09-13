@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MatchTableView: UITableView {
+final class MatchTableView: UITableView {
 
   override init(frame: CGRect, style: UITableView.Style) {
     super.init(frame: frame, style: style)

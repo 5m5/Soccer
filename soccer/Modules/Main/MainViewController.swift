@@ -174,7 +174,7 @@ extension MainViewController: UICollectionViewDataSource {
     guard let cell = collectionView.dequeueReusableCell(
       withReuseIdentifier: identifier,
       for: indexPath
-    ) as? LeagueCollectionViewCell else { return UICollectionViewCell() }
+    ) as? LeagueCollectionViewCell else { preconditionFailure("Can't cast cell") }
 
     cell.viewModel = viewModel.leagueCellViewModel(for: indexPath)
     return cell
@@ -213,7 +213,7 @@ extension MainViewController: UITableViewDataSource {
     let identifier = MatchCellViewModel.identifier
     guard let cell = tableView.dequeueReusableCell(
       withIdentifier: identifier
-    ) as? MatchTableViewCell else { return UITableViewCell() }
+    ) as? MatchTableViewCell else { preconditionFailure("Can't cast cell") }
 
     cell.viewModel = viewModel.matchCellViewModel(for: indexPath)
     return cell

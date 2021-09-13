@@ -14,8 +14,6 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
   // MARK: - Internal Properties
   var window: UIWindow?
 
-  // MARK: - Private Properties
-
   // MARK: - Internal Methods
   func application(
     _ application: UIApplication,
@@ -36,6 +34,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+// MARK: - Private Methods
 private extension AppDelegate {
   func makeNavigationBarTransparent() {
     let appearance = UINavigationBar.appearance()

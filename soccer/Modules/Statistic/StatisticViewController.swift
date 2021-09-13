@@ -169,7 +169,7 @@ extension StatisticViewController: UITableViewDataSource {
     guard let cell = tableView.dequeueReusableCell(
       withIdentifier: identifier,
       for: indexPath
-    ) as? StatisticTableViewCell else { preconditionFailure("Can't unwrap cell") }
+    ) as? StatisticTableViewCell else { preconditionFailure("Can't cast cell") }
 
     cell.viewModel = viewModel.statisticCellViewModel(for: indexPath)
     return cell

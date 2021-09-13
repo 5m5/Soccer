@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LeagueCollectionViewCell: UICollectionViewCell {
+final class LeagueCollectionViewCell: UICollectionViewCell {
 
   var viewModel: LeagueCellViewModelProtocol? {
     didSet { asyncLoadImage() }

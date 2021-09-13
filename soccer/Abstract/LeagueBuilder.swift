@@ -7,10 +7,12 @@
 
 import Foundation
 
+// MARK: - Protocol
 protocol LeagueBuilderProtocol: URLBuilderProtocol {
 
 }
 
+// MARK: - Implementation
 final class LeagueBuilder: LeagueBuilderProtocol {
 
   var urlRequest: URLRequest

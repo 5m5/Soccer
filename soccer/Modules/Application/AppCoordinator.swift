@@ -8,7 +8,7 @@
 import UIKit
 
 final class AppCoordinator: Coordinating {
-  // MARK: - Internal Properties
+  // MARK: - Protocol Properties
   var childCoordinators: [Coordinating] = []
   var presenter: UINavigationController
 
@@ -21,7 +21,7 @@ final class AppCoordinator: Coordinating {
     self.init(presenter: UINavigationController())
   }
 
-  // MARK: - Internal Methods
+  // MARK: - Protocol Methods
   func start() {
     let child = MainCoordinator(presenter: presenter)
     childCoordinators.append(child)

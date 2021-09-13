@@ -140,6 +140,23 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		743A64A226EEDB8300E0C944 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				74D1BA6726DECFEF00A2A88E /* Coordinating.swift */,
+				74D1BAF326E1421B00A2A88E /* URLBuilder.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		743A64A326EEDB9200E0C944 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				74D1BAE826E03EC100A2A88E /* ViewModelController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		7489ADCA26E413A800C4E4E9 /* Collection */ = {
 			isa = PBXGroup;
 			children = (
@@ -251,11 +268,10 @@
 		74D1BA6A26DED58F00A2A88E /* Abstract */ = {
 			isa = PBXGroup;
 			children = (
-				74D1BA6726DECFEF00A2A88E /* Coordinating.swift */,
-				74D1BAE826E03EC100A2A88E /* ViewModelController.swift */,
+				743A64A226EEDB8300E0C944 /* Protocols */,
+				743A64A326EEDB9200E0C944 /* Controllers */,
 				7489AE4726EAFCB900C4E4E9 /* APIConfig.swift */,
 				7489AE4926EAFE0B00C4E4E9 /* EndPointFactory.swift */,
-				74D1BAF326E1421B00A2A88E /* URLBuilder.swift */,
 				7489AE4526EAFBF900C4E4E9 /* LeagueBuilder.swift */,
 				7489AE4B26EB01D300C4E4E9 /* MatchBuilder.swift */,
 				7489AE5626ED108300C4E4E9 /* StatisticBuilder.swift */,
