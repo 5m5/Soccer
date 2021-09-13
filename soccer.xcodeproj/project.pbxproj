@@ -18,26 +18,15 @@
 		7489ADDC26E9677D00C4E4E9 /* HighSchoolUsaSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7489ADDA26E9677D00C4E4E9 /* HighSchoolUsaSans.ttf */; };
 		7489ADDD26E9677D00C4E4E9 /* HighSchoolUsaSerif.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7489ADDB26E9677D00C4E4E9 /* HighSchoolUsaSerif.ttf */; };
 		7489AE1226EAB1D700C4E4E9 /* FirebaseCrashlytics.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7489AE0826EAADF800C4E4E9 /* FirebaseCrashlytics.xcframework */; };
-		7489AE1326EAB1D700C4E4E9 /* FirebaseCrashlytics.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7489AE0826EAADF800C4E4E9 /* FirebaseCrashlytics.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7489AE1F26EAB1D700C4E4E9 /* FirebaseCore.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7489AE1526EAB1D700C4E4E9 /* FirebaseCore.xcframework */; };
-		7489AE2026EAB1D700C4E4E9 /* FirebaseCore.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7489AE1526EAB1D700C4E4E9 /* FirebaseCore.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7489AE2126EAB1D700C4E4E9 /* FirebaseCoreDiagnostics.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7489AE1626EAB1D700C4E4E9 /* FirebaseCoreDiagnostics.xcframework */; };
-		7489AE2226EAB1D700C4E4E9 /* FirebaseCoreDiagnostics.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7489AE1626EAB1D700C4E4E9 /* FirebaseCoreDiagnostics.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7489AE2326EAB1D700C4E4E9 /* GoogleDataTransport.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7489AE1726EAB1D700C4E4E9 /* GoogleDataTransport.xcframework */; };
-		7489AE2426EAB1D700C4E4E9 /* GoogleDataTransport.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7489AE1726EAB1D700C4E4E9 /* GoogleDataTransport.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7489AE2526EAB1D700C4E4E9 /* nanopb.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7489AE1826EAB1D700C4E4E9 /* nanopb.xcframework */; };
-		7489AE2626EAB1D700C4E4E9 /* nanopb.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7489AE1826EAB1D700C4E4E9 /* nanopb.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7489AE2726EAB1D700C4E4E9 /* PromisesObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7489AE1926EAB1D700C4E4E9 /* PromisesObjC.xcframework */; };
-		7489AE2826EAB1D700C4E4E9 /* PromisesObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7489AE1926EAB1D700C4E4E9 /* PromisesObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7489AE2926EAB1D800C4E4E9 /* FirebaseInstallations.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7489AE1A26EAB1D700C4E4E9 /* FirebaseInstallations.xcframework */; };
-		7489AE2A26EAB1D800C4E4E9 /* FirebaseInstallations.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7489AE1A26EAB1D700C4E4E9 /* FirebaseInstallations.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7489AE2B26EAB1D800C4E4E9 /* GoogleUtilities.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7489AE1B26EAB1D700C4E4E9 /* GoogleUtilities.xcframework */; };
-		7489AE2C26EAB1D800C4E4E9 /* GoogleUtilities.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7489AE1B26EAB1D700C4E4E9 /* GoogleUtilities.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7489AE2D26EAB1D800C4E4E9 /* GoogleAppMeasurement.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7489AE1C26EAB1D700C4E4E9 /* GoogleAppMeasurement.xcframework */; };
-		7489AE2E26EAB1D800C4E4E9 /* GoogleAppMeasurement.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7489AE1C26EAB1D700C4E4E9 /* GoogleAppMeasurement.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7489AE3126EAB1D800C4E4E9 /* FirebaseAnalytics.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7489AE1E26EAB1D700C4E4E9 /* FirebaseAnalytics.xcframework */; };
-		7489AE3226EAB1D800C4E4E9 /* FirebaseAnalytics.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7489AE1E26EAB1D700C4E4E9 /* FirebaseAnalytics.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		7489AE3A26EAB24600C4E4E9 /* Firebase.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7489AE1D26EAB1D700C4E4E9 /* Firebase.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7489AE3C26EAB7B100C4E4E9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7489AE3B26EAB7B100C4E4E9 /* GoogleService-Info.plist */; };
 		7489AE4626EAFBF900C4E4E9 /* LeagueBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7489AE4526EAFBF900C4E4E9 /* LeagueBuilder.swift */; };
 		7489AE4826EAFCBA00C4E4E9 /* APIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7489AE4726EAFCB900C4E4E9 /* APIConfig.swift */; };
@@ -66,30 +55,6 @@
 		74D1BAFC26E1921B00A2A88E /* LeagueCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D1BAFB26E1921B00A2A88E /* LeagueCellViewModel.swift */; };
 		74D1BB0226E2BDB400A2A88E /* ImageDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D1BB0126E2BDB400A2A88E /* ImageDataService.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		7489AE1426EAB1D700C4E4E9 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				7489AE1326EAB1D700C4E4E9 /* FirebaseCrashlytics.xcframework in Embed Frameworks */,
-				7489AE2E26EAB1D800C4E4E9 /* GoogleAppMeasurement.xcframework in Embed Frameworks */,
-				7489AE2226EAB1D700C4E4E9 /* FirebaseCoreDiagnostics.xcframework in Embed Frameworks */,
-				7489AE2426EAB1D700C4E4E9 /* GoogleDataTransport.xcframework in Embed Frameworks */,
-				7489AE3A26EAB24600C4E4E9 /* Firebase.framework in Embed Frameworks */,
-				7489AE2C26EAB1D800C4E4E9 /* GoogleUtilities.xcframework in Embed Frameworks */,
-				7489AE3226EAB1D800C4E4E9 /* FirebaseAnalytics.xcframework in Embed Frameworks */,
-				7489AE2826EAB1D700C4E4E9 /* PromisesObjC.xcframework in Embed Frameworks */,
-				7489AE2A26EAB1D800C4E4E9 /* FirebaseInstallations.xcframework in Embed Frameworks */,
-				7489AE2626EAB1D700C4E4E9 /* nanopb.xcframework in Embed Frameworks */,
-				7489AE2026EAB1D700C4E4E9 /* FirebaseCore.xcframework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		743A645526ED769300E0C944 /* StatisticTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticTableViewCell.swift; sourceTree = "<group>"; };
@@ -395,7 +360,6 @@
 				74D1BA4D26DDA16200A2A88E /* Resources */,
 				74D1BA6626DE9E9900A2A88E /* ShellScript */,
 				7489AE1126EAAFCF00C4E4E9 /* Run Script */,
-				7489AE1426EAB1D700C4E4E9 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
