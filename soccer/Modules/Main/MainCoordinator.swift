@@ -12,18 +12,27 @@ final class MainCoordinator: NSObject, Coordinating {
   var childCoordinators: [Coordinating] = []
   var presenter: UINavigationController
 
+  // MARK: - Internal Properties
+  lazy var viewModel: MainViewModel = {
+    $0.coordinator = self
+    return $0
+  }(MainViewModel())
+
+  lazy var viewController = MainViewController(viewModel: viewModel)
+
   // MARK: - Lifecycle
   init(presenter: UINavigationController) {
     self.presenter = presenter
+  }
+
+  override convenience init() {
+    self.init(presenter: UINavigationController())
   }
 
   // MARK: - Protocol Methods
   func start() {
     presenter.delegate = self
 
-    let viewModel = MainViewModel()
-    viewModel.coordinator = self
-    let viewController = MainViewController(viewModel: viewModel)
     presenter.pushViewController(viewController, animated: true)
   }
 

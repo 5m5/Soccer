@@ -25,9 +25,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     navigationBarFont()
 
     window = UIWindow()
-    let appCoordinator = AppCoordinator()
-    appCoordinator.start()
-    window?.rootViewController = appCoordinator.presenter
+    window?.rootViewController = TabBarController()
     window?.makeKeyAndVisible()
     return true
   }

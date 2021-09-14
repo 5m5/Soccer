@@ -20,7 +20,7 @@ protocol MainViewModelProtocol: AnyObject {
   var leaguesCount: Int { get }
   var leagueName: String { get }
 
-  var matches: [MatchResponse] { get }
+  var matches: [MatchResponse] { get } // TODO: убрать?
   var matchesCount: Int { get }
   func fetchLeagues(completion: @escaping () -> Void)
   func collectionView(didSelectItemAt indexPath: IndexPath, completion: @escaping () -> Void)
@@ -31,8 +31,7 @@ protocol MainViewModelProtocol: AnyObject {
 
 // MARK: - Implementation
 final class MainViewModel: MainViewModelProtocol {
-  // Сделать weak, если возникнет необходимость иметь ViewModel как поле класса координатора
-  var coordinator: MainCoordinator?
+  weak var coordinator: MainCoordinator?
 
   var title = "Matches history"
   var constraintMargin = 16

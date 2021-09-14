@@ -24,7 +24,7 @@ struct MatchResult: Codable {
 // MARK: - MatchResponse
 struct MatchResponse: Codable {
   let match: Match
-  let teams: TeamResponse
+  let teams: PlayingTeamResponse
   let goals: Goals
 
   private enum CodingKeys: String, CodingKey {
@@ -43,7 +43,7 @@ struct Match: Codable {
 }
 
 // MARK: - TeamResponse
-struct TeamResponse: Codable {
+struct PlayingTeamResponse: Codable {
   let home: Team
   let away: Team
 }
@@ -52,13 +52,4 @@ struct TeamResponse: Codable {
 struct Goals: Codable {
   let home: Int?
   let away: Int?
-}
-
-// MARK: - Level 4
-// MARK: - Team
-struct Team: Codable {
-  let id: Int
-  let name: String
-  let logo: String
-  let winner: Bool?
 }
