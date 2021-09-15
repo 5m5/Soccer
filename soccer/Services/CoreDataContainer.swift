@@ -15,14 +15,14 @@ final class CoreDataContainer {
   // MARK: - Private Properties
   private lazy var persistentContainer: NSPersistentContainer = {
     let container = NSPersistentContainer(name: "DataBase")
-    container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+    container.loadPersistentStores { _, error in
       if let error = error { print(error) }
-    })
+    }
     return container
   }()
 
-  private lazy var context: NSManagedObjectContext = {
-    let context = persistentContainer.viewContext
+  private lazy var backgroundContext: NSManagedObjectContext = {
+    let context = persistentContainer.newBackgroundContext()
     context.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
     return context
   }()
@@ -32,17 +32,17 @@ final class CoreDataContainer {
 
   // MARK: - Public Methods
   func saveLeagues(response: [LeagueResponse]) {
-    context.perform { [weak self] in
+    backgroundContext.perform { [weak self] in
       guard let self = self else { return }
       response.forEach { response in
-        let league = LeagueObject(context: self.context)
+        let league = LeagueObject(context: self.backgroundContext)
         league.id = Int64(response.league.id)
         league.name = response.league.name
         league.logoPath = response.league.logo!
       }
 
       do {
-        try self.context.save()
+        try self.backgroundContext.save()
       } catch {
         print("CoreDataError: ", error)
       }
@@ -50,7 +50,7 @@ final class CoreDataContainer {
   }
 
   func getLeagues() {
-    context.performAndWait {
+    backgroundContext.performAndWait {
       let request = NSFetchRequest<LeagueObject>(entityName: "LeagueObject")
       do {
         let result = try request.execute()
@@ -62,9 +62,9 @@ final class CoreDataContainer {
   }
 
   func saveContext() {
-    if context.hasChanges {
+    if backgroundContext.hasChanges {
       do {
-        try context.save()
+        try backgroundContext.save()
       } catch {
         print(error)
       }
