@@ -68,6 +68,7 @@ attributes:
     - "@IBAction"
     - "@NSManaged"
     - "@objc"
+    - "@nonobjc"
 
 force_cast: warning
 force_try: warning
