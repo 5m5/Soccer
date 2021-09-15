@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20G95" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="LeagueObject" representedClassName=".LeagueObject" syncable="YES">
+        <attribute name="id" attributeType="Integer 64" usesScalarValueType="YES"/>
+        <attribute name="logoPath" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
+        <relationship name="matches" toMany="YES" deletionRule="Cascade" destinationEntity="MatchObject" inverseName="league" inverseEntity="MatchObject"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="id"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="MatchObject" representedClassName=".MatchObject" syncable="YES">
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" attributeType="Integer 64" usesScalarValueType="YES"/>
+        <relationship name="away" maxCount="1" deletionRule="Cascade" destinationEntity="TeamObject" inverseName="away" inverseEntity="TeamObject"/>
+        <relationship name="home" maxCount="1" deletionRule="Cascade" destinationEntity="TeamObject" inverseName="home" inverseEntity="TeamObject"/>
+        <relationship name="league" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="LeagueObject" inverseName="matches" inverseEntity="LeagueObject"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="id"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="TeamObject" representedClassName=".TeamObject" syncable="YES">
+        <attribute name="id" attributeType="Integer 64" usesScalarValueType="YES"/>
+        <attribute name="logo" attributeType="URI"/>
+        <attribute name="name" attributeType="String"/>
+        <relationship name="away" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MatchObject" inverseName="away" inverseEntity="MatchObject"/>
+        <relationship name="home" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MatchObject" inverseName="home" inverseEntity="MatchObject"/>
+    </entity>
+    <elements>
+        <element name="LeagueObject" positionX="-63" positionY="-18" width="128" height="89"/>
+        <element name="MatchObject" positionX="-54" positionY="18" width="128" height="104"/>
+        <element name="TeamObject" positionX="-36" positionY="27" width="128" height="104"/>
+    </elements>
+</model>

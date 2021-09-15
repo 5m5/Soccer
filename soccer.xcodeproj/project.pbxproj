@@ -18,6 +18,14 @@
 		743A64B326F027A200E0C944 /* TeamCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743A64B226F027A200E0C944 /* TeamCellViewModel.swift */; };
 		743A64B526F02ACB00E0C944 /* TeamResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743A64B426F02ACB00E0C944 /* TeamResult.swift */; };
 		743A64B726F0331D00E0C944 /* TeamBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743A64B626F0331D00E0C944 /* TeamBuilder.swift */; };
+		743A64BA26F165A100E0C944 /* DataBase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 743A64B826F165A000E0C944 /* DataBase.xcdatamodeld */; };
+		743A64D426F17F3E00E0C944 /* CoreDataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743A64D326F17F3E00E0C944 /* CoreDataContainer.swift */; };
+		743A64E726F272B700E0C944 /* TeamObject+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743A64E126F272B700E0C944 /* TeamObject+CoreDataClass.swift */; };
+		743A64E826F272B700E0C944 /* TeamObject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743A64E226F272B700E0C944 /* TeamObject+CoreDataProperties.swift */; };
+		743A64E926F272B700E0C944 /* LeagueObject+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743A64E326F272B700E0C944 /* LeagueObject+CoreDataClass.swift */; };
+		743A64EA26F272B700E0C944 /* LeagueObject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743A64E426F272B700E0C944 /* LeagueObject+CoreDataProperties.swift */; };
+		743A64EB26F272B700E0C944 /* MatchObject+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743A64E526F272B700E0C944 /* MatchObject+CoreDataClass.swift */; };
+		743A64EC26F272B700E0C944 /* MatchObject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743A64E626F272B700E0C944 /* MatchObject+CoreDataProperties.swift */; };
 		7489ADCD26E413D900C4E4E9 /* MatchTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7489ADCC26E413D900C4E4E9 /* MatchTableView.swift */; };
 		7489ADD026E4148800C4E4E9 /* MatchCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7489ADCF26E4148800C4E4E9 /* MatchCellViewModel.swift */; };
 		7489ADD226E414A600C4E4E9 /* MatchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7489ADD126E414A600C4E4E9 /* MatchTableViewCell.swift */; };
@@ -77,6 +85,14 @@
 		743A64B226F027A200E0C944 /* TeamCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCellViewModel.swift; sourceTree = "<group>"; };
 		743A64B426F02ACB00E0C944 /* TeamResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamResult.swift; sourceTree = "<group>"; };
 		743A64B626F0331D00E0C944 /* TeamBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamBuilder.swift; sourceTree = "<group>"; };
+		743A64B926F165A100E0C944 /* DataBase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataBase.xcdatamodel; sourceTree = "<group>"; };
+		743A64D326F17F3E00E0C944 /* CoreDataContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataContainer.swift; sourceTree = "<group>"; };
+		743A64E126F272B700E0C944 /* TeamObject+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TeamObject+CoreDataClass.swift"; sourceTree = "<group>"; };
+		743A64E226F272B700E0C944 /* TeamObject+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TeamObject+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		743A64E326F272B700E0C944 /* LeagueObject+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LeagueObject+CoreDataClass.swift"; sourceTree = "<group>"; };
+		743A64E426F272B700E0C944 /* LeagueObject+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LeagueObject+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		743A64E526F272B700E0C944 /* MatchObject+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MatchObject+CoreDataClass.swift"; sourceTree = "<group>"; };
+		743A64E626F272B700E0C944 /* MatchObject+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MatchObject+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7489ADCC26E413D900C4E4E9 /* MatchTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTableView.swift; sourceTree = "<group>"; };
 		7489ADCF26E4148800C4E4E9 /* MatchCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchCellViewModel.swift; sourceTree = "<group>"; };
 		7489ADD126E414A600C4E4E9 /* MatchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTableViewCell.swift; sourceTree = "<group>"; };
@@ -195,6 +211,44 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		743A64BB26F165B100E0C944 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				743A64B826F165A000E0C944 /* DataBase.xcdatamodeld */,
+				743A64C426F172C100E0C944 /* League */,
+				743A64D226F1766500E0C944 /* Match */,
+				743A64D126F1762D00E0C944 /* Team */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		743A64C426F172C100E0C944 /* League */ = {
+			isa = PBXGroup;
+			children = (
+				743A64E326F272B700E0C944 /* LeagueObject+CoreDataClass.swift */,
+				743A64E426F272B700E0C944 /* LeagueObject+CoreDataProperties.swift */,
+			);
+			path = League;
+			sourceTree = "<group>";
+		};
+		743A64D126F1762D00E0C944 /* Team */ = {
+			isa = PBXGroup;
+			children = (
+				743A64E126F272B700E0C944 /* TeamObject+CoreDataClass.swift */,
+				743A64E226F272B700E0C944 /* TeamObject+CoreDataProperties.swift */,
+			);
+			path = Team;
+			sourceTree = "<group>";
+		};
+		743A64D226F1766500E0C944 /* Match */ = {
+			isa = PBXGroup;
+			children = (
+				743A64E526F272B700E0C944 /* MatchObject+CoreDataClass.swift */,
+				743A64E626F272B700E0C944 /* MatchObject+CoreDataProperties.swift */,
+			);
+			path = Match;
+			sourceTree = "<group>";
+		};
 		7489ADCA26E413A800C4E4E9 /* Collection */ = {
 			isa = PBXGroup;
 			children = (
@@ -282,6 +336,7 @@
 		74D1BA5126DDA16200A2A88E /* soccer */ = {
 			isa = PBXGroup;
 			children = (
+				743A64BB26F165B100E0C944 /* Database */,
 				74D1BA6A26DED58F00A2A88E /* Abstract */,
 				74D1BAEF26E1364000A2A88E /* Models */,
 				74D1BADF26E0352F00A2A88E /* Modules */,
@@ -364,6 +419,7 @@
 			children = (
 				74D1BAEB26E1227600A2A88E /* JSONParser.swift */,
 				74D1BB0126E2BDB400A2A88E /* ImageDataService.swift */,
+				743A64D326F17F3E00E0C944 /* CoreDataContainer.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -529,9 +585,11 @@
 				74D1BAF626E18D1800A2A88E /* LeagueCollectionView.swift in Sources */,
 				74D1BAE926E03EC100A2A88E /* ViewModelController.swift in Sources */,
 				74D1BAFC26E1921B00A2A88E /* LeagueCellViewModel.swift in Sources */,
+				743A64D426F17F3E00E0C944 /* CoreDataContainer.swift in Sources */,
 				7489AE5126EC229900C4E4E9 /* StatisticViewController.swift in Sources */,
 				74D1BAE726E03D7000A2A88E /* MainViewModel.swift in Sources */,
 				743A64AC26F0177F00E0C944 /* TeamsCoordinator.swift in Sources */,
+				743A64EA26F272B700E0C944 /* LeagueObject+CoreDataProperties.swift in Sources */,
 				7489AE5926ED1FB600C4E4E9 /* MatchProxy.swift in Sources */,
 				74D1BAEC26E1227600A2A88E /* JSONParser.swift in Sources */,
 				74D1BAF826E1913A00A2A88E /* LeagueCollectionViewCell.swift in Sources */,
@@ -544,24 +602,30 @@
 				7489AE4F26EC220100C4E4E9 /* StatisticCoordinator.swift in Sources */,
 				74D1BAF426E1421B00A2A88E /* URLBuilder.swift in Sources */,
 				74D1BA6C26DED5AF00A2A88E /* AppCoordinator.swift in Sources */,
+				743A64E826F272B700E0C944 /* TeamObject+CoreDataProperties.swift in Sources */,
 				74D1BA5326DDA16200A2A88E /* AppDelegate.swift in Sources */,
 				7489AE4A26EAFE0B00C4E4E9 /* EndPointFactory.swift in Sources */,
 				7489AE4626EAFBF900C4E4E9 /* LeagueBuilder.swift in Sources */,
 				743A64B526F02ACB00E0C944 /* TeamResult.swift in Sources */,
 				743A64B726F0331D00E0C944 /* TeamBuilder.swift in Sources */,
+				743A64EC26F272B700E0C944 /* MatchObject+CoreDataProperties.swift in Sources */,
 				74D1BA6826DECFEF00A2A88E /* Coordinating.swift in Sources */,
 				743A64A726F0172900E0C944 /* TeamsViewController.swift in Sources */,
+				743A64BA26F165A100E0C944 /* DataBase.xcdatamodeld in Sources */,
 				7489AE4C26EB01D300C4E4E9 /* MatchBuilder.swift in Sources */,
 				7489ADD626E5683500C4E4E9 /* URLRequest+QueryItem.swift in Sources */,
+				743A64E926F272B700E0C944 /* LeagueObject+CoreDataClass.swift in Sources */,
 				743A64AA26F0176800E0C944 /* TeamsViewModel.swift in Sources */,
 				7489AE5326EC23A600C4E4E9 /* StatisticViewModel.swift in Sources */,
 				74D1BAEE26E1363300A2A88E /* League.swift in Sources */,
 				7489ADD226E414A600C4E4E9 /* MatchTableViewCell.swift in Sources */,
 				74D1BAE326E0360300A2A88E /* MainViewController.swift in Sources */,
+				743A64E726F272B700E0C944 /* TeamObject+CoreDataClass.swift in Sources */,
 				743A645626ED769300E0C944 /* StatisticTableViewCell.swift in Sources */,
 				74D1BB0226E2BDB400A2A88E /* ImageDataService.swift in Sources */,
 				7489ADD026E4148800C4E4E9 /* MatchCellViewModel.swift in Sources */,
 				7489AE4826EAFCBA00C4E4E9 /* APIConfig.swift in Sources */,
+				743A64EB26F272B700E0C944 /* MatchObject+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -771,6 +835,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		743A64B826F165A000E0C944 /* DataBase.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				743A64B926F165A100E0C944 /* DataBase.xcdatamodel */,
+			);
+			currentVersion = 743A64B926F165A100E0C944 /* DataBase.xcdatamodel */;
+			path = DataBase.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 74D1BA4726DDA16200A2A88E /* Project object */;
 }

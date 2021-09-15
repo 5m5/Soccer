@@ -91,9 +91,12 @@ final class MainViewModel: MainViewModelProtocol {
     let urlBuilder = endPoint.leagues()
     let urlRequest = urlBuilder.urlRequest
 
+    CoreDataContainer.shared.getLeagues()
+
     fetch(parser: parser, urlRequest: urlRequest) { [weak self] leagues in
       guard let self = self else { return }
 
+      CoreDataContainer.shared.saveLeagues(response: leagues.response)
       self.leagues = leagues.response
       self.leaguesCount = leagues.count
       completion()
