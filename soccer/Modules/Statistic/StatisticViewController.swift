@@ -78,14 +78,16 @@ private extension StatisticViewController {
       tableView.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),
       tableView.widthAnchor.constraint(equalTo: stackView.widthAnchor),
       tableView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
+
+      scoreLabel.centerXAnchor.constraint(equalTo: stackView.centerXAnchor),
     ])
   }
 
   private func makeStackView() -> UIStackView {
     let stackView = UIStackView()
     stackView.axis = .horizontal
-    stackView.distribution = .equalCentering
-    stackView.alignment = .center
+    stackView.distribution = .fillEqually
+    stackView.alignment = .fill
     stackView.addArrangedSubview(makeTeamStackView(isHomeTeam: true))
     stackView.addArrangedSubview(scoreLabel)
     stackView.addArrangedSubview(makeTeamStackView(isHomeTeam: false))
@@ -110,6 +112,8 @@ private extension StatisticViewController {
   private func makeLabel() -> UILabel {
     let label = UILabel()
     label.textAlignment = .center
+    label.numberOfLines = 0
+    label.lineBreakMode = .byWordWrapping
     label.translatesAutoresizingMaskIntoConstraints = false
     return label
   }
