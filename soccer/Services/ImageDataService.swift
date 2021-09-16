@@ -23,4 +23,17 @@ final class ImageDataService {
     return data
   }
 
+  func asyncImageData(urlString: String?, completion: @escaping (Data?) -> Void) {
+    let queue = DispatchQueue(label: "com.andreev.soccer.image_load", attributes: .concurrent)
+    queue.async {
+      guard
+        let urlString = urlString,
+        let url = URL(string: urlString) else { return }
+
+      let data = try? Data(contentsOf: url)
+      completion(data)
+    }
+
+  }
+
 }

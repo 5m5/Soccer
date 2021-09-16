@@ -27,6 +27,7 @@ final class MatchTableViewCell: UITableViewCell {
     $0.alignment = .center
     $0.distribution = .equalCentering
     $0.axis = .horizontal
+    $0.spacing = 5
     $0.addArrangedSubview(homeImageView)
     $0.addArrangedSubview(homeTeamLabel)
     $0.addArrangedSubview(scoreLabel)
@@ -34,6 +35,9 @@ final class MatchTableViewCell: UITableViewCell {
     $0.addArrangedSubview(awayImageView)
     return $0
   }(UIStackView())
+
+  private var workItem: DispatchWorkItem?
+  private var uiWorkItem: DispatchWorkItem?
 
   // MARK: - Lifecycle
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -51,6 +55,7 @@ final class MatchTableViewCell: UITableViewCell {
 
   override func prepareForReuse() {
     super.prepareForReuse()
+    viewModel?.prepareForReuse()
     homeImageView.image = nil
     awayImageView.image = nil
   }
@@ -83,25 +88,20 @@ private extension MatchTableViewCell {
   }
 
   func asyncLoadImages(viewModel: MatchCellViewModelProtocol) {
-    DispatchQueue.global().async {
-      let defaultImage = UIImage(named: viewModel.defaultImageName)
-      var homeImage = defaultImage
-      var awayImage = defaultImage
+    let defaultImage = UIImage(named: "football_club")
 
-      let imagesData = viewModel.imagesData
+    viewModel.fetchImages { [weak self] in
+      guard let self = self else { return }
 
-      if let data = imagesData.home, let image = UIImage(data: data) {
-        homeImage = image
+      self.homeImageView.image = defaultImage
+      self.awayImageView.image = defaultImage
+
+      if let data = viewModel.homeImageData, let image = UIImage(data: data) {
+        self.homeImageView.image = image
       }
 
-      if let data = imagesData.away, let image = UIImage(data: data) {
-        awayImage = image
-      }
-
-      DispatchQueue.main.async { [weak self] in
-        guard let self = self else { return }
-        self.homeImageView.image = homeImage
-        self.awayImageView.image = awayImage
+      if let data = viewModel.awayImageData, let image = UIImage(data: data) {
+        self.awayImageView.image = image
       }
     }
   }
@@ -164,8 +164,8 @@ private extension MatchTableViewCell {
   func teamNameLabel() -> UILabel {
     let label = UILabel()
     label.textColor = .label
-    label.numberOfLines = 2
-    label.lineBreakMode = .byWordWrapping
+    label.numberOfLines = 1
+    label.lineBreakMode = .byTruncatingTail
     label.textAlignment = .center
     label.translatesAutoresizingMaskIntoConstraints = false
     return label
