@@ -11,11 +11,8 @@ import Foundation
 protocol MainViewModelProtocol: AnyObject {
   var coordinator: MainCoordinator? { get }
   var title: String { get }
-  var constraintMargin: Int { get }
 
-  var labelsFont: (name: String, size: Int) { get }
   var leaguesLabelTitle: String { get }
-  var collectionViewHeightMultiplier: Float { get }
   var leagues: [LeagueResponse] { get }
   var leaguesCount: Int { get }
   var leagueName: String { get }
@@ -34,10 +31,7 @@ final class MainViewModel: MainViewModelProtocol {
   weak var coordinator: MainCoordinator?
 
   var title = "Matches history"
-  var constraintMargin = 16
-  var labelsFont = (name: "Legacy", size: 28)
   var leaguesLabelTitle = "Select league"
-  var collectionViewHeightMultiplier: Float = 0.25
 
   var leagues: [LeagueResponse] = []
   var leaguesCount = 0

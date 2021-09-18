@@ -75,8 +75,7 @@ private extension MatchTableViewCell {
     guard let viewModel = viewModel else { preconditionFailure("Can't unwrap viewModel") }
     scoreLabel.text = viewModel.scoreLabelText
 
-    let scoreLabelFont = viewModel.scoreLabelFont
-    scoreLabel.font = UIFont(name: scoreLabelFont.name, size: CGFloat(scoreLabelFont.size))
+    scoreLabel.font = UIFont(name: "Avenir-Light", size: 22)
     let teamNames = viewModel.teamNames
     homeTeamLabel.text = teamNames.home
     awayTeamLabel.text = teamNames.away

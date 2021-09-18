@@ -29,6 +29,7 @@ final class MainViewController: ViewModelController<MainViewModelProtocol> {
         scrollPosition: .left
       )
 
+      // При первом запуске вызываем метод для загрузки матчей лиги
       self
         .leagueCollectionView
         .delegate?
@@ -58,8 +59,7 @@ private extension MainViewController {
 
   func makeLabel() -> UILabel {
     let label = UILabel()
-    let font = viewModel.labelsFont
-    label.font = UIFont(name: font.name, size: CGFloat(font.size))
+    label.font = UIFont(name: "Legacy", size: 28)
     label.textAlignment = .left
     label.translatesAutoresizingMaskIntoConstraints = false
     return label
@@ -72,7 +72,7 @@ private extension MainViewController {
     addSubviews()
 
     let safeArea = view.safeAreaLayoutGuide
-    let margin = CGFloat(viewModel.constraintMargin)
+    let margin: CGFloat = 16
     setupConstraints(safeArea: safeArea, margin: margin)
   }
 
@@ -122,7 +122,7 @@ private extension MainViewController {
 
       leagueCollectionView.heightAnchor.constraint(
         equalTo: safeArea.heightAnchor,
-        multiplier: CGFloat(viewModel.collectionViewHeightMultiplier)
+        multiplier: 0.25
       ),
     ])
   }
