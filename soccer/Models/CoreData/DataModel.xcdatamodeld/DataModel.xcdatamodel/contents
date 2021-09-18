@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20G95" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="MOPlayer" representedClassName="MOPlayer" syncable="YES">
+        <attribute name="age" optional="YES" attributeType="Integer 64" usesScalarValueType="YES"/>
+        <attribute name="id" attributeType="Integer 64" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="number" optional="YES" attributeType="Integer 64" usesScalarValueType="YES"/>
+        <attribute name="photoPath" optional="YES" attributeType="String"/>
+        <attribute name="position" optional="YES" attributeType="String"/>
+        <relationship name="team" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MOTeam" inverseName="players" inverseEntity="MOTeam"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="id"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="MOStadium" representedClassName="MOStadium" syncable="YES">
+        <attribute name="address" optional="YES" attributeType="String"/>
+        <attribute name="city" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="team" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MOTeam" inverseName="stadium" inverseEntity="MOTeam"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="id"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="MOTeam" representedClassName="MOTeam" syncable="YES">
+        <attribute name="country" optional="YES" attributeType="String"/>
+        <attribute name="id" attributeType="Integer 64" usesScalarValueType="YES"/>
+        <attribute name="logoPath" optional="YES" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
+        <relationship name="players" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="MOPlayer" inverseName="team" inverseEntity="MOPlayer"/>
+        <relationship name="stadium" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="MOStadium" inverseName="team" inverseEntity="MOStadium"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="id"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <elements>
+        <element name="MOTeam" positionX="-36" positionY="9" width="128" height="119"/>
+        <element name="MOPlayer" positionX="0" positionY="72" width="128" height="134"/>
+        <element name="MOStadium" positionX="27" positionY="135" width="128" height="104"/>
+    </elements>
+</model>

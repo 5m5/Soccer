@@ -25,10 +25,12 @@ struct TeamResult: Codable {
 struct TeamResponse: Codable {
   let team: Team
   let stadium: Stadium
+  var players: [Player]?
 
   private enum CodingKeys: String, CodingKey {
     case team
     case stadium = "venue"
+    case players
   }
 }
 

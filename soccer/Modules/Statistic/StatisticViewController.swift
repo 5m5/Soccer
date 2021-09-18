@@ -132,6 +132,7 @@ private extension StatisticViewController {
     tableView.register(StatisticTableViewCell.self, forCellReuseIdentifier: identifier)
     tableView.dataSource = self
     tableView.contentMode = .center
+    tableView.allowsSelection = false
     tableView.translatesAutoresizingMaskIntoConstraints = false
     return tableView
   }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 // MARK: - Protocol
 protocol TeamDetailsViewModelProtocol: AnyObject {
@@ -20,8 +21,12 @@ protocol TeamDetailsViewModelProtocol: AnyObject {
   var playersCount: Int { get }
   var players: [Player] { get }
 
+  var stadiumLabelText: String { get }
+  var placemark: CLPlacemark? { get }
+
   init(teamResponse: TeamResponse)
 
+  func coordinates(completion: @escaping () -> Void)
   func fetchPlayers(completion: @escaping () -> Void)
   func playerCellViewModel(for indexPath: IndexPath) -> ImageCellViewModelProtocol
 }
@@ -41,8 +46,25 @@ final class TeamDetailsViewModel: TeamDetailsViewModelProtocol {
   var playersCount: Int { players.count }
   var players: [Player] = []
 
+  var stadiumLabelText: String {
+    guard let name = teamResponse.stadium.name else { return "" }
+    return "Stadium - \(name)"
+  }
+
+  var placemark: CLPlacemark?
+
   init(teamResponse: TeamResponse) {
     self.teamResponse = teamResponse
+  }
+
+  func coordinates(completion: @escaping () -> Void) {
+    let geocoder = CLGeocoder()
+    guard let city = teamResponse.stadium.city else { return }
+    geocoder.geocodeAddressString(city) { [weak self] placemark, _ in
+      guard let self = self else { return }
+      self.placemark = placemark?.first
+      completion()
+    }
   }
 
   func fetchPlayers(completion: @escaping () -> Void) {
@@ -56,7 +78,9 @@ final class TeamDetailsViewModel: TeamDetailsViewModelProtocol {
           guard
             let self = self,
             let playerResponse = result.response.first else { return }
-          self.players = playerResponse.players
+          let players = playerResponse.players
+          self.players = players
+          self.teamResponse.players = players
           completion()
         }
       case .failure(let error):

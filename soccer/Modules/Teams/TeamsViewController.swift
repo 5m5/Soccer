@@ -17,6 +17,7 @@ final class TeamsViewController: ViewModelController<TeamsViewModelProtocol> {
   override func viewDidLoad() {
     super.viewDidLoad()
 
+    searchController.searchBar.delegate = self
     setupView()
   }
 
@@ -37,6 +38,8 @@ private extension TeamsViewController {
   func setupView() {
     title = "Teams"
     view.backgroundColor = .systemBackground
+
+    teamsFromDataBase()
 
     view.addSubview(tableView)
     setupSearchController()
@@ -61,6 +64,13 @@ private extension TeamsViewController {
     ])
   }
 
+  func teamsFromDataBase() {
+    viewModel.fetchTeamsFromDataBase { [weak self] in
+      guard let self = self else { return }
+      self.tableView.reloadData()
+    }
+  }
+
 }
 
 // MARK: - UISearchResultsUpdating
@@ -73,6 +83,14 @@ extension TeamsViewController: UISearchResultsUpdating {
 
       self.tableView.reloadData()
     }
+  }
+
+}
+
+// MARK: - UISearchBarDelegate
+extension TeamsViewController: UISearchBarDelegate {
+  func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+    teamsFromDataBase()
   }
 
 }
