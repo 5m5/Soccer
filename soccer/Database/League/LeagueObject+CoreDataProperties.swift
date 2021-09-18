@@ -17,7 +17,7 @@ extension LeagueObject {
 
   @NSManaged public var id: Int64
   @NSManaged public var name: String
-  @NSManaged public var logoPath: String
+  @NSManaged public var logoPath: String?
   @NSManaged public var matches: NSSet
 
 }

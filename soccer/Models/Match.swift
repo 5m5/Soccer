@@ -24,11 +24,13 @@ struct MatchResult: Codable {
 // MARK: - MatchResponse
 struct MatchResponse: Codable {
   let match: Match
+  let league: League
   let teams: PlayingTeamResponse
   let goals: Goals
 
   private enum CodingKeys: String, CodingKey {
     case match = "fixture"
+    case league
     case teams
     case goals
   }

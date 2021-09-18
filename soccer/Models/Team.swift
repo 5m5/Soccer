@@ -13,5 +13,4 @@ struct Team: Codable {
   let name: String
   let country: String?
   let logo: String
-  let winner: Bool?
 }

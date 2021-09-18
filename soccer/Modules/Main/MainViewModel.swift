@@ -13,12 +13,10 @@ protocol MainViewModelProtocol: AnyObject {
   var title: String { get }
 
   var leaguesLabelTitle: String { get }
-  var leagues: [LeagueResponse] { get }
   var leaguesCount: Int { get }
   var leagueName: String { get }
-
-  var matches: [MatchResponse] { get } // TODO: убрать?
   var matchesCount: Int { get }
+
   func fetchLeagues(completion: @escaping () -> Void)
   func collectionView(didSelectItemAt indexPath: IndexPath, completion: @escaping () -> Void)
   func tableView(didSelectRowAt indexPath: IndexPath)
@@ -28,22 +26,45 @@ protocol MainViewModelProtocol: AnyObject {
 
 // MARK: - Implementation
 final class MainViewModel: MainViewModelProtocol {
+
+  // MARK: - Protocol Properties
   weak var coordinator: MainCoordinator?
 
   var title = "Matches history"
   var leaguesLabelTitle = "Select league"
 
-  var leagues: [LeagueResponse] = []
   var leaguesCount = 0
   var leagueName = ""
 
-  var matches: [MatchResponse] = []
   var matchesCount = 0
 
+  // MARK: - Private Properties
+  private var matches: [MatchResponse] = []
+  private var leagues: [LeagueResponse] = []
   private var endPoint = EndPointFactory()
+
+  func fetchLeagues(completion: @escaping () -> Void) {
+    let parser = JSONParser<LeagueResult>()
+
+    let urlBuilder = endPoint.leagues()
+    let urlRequest = urlBuilder.urlRequest
+
+    loadFromDataBase()
+    completion()
+
+    fetch(parser: parser, urlRequest: urlRequest) { [weak self] leagues in
+      guard let self = self else { return }
+
+      self.leagues = leagues.response
+      self.leaguesCount = leagues.count
+      completion()
+    }
+  }
 
   func collectionView(didSelectItemAt indexPath: IndexPath, completion: @escaping () -> Void) {
     let index = indexPath.row
+    print(index, leaguesCount)
+    if index >= leaguesCount { return }
     let leagueResponse = leagues[index]
     let league = leagueResponse.league
     let leagueId = league.id
@@ -52,6 +73,8 @@ final class MainViewModel: MainViewModelProtocol {
     // Пока отображаем только последние сезоны лиг
     guard let season = leagueResponse.seasons.max(by: { $0.year < $1.year }) else { return }
     let seasonYear = season.year
+
+    loadFromDataBase()
 
     let parser = JSONParser<MatchResult>()
 
@@ -64,7 +87,9 @@ final class MainViewModel: MainViewModelProtocol {
     fetch(parser: parser, urlRequest: urlRequest) { [weak self] matches in
       guard let self = self else { return }
 
-      self.matches = matches.response.sorted { $0.match.timestamp > $1.match.timestamp }
+      let sortedMatches = matches.response.sorted { $0.match.timestamp > $1.match.timestamp }
+      CoreDataContainer.shared.saveMatches(response: sortedMatches)
+      self.matches = sortedMatches
       self.matchesCount = matches.count
       completion()
     }
@@ -77,24 +102,6 @@ final class MainViewModel: MainViewModelProtocol {
 
     precondition(coordinator != nil, "Coordinator should not be nil")
     coordinator?.tableViewCellTapped(matchResponse: matchResponse)
-  }
-
-  func fetchLeagues(completion: @escaping () -> Void) {
-    let parser = JSONParser<LeagueResult>()
-
-    let urlBuilder = endPoint.leagues()
-    let urlRequest = urlBuilder.urlRequest
-
-    CoreDataContainer.shared.getLeagues()
-
-    fetch(parser: parser, urlRequest: urlRequest) { [weak self] leagues in
-      guard let self = self else { return }
-
-      CoreDataContainer.shared.saveLeagues(response: leagues.response)
-      self.leagues = leagues.response
-      self.leaguesCount = leagues.count
-      completion()
-    }
   }
 
   func leagueCellViewModel(for indexPath: IndexPath) -> LeagueCellViewModelProtocol {
@@ -123,10 +130,64 @@ private extension MainViewModel {
           completion(result)
         }
       case .failure(let error):
+        DispatchQueue.main.async { [weak self] in
+          guard let self = self else { return }
+          self.loadFromDataBase()
+        }
         if error is NetworkError {
           print(error)
         } else {
           print(error.localizedDescription)
+        }
+      }
+    }
+  }
+
+  func loadFromDataBase() {
+    CoreDataContainer.shared.leagues { leagues in
+      leagues.forEach { leagueObject in
+        let league = League(
+          id: Int(leagueObject.id),
+          name: leagueObject.name,
+          logo: leagueObject.logoPath
+        )
+
+        let leagueResponse = LeagueResponse(league: league, seasons: [Season(year: 2021)])
+        let matchesObject = leagueObject.matches as! Set<MatchObject>
+
+        matchesObject.forEach { matchObject in
+          let match = Match(
+            id: Int(matchObject.id),
+            timestamp: matchObject.date.timeIntervalSince1970)
+
+          let homeObject = matchObject.home
+          let homeTeam = Team(
+            id: Int(homeObject.id),
+            name: homeObject.name,
+            country: nil,
+            logo: homeObject.logoPath
+          )
+
+          let awayObject = matchObject.away
+          let awayTeam = Team(
+            id: Int(awayObject.id),
+            name: awayObject.name,
+            country: nil,
+            logo: awayObject.logoPath
+          )
+
+          let goals = Goals(home: Int(homeObject.goals), away: Int(awayObject.goals))
+
+          let matchResponse = MatchResponse(
+            match: match,
+            league: league,
+            teams: PlayingTeamResponse(home: homeTeam, away: awayTeam),
+            goals: goals
+          )
+
+          self.matches.append(matchResponse)
+          self.leagues.append(leagueResponse)
+          print(matchResponse)
         }
       }
     }

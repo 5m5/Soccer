@@ -22,7 +22,11 @@ final class JSONParser<T: Codable> {
     print(urlRequest)
     #endif
 
-    let dataTask = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+    let configuration = URLSessionConfiguration.default
+    configuration.timeoutIntervalForRequest = 5
+    configuration.timeoutIntervalForResource = 10
+    let session = URLSession(configuration: configuration)
+    let dataTask = session.dataTask(with: urlRequest) { data, response, error in
       if let error = error {
         completion(.failure(error))
       }

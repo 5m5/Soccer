@@ -17,7 +17,8 @@ extension TeamObject {
 
   @NSManaged public var id: Int64
   @NSManaged public var name: String
-  @NSManaged public var logo: URL
+  @NSManaged public var goals: Int64
+  @NSManaged public var logoPath: String
   @NSManaged public var home: MatchObject?
   @NSManaged public var away: MatchObject?
 

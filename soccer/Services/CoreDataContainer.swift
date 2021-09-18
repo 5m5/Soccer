@@ -27,18 +27,42 @@ final class CoreDataContainer {
     return context
   }()
 
+  private lazy var context = persistentContainer.viewContext
+
   // MARK: - Initializers
   private init() { }
 
   // MARK: - Public Methods
-  func saveLeagues(response: [LeagueResponse]) {
+
+  func saveMatches(response: [MatchResponse]) {
     backgroundContext.perform { [weak self] in
       guard let self = self else { return }
+
+      let leagueObject = LeagueObject(context: self.backgroundContext)
+      // Все матчи из одной лиги, поэтому за пределами цикла
+      guard let league = response.first?.league else { return }
+
+      leagueObject.id = Int64(league.id)
+      leagueObject.name = league.name
+      leagueObject.logoPath = league.logo
+
       response.forEach { response in
-        let league = LeagueObject(context: self.backgroundContext)
-        league.id = Int64(response.league.id)
-        league.name = response.league.name
-        league.logoPath = response.league.logo!
+        let matchObject = MatchObject(context: self.backgroundContext)
+        let match = response.match
+
+        matchObject.league = leagueObject
+        matchObject.id = Int64(match.id)
+        matchObject.date = Date(timeIntervalSince1970: match.timestamp)
+        leagueObject.addToMatches(matchObject)
+
+        let teams = response.teams
+        let goals = response.goals
+        let homeTeamObject = self.createTeamObject(team: teams.home, goals: goals.home)
+        matchObject.home = homeTeamObject
+        homeTeamObject.away = matchObject
+        let awayTeamObject = self.createTeamObject(team: teams.away, goals: goals.away)
+        matchObject.away = awayTeamObject
+        awayTeamObject.away = matchObject
       }
 
       do {
@@ -46,14 +70,16 @@ final class CoreDataContainer {
       } catch {
         print("CoreDataError: ", error)
       }
+
     }
   }
 
-  func getLeagues() {
-    backgroundContext.performAndWait {
+  func leagues(completion: @escaping ([LeagueObject]) -> Void) {
+    context.performAndWait {
       let request = NSFetchRequest<LeagueObject>(entityName: "LeagueObject")
       do {
         let result = try request.execute()
+        completion(result)
         print("leagues:", result.count)
       } catch {
         print("getLeagues", error)
@@ -69,6 +95,19 @@ final class CoreDataContainer {
         print(error)
       }
     }
+  }
+
+}
+
+// MARK: - Private Methods
+private extension CoreDataContainer {
+  func createTeamObject(team: Team, goals: Int?) -> TeamObject {
+    let teamObject = TeamObject(context: self.backgroundContext)
+    teamObject.id = Int64(team.id)
+    teamObject.goals = Int64(goals ?? 0)
+    teamObject.logoPath = team.logo
+    teamObject.name = team.name
+    return teamObject
   }
 
 }
