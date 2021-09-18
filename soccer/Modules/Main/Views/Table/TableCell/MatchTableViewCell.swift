@@ -17,9 +17,9 @@ final class MatchTableViewCell: UITableViewCell {
   // MARK: - Private Properties
   // Слева направо
   private lazy var homeImageView = imageView()
-  private lazy var homeTeamLabel = teamNameLabel()
-  private lazy var scoreLabel = setupScoreLabel()
-  private lazy var awayTeamLabel = teamNameLabel()
+  private lazy var homeTeamLabel = setupLabel(isTeam: true)
+  private lazy var scoreLabel = setupLabel(isTeam: false)
+  private lazy var awayTeamLabel = setupLabel(isTeam: true)
   private lazy var awayImageView = imageView()
 
   private lazy var stackView: UIStackView = {
@@ -80,7 +80,6 @@ private extension MatchTableViewCell {
     guard let viewModel = viewModel else { preconditionFailure("Can't unwrap viewModel") }
     scoreLabel.text = viewModel.scoreLabelText
 
-    scoreLabel.font = UIFont(name: "Avenir-Light", size: 22)
     let teamNames = viewModel.teamNames
     homeTeamLabel.text = teamNames.home
     awayTeamLabel.text = teamNames.away
@@ -145,14 +144,6 @@ private extension MatchTableViewCell {
     ])
   }
 
-  func setupScoreLabel() -> UILabel {
-    let label = UILabel()
-    label.textColor = .label
-    label.textAlignment = .center
-    label.translatesAutoresizingMaskIntoConstraints = false
-    return label
-  }
-
   func imageView() -> UIImageView {
     let imageView = UIImageView()
     imageView.contentMode = .scaleAspectFit
@@ -161,8 +152,10 @@ private extension MatchTableViewCell {
     return imageView
   }
 
-  func teamNameLabel() -> UILabel {
+  // Если true - для команды, иначе - для счета
+  func setupLabel(isTeam: Bool) -> UILabel {
     let label = UILabel()
+    label.font = isTeam ? UIFont(name: "Staubach", size: 16) : UIFont(name: "Legacy", size: 22)
     label.textColor = .label
     label.numberOfLines = 1
     label.lineBreakMode = .byTruncatingTail

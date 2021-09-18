@@ -23,6 +23,8 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     FirebaseApp.configure()
     makeNavigationBarTransparent()
     navigationBarFont()
+    tabBarFont()
+    backButton()
 
     window = UIWindow()
     window?.rootViewController = TabBarController()
@@ -44,6 +46,15 @@ private extension AppDelegate {
   func navigationBarFont() {
     let font = UIFont(name: "Legacy", size: 20) as Any
     UINavigationBar.appearance().titleTextAttributes = [.font: font]
+  }
+
+  func tabBarFont() {
+    guard let font = UIFont(name: "Staubach", size: 12) else { return }
+    UITabBarItem.appearance().setTitleTextAttributes([.font: font], for: .normal)
+  }
+
+  func backButton() {
+    UINavigationBar.appearance().tintColor = .label
   }
 
 }

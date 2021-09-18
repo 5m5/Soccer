@@ -68,6 +68,7 @@ private extension StatisticTableViewCell {
 
   func makeLabel() -> UILabel {
     let label = UILabel()
+    label.font = UIFont(name: "Staubach", size: 16)
     label.textAlignment = .center
     label.translatesAutoresizingMaskIntoConstraints = false
     return label

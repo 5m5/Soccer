@@ -20,6 +20,7 @@ final class StatisticViewController: ViewModelController<StatisticViewModelProto
   private lazy var stackView = makeStackView()
 
   private lazy var tableView = makeTableView()
+  private lazy var statisticNotEnabledLabel = makeLabel()
 
   // MARK: - Lifecycle
   override func viewDidLoad() {
@@ -28,6 +29,10 @@ final class StatisticViewController: ViewModelController<StatisticViewModelProto
     viewModel.fetchStatistic { [weak self] in
       guard let self = self else { return }
       self.tableView.reloadData()
+
+      let isTableViewHidden = self.viewModel.isTableViewHidden
+      self.tableView.isHidden = isTableViewHidden
+      self.statisticNotEnabledLabel.isHidden = !isTableViewHidden
     }
 
     setupView()
@@ -43,17 +48,24 @@ private extension StatisticViewController {
     setupConstraints()
 
     asyncLoadImages(viewModel: viewModel)
+    scoreLabel.font = UIFont(name: "Legacy", size: 20)
     scoreLabel.text = viewModel.scoreLabel
     let teamNames = viewModel.teamNames
     homeLabel.text = teamNames.home
     awayLabel.text = teamNames.away
     matchDateLabel.text = viewModel.matchDateString
+
+    statisticNotEnabledLabel.numberOfLines = 0
+    statisticNotEnabledLabel.font = statisticNotEnabledLabel.font.withSize(24)
+    statisticNotEnabledLabel.text = "Statistics for this match is not enabled"
+    statisticNotEnabledLabel.isHidden = true
   }
 
   private func addSubviews() {
     view.addSubview(matchDateLabel)
     view.addSubview(stackView)
     view.addSubview(tableView)
+    view.addSubview(statisticNotEnabledLabel)
   }
 
   func setupConstraints() {
@@ -78,6 +90,9 @@ private extension StatisticViewController {
       tableView.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),
       tableView.widthAnchor.constraint(equalTo: stackView.widthAnchor),
       tableView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
+      statisticNotEnabledLabel.centerXAnchor.constraint(equalTo: tableView.centerXAnchor),
+      statisticNotEnabledLabel.centerYAnchor.constraint(equalTo: tableView.centerYAnchor),
+      statisticNotEnabledLabel.widthAnchor.constraint(equalTo: stackView.widthAnchor),
 
       scoreLabel.centerXAnchor.constraint(equalTo: stackView.centerXAnchor),
     ])
@@ -111,6 +126,7 @@ private extension StatisticViewController {
 
   private func makeLabel() -> UILabel {
     let label = UILabel()
+    label.font = UIFont(name: "Staubach", size: 16)
     label.textAlignment = .center
     label.numberOfLines = 0
     label.lineBreakMode = .byWordWrapping
@@ -130,6 +146,8 @@ private extension StatisticViewController {
     let tableView = UITableView()
     let identifier = StatisticCellViewModel.identifier
     tableView.register(StatisticTableViewCell.self, forCellReuseIdentifier: identifier)
+    tableView.rowHeight = 45
+    tableView.showsVerticalScrollIndicator = false
     tableView.dataSource = self
     tableView.contentMode = .center
     tableView.allowsSelection = false

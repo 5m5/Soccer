@@ -10,6 +10,7 @@ import Foundation
 // MARK: - Protocol
 protocol TeamsViewModelProtocol: AnyObject {
   var coordinator: TeamsCoordinator? { get }
+  var title: String { get }
   var teamsCount: Int { get }
   var teams: [TeamResponse] { get }
   func searchTeams(name: String, completion: @escaping () -> Void)
@@ -21,6 +22,8 @@ protocol TeamsViewModelProtocol: AnyObject {
 // MARK: - Implementation
 final class TeamsViewModel: TeamsViewModelProtocol {
   weak var coordinator: TeamsCoordinator?
+
+  var title = "Teams"
 
   var teamsCount: Int { teams.count }
   var teams: [TeamResponse] = []
@@ -52,7 +55,7 @@ final class TeamsViewModel: TeamsViewModelProtocol {
     CoreDataController.shared.teams { [weak self] teamsMO in
       guard let self = self else { return }
       self.teams = []
-      
+
       teamsMO.forEach {
         let team = Team(
           id: Int($0.id),

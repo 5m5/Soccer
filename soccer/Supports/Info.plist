@@ -5,8 +5,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Legacy.ttf</string>
-		<string>HighSchoolUsaSans.ttf</string>
-		<string>HighSchoolUsaSerif.ttf</string>
+		<string>Staubach.ttf</string>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>

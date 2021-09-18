@@ -17,6 +17,7 @@ protocol StatisticViewModelProtocol: AnyObject {
   var teamNames: (home: String, away: String) { get }
   var scoreLabel: String { get }
   var matchDateString: String { get }
+  var isTableViewHidden: Bool { get }
   init(matchResponse: MatchResponse)
 
   func fetchStatistic(completion: @escaping () -> Void)
@@ -58,6 +59,8 @@ final class StatisticViewModel: StatisticViewModelProtocol {
     return dateFormatter.string(from: date)
   }
 
+  var isTableViewHidden: Bool { statisticsCount == 0 }
+
   init(matchResponse: MatchResponse) {
     self.matchResponse = matchResponse
   }
@@ -77,7 +80,7 @@ final class StatisticViewModel: StatisticViewModelProtocol {
         DispatchQueue.main.async { [weak self] in
           guard let self = self else { return }
           let statistics = result.response
-          if statistics.count < 2 { return }
+          if statistics.count < 2 { completion(); return }
           self.statistics = statistics
           self.statisticsCount = max(statistics[0].statistics.count, statistics[1].statistics.count)
           completion()

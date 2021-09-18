@@ -41,7 +41,7 @@ class TeamTableViewCell: UITableViewCell {
 
   override func prepareForReuse() {
     super.prepareForReuse()
-
+    viewModel?.prepareForReuse()
     teamLogoImageView.image = nil
   }
 
@@ -102,6 +102,7 @@ private extension TeamTableViewCell {
 
   func makeLabel() -> UILabel {
     let label = UILabel()
+    label.font = UIFont(name: "Staubach", size: 16)
     label.textAlignment = .left
     label.translatesAutoresizingMaskIntoConstraints = false
     return label
@@ -122,15 +123,12 @@ private extension TeamTableViewCell {
   func asyncLoadImage() {
     guard let viewModel = viewModel else { preconditionFailure("Can't unwrap viewModel") }
 
-    DispatchQueue.global().async {
-      var image = UIImage(named: "football_player")
+    let defaultImage = UIImage(named: "football_club")
 
-      if let data = viewModel.imageData, let teamLogoImage = UIImage(data: data) {
-        image = teamLogoImage
-      }
+    viewModel.fetchImage {
+      self.teamLogoImageView.image = defaultImage
 
-      DispatchQueue.main.async { [weak self] in
-        guard let self = self else { return }
+      if let data = viewModel.imageData, let image = UIImage(data: data) {
         self.teamLogoImageView.image = image
       }
     }

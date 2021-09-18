@@ -69,6 +69,14 @@ private extension MainViewController {
     title = viewModel.title
     selectLeagueLabel.text = viewModel.leaguesLabelTitle
     view.backgroundColor = .systemBackground
+
+    navigationItem.backBarButtonItem = UIBarButtonItem(
+      title: "",
+      style: .plain,
+      target: nil,
+      action: nil
+    )
+
     addSubviews()
 
     let safeArea = view.safeAreaLayoutGuide

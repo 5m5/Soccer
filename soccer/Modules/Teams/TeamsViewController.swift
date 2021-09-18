@@ -36,8 +36,15 @@ private extension TeamsViewController {
   }
 
   func setupView() {
-    title = "Teams"
+    title = viewModel.title
     view.backgroundColor = .systemBackground
+
+    navigationItem.backBarButtonItem = UIBarButtonItem(
+      title: "",
+      style: .plain,
+      target: nil,
+      action: nil
+    )
 
     teamsFromDataBase()
 

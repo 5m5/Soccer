@@ -42,7 +42,13 @@ final class MainViewModel: MainViewModelProtocol {
 
   private var endPoint = EndPointFactory()
 
+  private var collectionIndexPath = IndexPath()
+
   func collectionView(didSelectItemAt indexPath: IndexPath, completion: @escaping () -> Void) {
+    if indexPath == collectionIndexPath { return }
+
+    collectionIndexPath = indexPath
+
     let index = indexPath.row
     let leagueResponse = leagues[index]
     let league = leagueResponse.league
