@@ -1,5 +1,5 @@
 //
-//  LeagueCollectionView.swift
+//  ImageCollectionView.swift
 //  soccer
 //
 //  Created by Mikhail Andreev on 03.09.2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class LeagueCollectionView: UICollectionView {
+final class ImageCollectionView: UICollectionView {
 
   init() {
     let layout = UICollectionViewFlowLayout()
@@ -22,8 +22,8 @@ final class LeagueCollectionView: UICollectionView {
     backgroundColor = .systemBackground
 
     register(
-      LeagueCollectionViewCell.self,
-      forCellWithReuseIdentifier: LeagueCellViewModel.identifier
+      ImageCollectionViewCell.self,
+      forCellWithReuseIdentifier: ImageCellViewModel.identifier
     )
   }
 

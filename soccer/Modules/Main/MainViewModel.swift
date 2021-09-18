@@ -22,7 +22,7 @@ protocol MainViewModelProtocol: AnyObject {
   func fetchLeagues(completion: @escaping () -> Void)
   func collectionView(didSelectItemAt indexPath: IndexPath, completion: @escaping () -> Void)
   func tableView(didSelectRowAt indexPath: IndexPath)
-  func leagueCellViewModel(for indexPath: IndexPath) -> LeagueCellViewModelProtocol
+  func leagueCellViewModel(for indexPath: IndexPath) -> ImageCellViewModelProtocol
   func matchCellViewModel(for indexPath: IndexPath) -> MatchCellViewModelProtocol
 }
 
@@ -73,7 +73,6 @@ final class MainViewModel: MainViewModelProtocol {
   func tableView(didSelectRowAt indexPath: IndexPath) {
     let index = indexPath.row
     let matchResponse = matches[index]
-    print(matchResponse.match.id)
 
     precondition(coordinator != nil, "Coordinator should not be nil")
     coordinator?.tableViewCellTapped(matchResponse: matchResponse)
@@ -94,9 +93,9 @@ final class MainViewModel: MainViewModelProtocol {
     }
   }
 
-  func leagueCellViewModel(for indexPath: IndexPath) -> LeagueCellViewModelProtocol {
+  func leagueCellViewModel(for indexPath: IndexPath) -> ImageCellViewModelProtocol {
     let leagueResponse = leagues[indexPath.row]
-    return LeagueCellViewModel(league: leagueResponse.league)
+    return ImageCellViewModel(imagePath: leagueResponse.league.logo)
   }
 
   func matchCellViewModel(for indexPath: IndexPath) -> MatchCellViewModelProtocol {

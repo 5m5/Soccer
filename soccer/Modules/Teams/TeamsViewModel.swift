@@ -9,14 +9,18 @@ import Foundation
 
 // MARK: - Protocol
 protocol TeamsViewModelProtocol: AnyObject {
+  var coordinator: TeamsCoordinator? { get }
   var teamsCount: Int { get }
   var teams: [TeamResponse] { get }
   func searchTeams(name: String, completion: @escaping () -> Void)
   func teamCellViewModel(for indexPath: IndexPath) -> TeamCellViewModelProtocol
+  func tableView(didSelectRowAt indexPath: IndexPath)
 }
 
 // MARK: - Implementation
 final class TeamsViewModel: TeamsViewModelProtocol {
+  weak var coordinator: TeamsCoordinator?
+
   var teamsCount: Int { teams.count }
   var teams: [TeamResponse] = []
 
@@ -46,6 +50,14 @@ final class TeamsViewModel: TeamsViewModelProtocol {
   func teamCellViewModel(for indexPath: IndexPath) -> TeamCellViewModelProtocol {
     let team = teams[indexPath.row].team
     return TeamCellViewModel(team: team)
+  }
+
+  func tableView(didSelectRowAt indexPath: IndexPath) {
+    let index = indexPath.row
+    let teamResponse = teams[index]
+
+    precondition(coordinator != nil, "Coordinator should not be nil")
+    coordinator?.tableViewCellTapped(teamResponse: teamResponse)
   }
 
 }

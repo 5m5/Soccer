@@ -14,6 +14,7 @@ protocol EndPointFactoryProtocol: AnyObject {
   func matches() -> MatchBuilderProtocol
   func statistics() -> StatisticBuilderProtocol
   func teams() -> TeamBuilderProtocol
+  func players() -> PlayerBuilderProtocol
 }
 
 // MARK: - Implementation
@@ -43,6 +44,10 @@ final class EndPointFactory: EndPointFactoryProtocol {
 
   func teams() -> TeamBuilderProtocol {
     TeamBuilder(urlRequest: urlRequest)
+  }
+
+  func players() -> PlayerBuilderProtocol {
+    PlayerBuilder(urlRequest: urlRequest)
   }
 
 }

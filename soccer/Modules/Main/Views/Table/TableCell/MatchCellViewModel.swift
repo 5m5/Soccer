@@ -93,13 +93,3 @@ final class MatchCellViewModel: MatchCellViewModelProtocol {
   }
 
 }
-
-// MARK: - Private Methods
-private extension MatchCellViewModel {
-  func fetch(urlString: String?, completion: @escaping (Data?) -> Void) {
-    ImageDataService.shared.asyncImageData(urlString: urlString) { data in
-      completion(data)
-    }
-  }
-
-}

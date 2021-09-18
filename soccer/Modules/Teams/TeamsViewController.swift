@@ -29,7 +29,7 @@ private extension TeamsViewController {
     tableView.register(TeamTableViewCell.self, forCellReuseIdentifier: TeamCellViewModel.identifier)
     tableView.rowHeight = 90
     tableView.dataSource = self
-    tableView.allowsSelection = false
+    tableView.delegate = self
     tableView.translatesAutoresizingMaskIntoConstraints = false
     return tableView
   }
@@ -92,6 +92,14 @@ extension TeamsViewController: UITableViewDataSource {
 
     cell.viewModel = viewModel.teamCellViewModel(for: indexPath)
     return cell
+  }
+
+}
+
+// MARK: - UITableViewDelegate
+extension TeamsViewController: UITableViewDelegate {
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    viewModel.tableView(didSelectRowAt: indexPath)
   }
 
 }

@@ -17,10 +17,24 @@ struct TeamResult: Codable {
     case response
     case count = "results"
   }
+
 }
 
 // MARK: - Level 2
 // MARK: - TeamResponse
 struct TeamResponse: Codable {
   let team: Team
+  let stadium: Stadium
+
+  private enum CodingKeys: String, CodingKey {
+    case team
+    case stadium = "venue"
+  }
+}
+
+struct Stadium: Codable {
+  let id: Int?
+  let name: String?
+  let address: String?
+  let city: String?
 }

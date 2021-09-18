@@ -50,6 +50,7 @@ class TeamTableViewCell: UITableViewCell {
 private extension TeamTableViewCell {
 
   func setupView() {
+    selectionStyle = .none
     addSubview(teamLogoImageView)
     addSubview(stackView)
     setupConstraints()

@@ -1,5 +1,5 @@
 //
-//  LeagueCollectionViewCell.swift
+//  ImageCollectionViewCell.swift
 //  soccer
 //
 //  Created by Mikhail Andreev on 03.09.2021.
@@ -7,9 +7,9 @@
 
 import UIKit
 
-final class LeagueCollectionViewCell: UICollectionViewCell {
+final class ImageCollectionViewCell: UICollectionViewCell {
 
-  var viewModel: LeagueCellViewModelProtocol? {
+  var viewModel: ImageCellViewModelProtocol? {
     didSet { asyncLoadImage() }
   }
 
@@ -61,6 +61,7 @@ final class LeagueCollectionViewCell: UICollectionViewCell {
 
   override func prepareForReuse() {
     super.prepareForReuse()
+    viewModel?.prepareForReuse()
     imageView.image = nil
   }
 
@@ -74,15 +75,12 @@ final class LeagueCollectionViewCell: UICollectionViewCell {
   private func asyncLoadImage() {
     guard let viewModel = viewModel else { preconditionFailure("Can't unwrap viewModel") }
 
-    DispatchQueue.global().async {
-      var image = UIImage(named: "football_player")
+    let defaultImage = UIImage(named: "football_player")
 
-      if let data = viewModel.imageData, let leagueLogoImage = UIImage(data: data) {
-        image = leagueLogoImage
-      }
+    viewModel.fetchImage {
+      self.imageView.image = defaultImage
 
-      DispatchQueue.main.async { [weak self] in
-        guard let self = self else { return }
+      if let data = viewModel.imageData, let image = UIImage(data: data) {
         self.imageView.image = image
       }
     }

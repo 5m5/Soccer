@@ -12,6 +12,7 @@ enum EndPoints {
   static let matches = "fixtures"
   static let statistics = "\(matches)/statistics"
   static let teams = "teams"
+  static let players = "players/squads"
 }
 
 enum APIConfig {

@@ -43,8 +43,8 @@ final class MainViewController: ViewModelController<MainViewModelProtocol> {
 
 // MARK: - Private Methods
 private extension MainViewController {
-  func makeCollectionView() -> LeagueCollectionView {
-    let collectionView = LeagueCollectionView()
+  func makeCollectionView() -> ImageCollectionView {
+    let collectionView = ImageCollectionView()
     collectionView.delegate = self
     collectionView.dataSource = self
     return collectionView
@@ -170,11 +170,11 @@ extension MainViewController: UICollectionViewDataSource {
     _ collectionView: UICollectionView,
     cellForItemAt indexPath: IndexPath
   ) -> UICollectionViewCell {
-    let identifier = LeagueCellViewModel.identifier
+    let identifier = ImageCellViewModel.identifier
     guard let cell = collectionView.dequeueReusableCell(
       withReuseIdentifier: identifier,
       for: indexPath
-    ) as? LeagueCollectionViewCell else { preconditionFailure("Can't cast cell") }
+    ) as? ImageCollectionViewCell else { preconditionFailure("Can't cast cell") }
 
     cell.viewModel = viewModel.leagueCellViewModel(for: indexPath)
     return cell
@@ -193,6 +193,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
     let height = collectionView.bounds.height - insets.top - insets.bottom - 1
     return CGSize(width: collectionView.bounds.width / 4, height: height)
   }
+
 }
 
 // MARK: - UITableViewDelegate
