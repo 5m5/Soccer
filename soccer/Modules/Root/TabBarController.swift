@@ -28,6 +28,9 @@ final class TabBarController: UITabBarController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
+    tabBar.tintColor = .systemPink
+    tabBar.barTintColor = .systemBackground
+
     setViewControllers([mainViewController, teamsViewController], animated: false)
     mainCoordinator.start()
     teamsCoordinator.start()
