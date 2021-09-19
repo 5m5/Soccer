@@ -83,12 +83,26 @@ final class CoreDataController {
 
   func teams(completion: @escaping ([MOTeam]) -> Void) {
     context.performAndWait {
-      let request = NSFetchRequest<MOTeam>(entityName: "MOTeam")
+      let request: NSFetchRequest<MOTeam> = MOTeam.fetchRequest()
       do {
         let result = try request.execute()
         completion(result)
       } catch {
         Analytics.logEvent("Fetch teams", parameters: ["fetch error": error])
+      }
+    }
+  }
+
+  func removeTeam(id: Int) {
+    backgroundContext.perform {
+      let request: NSFetchRequest<MOTeam> = MOTeam.fetchRequest()
+      request.predicate = NSPredicate(format: "id == \(id)")
+      do {
+        guard let result = try request.execute().first else { return }
+        self.backgroundContext.delete(result)
+        try self.backgroundContext.save()
+      } catch {
+        Analytics.logEvent("Remove object", parameters: ["removing error": error])
       }
     }
   }

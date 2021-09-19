@@ -127,4 +127,19 @@ extension TeamsViewController: UITableViewDelegate {
     viewModel.tableView(didSelectRowAt: indexPath)
   }
 
+  func tableView(
+    _ tableView: UITableView,
+    commit editingStyle: UITableViewCell.EditingStyle,
+    forRowAt indexPath: IndexPath
+  ) {
+    if editingStyle == .delete {
+      viewModel.removeRow(indexPath: indexPath)
+      tableView.deleteRows(at: [indexPath], with: .automatic)
+    }
+  }
+
+  func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+    viewModel.isTableViewCanEditRow
+  }
+
 }

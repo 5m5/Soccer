@@ -13,10 +13,12 @@ protocol TeamsViewModelProtocol: AnyObject {
   var title: String { get }
   var teamsCount: Int { get }
   var teams: [TeamResponse] { get }
+  var isTableViewCanEditRow: Bool { get }
   func searchTeams(name: String, completion: @escaping () -> Void)
   func fetchTeamsFromDataBase(completion: @escaping () -> Void)
   func teamCellViewModel(for indexPath: IndexPath) -> TeamCellViewModelProtocol
   func tableView(didSelectRowAt indexPath: IndexPath)
+  func removeRow(indexPath: IndexPath)
 }
 
 // MARK: - Implementation
@@ -27,6 +29,8 @@ final class TeamsViewModel: TeamsViewModelProtocol {
 
   var teamsCount: Int { teams.count }
   var teams: [TeamResponse] = []
+
+  var isTableViewCanEditRow = false
 
   func searchTeams(name: String, completion: @escaping () -> Void) {
     let parser = JSONParser<TeamResult>()
@@ -39,6 +43,7 @@ final class TeamsViewModel: TeamsViewModelProtocol {
           guard let self = self else { return }
           let teams = result.response
           self.teams = teams
+          self.isTableViewCanEditRow = false
           completion()
         }
       case .failure(let error):
@@ -89,6 +94,7 @@ final class TeamsViewModel: TeamsViewModelProtocol {
             city: stadiumMO.city
           )
 
+          self.isTableViewCanEditRow = true
           self.teams.append(TeamResponse(team: team, stadium: stadium, players: players))
           completion()
         }
@@ -108,6 +114,13 @@ final class TeamsViewModel: TeamsViewModelProtocol {
     precondition(coordinator != nil, "Coordinator should not be nil")
     CoreDataController.shared.saveTeam(response: teamResponse)
     coordinator?.tableViewCellTapped(teamResponse: teamResponse)
+  }
+
+  func removeRow(indexPath: IndexPath) {
+    let i = indexPath.row
+    let team = teams[i].team
+    CoreDataController.shared.removeTeam(id: team.id)
+    teams.remove(at: i)
   }
 
 }
