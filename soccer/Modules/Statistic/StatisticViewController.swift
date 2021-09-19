@@ -42,7 +42,7 @@ final class StatisticViewController: ViewModelController<StatisticViewModelProto
 
 // MARK: - Private Methods
 private extension StatisticViewController {
-  private func setupView() {
+  func setupView() {
     view.backgroundColor = .systemBackground
     addSubviews()
     setupConstraints()
@@ -61,7 +61,7 @@ private extension StatisticViewController {
     statisticNotEnabledLabel.isHidden = true
   }
 
-  private func addSubviews() {
+  func addSubviews() {
     view.addSubview(matchDateLabel)
     view.addSubview(stackView)
     view.addSubview(tableView)
@@ -98,7 +98,7 @@ private extension StatisticViewController {
     ])
   }
 
-  private func makeStackView() -> UIStackView {
+  func makeStackView() -> UIStackView {
     let stackView = UIStackView()
     stackView.axis = .horizontal
     stackView.distribution = .fillEqually
@@ -110,7 +110,7 @@ private extension StatisticViewController {
     return stackView
   }
 
-  private func makeTeamStackView(isHomeTeam: Bool) -> UIStackView {
+  func makeTeamStackView(isHomeTeam: Bool) -> UIStackView {
 
     let teamImageView = isHomeTeam ? homeImageView : awayImageView
     let teamLabel = isHomeTeam ? homeLabel : awayLabel
@@ -124,7 +124,7 @@ private extension StatisticViewController {
     return stackView
   }
 
-  private func makeLabel() -> UILabel {
+  func makeLabel() -> UILabel {
     let label = UILabel()
     label.font = UIFont(name: "Staubach", size: 16)
     label.textAlignment = .center
@@ -134,7 +134,7 @@ private extension StatisticViewController {
     return label
   }
 
-  private func makeImageView() -> UIImageView {
+  func makeImageView() -> UIImageView {
     let imageView = UIImageView()
     imageView.contentMode = .scaleAspectFit
     imageView.adjustsImageSizeForAccessibilityContentSizeCategory = true
@@ -142,7 +142,7 @@ private extension StatisticViewController {
     return imageView
   }
 
-  private func makeTableView() -> UITableView {
+  func makeTableView() -> UITableView {
     let tableView = UITableView()
     let identifier = StatisticCellViewModel.identifier
     tableView.register(StatisticTableViewCell.self, forCellReuseIdentifier: identifier)
