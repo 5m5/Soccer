@@ -132,7 +132,7 @@
 		7489AE5426ED0CD000C4E4E9 /* Statistic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistic.swift; sourceTree = "<group>"; };
 		7489AE5626ED108300C4E4E9 /* StatisticBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticBuilder.swift; sourceTree = "<group>"; };
 		7489AE5826ED1FB600C4E4E9 /* MatchProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchProxy.swift; sourceTree = "<group>"; };
-		74D1BA4F26DDA16200A2A88E /* soccer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = soccer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		74D1BA4F26DDA16200A2A88E /* Soccer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Soccer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74D1BA5226DDA16200A2A88E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74D1BA5B26DDA16600A2A88E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		74D1BA5E26DDA16600A2A88E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -341,7 +341,7 @@
 			isa = PBXGroup;
 			children = (
 				74D1BAFE26E1A56E00A2A88E /* .swiftlint.yml */,
-				74D1BA5126DDA16200A2A88E /* soccer */,
+				74D1BA5126DDA16200A2A88E /* Soccer */,
 				74D1BA5026DDA16200A2A88E /* Products */,
 				7489AE0726EAADF800C4E4E9 /* Frameworks */,
 			);
@@ -350,12 +350,12 @@
 		74D1BA5026DDA16200A2A88E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				74D1BA4F26DDA16200A2A88E /* soccer.app */,
+				74D1BA4F26DDA16200A2A88E /* Soccer.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		74D1BA5126DDA16200A2A88E /* soccer */ = {
+		74D1BA5126DDA16200A2A88E /* Soccer */ = {
 			isa = PBXGroup;
 			children = (
 				74D1BA6A26DED58F00A2A88E /* Abstract */,
@@ -366,7 +366,7 @@
 				74D1BADE26E0351D00A2A88E /* Resources */,
 				74D1BA6D26DEDE8D00A2A88E /* Supports */,
 			);
-			path = soccer;
+			path = Soccer;
 			sourceTree = "<group>";
 		};
 		74D1BA6926DED4D000A2A88E /* Application */ = {
@@ -486,9 +486,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		74D1BA4E26DDA16200A2A88E /* soccer */ = {
+		74D1BA4E26DDA16200A2A88E /* Soccer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 74D1BA6326DDA16600A2A88E /* Build configuration list for PBXNativeTarget "soccer" */;
+			buildConfigurationList = 74D1BA6326DDA16600A2A88E /* Build configuration list for PBXNativeTarget "Soccer" */;
 			buildPhases = (
 				74D1BA4B26DDA16200A2A88E /* Sources */,
 				74D1BA4C26DDA16200A2A88E /* Frameworks */,
@@ -500,9 +500,9 @@
 			);
 			dependencies = (
 			);
-			name = soccer;
+			name = Soccer;
 			productName = soccer;
-			productReference = 74D1BA4F26DDA16200A2A88E /* soccer.app */;
+			productReference = 74D1BA4F26DDA16200A2A88E /* Soccer.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -519,7 +519,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 74D1BA4A26DDA16200A2A88E /* Build configuration list for PBXProject "soccer" */;
+			buildConfigurationList = 74D1BA4A26DDA16200A2A88E /* Build configuration list for PBXProject "Soccer" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -532,7 +532,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				74D1BA4E26DDA16200A2A88E /* soccer */,
+				74D1BA4E26DDA16200A2A88E /* Soccer */,
 			);
 		};
 /* End PBXProject section */
@@ -795,7 +795,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = soccer/Supports/Info.plist;
+				INFOPLIST_FILE = Soccer/Supports/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -822,7 +822,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = soccer/Supports/Info.plist;
+				INFOPLIST_FILE = Soccer/Supports/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -840,7 +840,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		74D1BA4A26DDA16200A2A88E /* Build configuration list for PBXProject "soccer" */ = {
+		74D1BA4A26DDA16200A2A88E /* Build configuration list for PBXProject "Soccer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				74D1BA6126DDA16600A2A88E /* Debug */,
@@ -849,7 +849,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		74D1BA6326DDA16600A2A88E /* Build configuration list for PBXNativeTarget "soccer" */ = {
+		74D1BA6326DDA16600A2A88E /* Build configuration list for PBXNativeTarget "Soccer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				74D1BA6426DDA16600A2A88E /* Debug */,
