@@ -25,6 +25,10 @@ final class MatchBuilder: MatchBuilderProtocol {
     // Пока отображаем только завершившиеся матчи
     let queryItem = URLQueryItem(name: "status", value: "FT")
     self.urlRequest.append(queryItem: queryItem)
+
+    let timezone = TimeZone.current.identifier
+    let timezoneQueryItem = URLQueryItem(name: "timezone", value: timezone)
+    self.urlRequest.append(queryItem: timezoneQueryItem)
   }
 
   @discardableResult
