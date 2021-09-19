@@ -12,6 +12,7 @@ final class TeamsViewController: ViewModelController<TeamsViewModelProtocol> {
   // MARK: - Private Properties
   private lazy var tableView = makeTableView()
   private lazy var searchController = UISearchController(searchResultsController: nil)
+  private lazy var startSearchLabel = makeLabel()
 
   // MARK: - Lifecycle
   override func viewDidLoad() {
@@ -49,8 +50,21 @@ private extension TeamsViewController {
     teamsFromDataBase()
 
     view.addSubview(tableView)
+    view.addSubview(startSearchLabel)
     setupSearchController()
     setupConstraints()
+  }
+
+  private func makeLabel() -> UILabel {
+    let label = UILabel()
+    label.text = "Start searching your favorite teams"
+    label.isHidden = true
+    label.font = UIFont(name: "Staubach", size: 24)
+    label.textAlignment = .center
+    label.numberOfLines = 0
+    label.lineBreakMode = .byWordWrapping
+    label.translatesAutoresizingMaskIntoConstraints = false
+    return label
   }
 
   func setupSearchController() {
@@ -68,6 +82,10 @@ private extension TeamsViewController {
       tableView.topAnchor.constraint(equalTo: safeArea.topAnchor),
       tableView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
       tableView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
+
+      startSearchLabel.centerXAnchor.constraint(equalTo: tableView.centerXAnchor),
+      startSearchLabel.centerYAnchor.constraint(equalTo: tableView.centerYAnchor),
+      startSearchLabel.widthAnchor.constraint(equalTo: tableView.widthAnchor),
     ])
   }
 
@@ -75,6 +93,8 @@ private extension TeamsViewController {
     viewModel.fetchTeamsFromDataBase { [weak self] in
       guard let self = self else { return }
       self.tableView.reloadData()
+      self.tableView.isHidden = self.viewModel.isTableViewHidden
+      self.startSearchLabel.isHidden = !self.viewModel.isTableViewHidden
     }
   }
 
@@ -83,6 +103,8 @@ private extension TeamsViewController {
 // MARK: - UISearchResultsUpdating
 extension TeamsViewController: UISearchResultsUpdating {
   func updateSearchResults(for searchController: UISearchController) {
+    tableView.isHidden = false
+    startSearchLabel.isHidden = true
     guard let text = searchController.searchBar.text, text.count >= 3 else { return }
 
     viewModel.searchTeams(name: text) { [weak self] in
@@ -135,6 +157,9 @@ extension TeamsViewController: UITableViewDelegate {
     if editingStyle == .delete {
       viewModel.removeRow(indexPath: indexPath)
       tableView.deleteRows(at: [indexPath], with: .automatic)
+
+      tableView.isHidden = viewModel.isTableViewHidden
+      startSearchLabel.isHidden = !viewModel.isTableViewHidden
     }
   }
 

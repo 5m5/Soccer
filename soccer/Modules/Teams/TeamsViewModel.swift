@@ -14,6 +14,7 @@ protocol TeamsViewModelProtocol: AnyObject {
   var teamsCount: Int { get }
   var teams: [TeamResponse] { get }
   var isTableViewCanEditRow: Bool { get }
+  var isTableViewHidden: Bool { get }
   func searchTeams(name: String, completion: @escaping () -> Void)
   func fetchTeamsFromDataBase(completion: @escaping () -> Void)
   func teamCellViewModel(for indexPath: IndexPath) -> TeamCellViewModelProtocol
@@ -31,6 +32,7 @@ final class TeamsViewModel: TeamsViewModelProtocol {
   var teams: [TeamResponse] = []
 
   var isTableViewCanEditRow = false
+  var isTableViewHidden: Bool { teamsCount == 0 }
 
   func searchTeams(name: String, completion: @escaping () -> Void) {
     let parser = JSONParser<TeamResult>()
@@ -59,7 +61,7 @@ final class TeamsViewModel: TeamsViewModelProtocol {
   func fetchTeamsFromDataBase(completion: @escaping () -> Void) {
     CoreDataController.shared.teams { [weak self] teamsMO in
       guard let self = self else { return }
-      self.teams = []
+      var teamResponseArray: [TeamResponse] = []
 
       teamsMO.forEach {
         let team = Team(
@@ -86,19 +88,24 @@ final class TeamsViewModel: TeamsViewModelProtocol {
           }
         }
 
+        var stadium = Stadium(id: nil, name: nil, address: nil, city: nil)
+
         if let stadiumMO = $0.stadium {
-          let stadium = Stadium(
+          stadium = Stadium(
             id: Int(stadiumMO.id),
             name: stadiumMO.name,
             address: stadiumMO.address,
             city: stadiumMO.city
           )
-
-          self.isTableViewCanEditRow = true
-          self.teams.append(TeamResponse(team: team, stadium: stadium, players: players))
-          completion()
         }
+
+        teamResponseArray.append(TeamResponse(team: team, stadium: stadium, players: players))
       }
+
+      self.isTableViewCanEditRow = true
+      self.teams = teamResponseArray
+      completion()
+
     }
   }
 
