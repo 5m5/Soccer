@@ -17,7 +17,7 @@
                BlueprintIdentifier = "74D1BA4E26DDA16200A2A88E"
                BuildableName = "Soccer.app"
                BlueprintName = "Soccer"
-               ReferencedContainer = "container:soccer.xcodeproj">
+               ReferencedContainer = "container:Soccer.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,7 +47,7 @@
             BlueprintIdentifier = "74D1BA4E26DDA16200A2A88E"
             BuildableName = "Soccer.app"
             BlueprintName = "Soccer"
-            ReferencedContainer = "container:soccer.xcodeproj">
+            ReferencedContainer = "container:Soccer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -64,7 +64,7 @@
             BlueprintIdentifier = "74D1BA4E26DDA16200A2A88E"
             BuildableName = "Soccer.app"
             BlueprintName = "Soccer"
-            ReferencedContainer = "container:soccer.xcodeproj">
+            ReferencedContainer = "container:Soccer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
