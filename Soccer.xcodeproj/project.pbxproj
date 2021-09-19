@@ -33,6 +33,7 @@
 		743A651126F63BB200E0C944 /* MOStadium+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743A650B26F63BB200E0C944 /* MOStadium+CoreDataClass.swift */; };
 		743A651226F63BB200E0C944 /* MOStadium+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743A650C26F63BB200E0C944 /* MOStadium+CoreDataProperties.swift */; };
 		743A651526F69B5F00E0C944 /* Staubach.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 743A651426F69B5E00E0C944 /* Staubach.ttf */; };
+		747710F826F7DB3200156EF4 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 747710F726F7DB3100156EF4 /* AdSupport.framework */; };
 		7489ADCD26E413D900C4E4E9 /* MatchTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7489ADCC26E413D900C4E4E9 /* MatchTableView.swift */; };
 		7489ADD026E4148800C4E4E9 /* MatchCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7489ADCF26E4148800C4E4E9 /* MatchCellViewModel.swift */; };
 		7489ADD226E414A600C4E4E9 /* MatchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7489ADD126E414A600C4E4E9 /* MatchTableViewCell.swift */; };
@@ -104,6 +105,7 @@
 		743A650B26F63BB200E0C944 /* MOStadium+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MOStadium+CoreDataClass.swift"; sourceTree = "<group>"; };
 		743A650C26F63BB200E0C944 /* MOStadium+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MOStadium+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		743A651426F69B5E00E0C944 /* Staubach.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Staubach.ttf; sourceTree = "<group>"; };
+		747710F726F7DB3100156EF4 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		7489ADCC26E413D900C4E4E9 /* MatchTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTableView.swift; sourceTree = "<group>"; };
 		7489ADCF26E4148800C4E4E9 /* MatchCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchCellViewModel.swift; sourceTree = "<group>"; };
 		7489ADD126E414A600C4E4E9 /* MatchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTableViewCell.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				7489AE2B26EAB1D800C4E4E9 /* GoogleUtilities.xcframework in Frameworks */,
 				7489AE3126EAB1D800C4E4E9 /* FirebaseAnalytics.xcframework in Frameworks */,
 				7489AE2726EAB1D700C4E4E9 /* PromisesObjC.xcframework in Frameworks */,
+				747710F826F7DB3200156EF4 /* AdSupport.framework in Frameworks */,
 				7489AE2926EAB1D800C4E4E9 /* FirebaseInstallations.xcframework in Frameworks */,
 				7489AE2526EAB1D700C4E4E9 /* nanopb.xcframework in Frameworks */,
 				7489AE1F26EAB1D700C4E4E9 /* FirebaseCore.xcframework in Frameworks */,
@@ -311,6 +314,7 @@
 		7489AE0726EAADF800C4E4E9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				747710F726F7DB3100156EF4 /* AdSupport.framework */,
 				7489AE1D26EAB1D700C4E4E9 /* Firebase.framework */,
 				7489AE1E26EAB1D700C4E4E9 /* FirebaseAnalytics.xcframework */,
 				7489AE1526EAB1D700C4E4E9 /* FirebaseCore.xcframework */,
