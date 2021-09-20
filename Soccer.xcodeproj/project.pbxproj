@@ -141,6 +141,7 @@
 		74C842EC26F8D689001F3ED3 /* TeamDetailsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C842EB26F8D689001F3ED3 /* TeamDetailsPage.swift */; };
 		74C842EE26F8D8E0001F3ED3 /* NavigationBarPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C842ED26F8D8E0001F3ED3 /* NavigationBarPage.swift */; };
 		74C842F026F8E4CB001F3ED3 /* DefaultsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C842EF26F8E4CB001F3ED3 /* DefaultsWrapper.swift */; };
+		74C8430A26F8F8FB001F3ED3 /* DefaultsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C842EF26F8E4CB001F3ED3 /* DefaultsWrapper.swift */; };
 		74D1BA5326DDA16200A2A88E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D1BA5226DDA16200A2A88E /* AppDelegate.swift */; };
 		74D1BA5C26DDA16600A2A88E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74D1BA5B26DDA16600A2A88E /* Assets.xcassets */; };
 		74D1BA5F26DDA16600A2A88E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74D1BA5D26DDA16600A2A88E /* LaunchScreen.storyboard */; };
@@ -896,6 +897,7 @@
 				74237A8626F7EC70000E6B85 /* TeamResult.swift in Sources */,
 				74237A7426F7EC70000E6B85 /* MainViewController.swift in Sources */,
 				74237A7726F7EC70000E6B85 /* CoreDataService.swift in Sources */,
+				74C8430A26F8F8FB001F3ED3 /* DefaultsWrapper.swift in Sources */,
 				74237A9126F7EC70000E6B85 /* StatisticViewController.swift in Sources */,
 				74237A9426F7EC70000E6B85 /* League.swift in Sources */,
 				74237A9826F7EC70000E6B85 /* TeamCellViewModel.swift in Sources */,
