@@ -23,7 +23,7 @@ final class StatisticEncodingTests: XCTestCase {
 
     switch statistic.value {
     case .integer(let value): XCTAssertEqual(value, 80)
-    default: XCTAssert(false)
+    default: XCTFail("Value should be Int")
     }
 
   }
@@ -40,7 +40,7 @@ final class StatisticEncodingTests: XCTestCase {
 
     switch statistic.value {
     case .string(let value): XCTAssertEqual(value, "Some")
-    default: XCTAssert(false)
+    default: XCTFail("Value should be String")
     }
   }
 
@@ -56,7 +56,7 @@ final class StatisticEncodingTests: XCTestCase {
 
     switch statistic.value {
     case .null: XCTAssert(true)
-    default: XCTAssert(false)
+    default: XCTFail("Value should be nil")
     }
   }
 

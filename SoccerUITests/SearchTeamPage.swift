@@ -20,6 +20,7 @@ final class SearchTeamPage: Page {
 
   func tapTeamName() -> TeamDetailsPage {
     if searchField.waitForExistence(timeout: 10) {
+      searchField.typeText("Bayern")
       searchField.tap()
     }
     return TeamDetailsPage(app: app)
