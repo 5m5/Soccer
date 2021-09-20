@@ -48,6 +48,16 @@
                ReferencedContainer = "container:Soccer.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "74C8431226F8FFC8001F3ED3"
+               BuildableName = "SoccerSnapshotTests.xctest"
+               BlueprintName = "SoccerSnapshotTests"
+               ReferencedContainer = "container:Soccer.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

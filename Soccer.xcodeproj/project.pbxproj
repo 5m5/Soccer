@@ -142,6 +142,8 @@
 		74C842EE26F8D8E0001F3ED3 /* NavigationBarPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C842ED26F8D8E0001F3ED3 /* NavigationBarPage.swift */; };
 		74C842F026F8E4CB001F3ED3 /* DefaultsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C842EF26F8E4CB001F3ED3 /* DefaultsWrapper.swift */; };
 		74C8430A26F8F8FB001F3ED3 /* DefaultsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C842EF26F8E4CB001F3ED3 /* DefaultsWrapper.swift */; };
+		74C8431626F8FFC8001F3ED3 /* MainViewControllerSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C8431526F8FFC8001F3ED3 /* MainViewControllerSnapshotTests.swift */; };
+		74C8431D26F8FFD3001F3ED3 /* SnapshotTesting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74C8430B26F8FE83001F3ED3 /* SnapshotTesting.framework */; };
 		74D1BA5326DDA16200A2A88E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D1BA5226DDA16200A2A88E /* AppDelegate.swift */; };
 		74D1BA5C26DDA16600A2A88E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74D1BA5B26DDA16600A2A88E /* Assets.xcassets */; };
 		74D1BA5F26DDA16600A2A88E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74D1BA5D26DDA16600A2A88E /* LaunchScreen.storyboard */; };
@@ -168,6 +170,13 @@
 			remoteInfo = Soccer;
 		};
 		74237B5126F8C30C000E6B85 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 74D1BA4726DDA16200A2A88E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 74D1BA4E26DDA16200A2A88E;
+			remoteInfo = Soccer;
+		};
+		74C8431826F8FFC8001F3ED3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 74D1BA4726DDA16200A2A88E /* Project object */;
 			proxyType = 1;
@@ -256,6 +265,10 @@
 		74C842EB26F8D689001F3ED3 /* TeamDetailsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailsPage.swift; sourceTree = "<group>"; };
 		74C842ED26F8D8E0001F3ED3 /* NavigationBarPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarPage.swift; sourceTree = "<group>"; };
 		74C842EF26F8E4CB001F3ED3 /* DefaultsWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsWrapper.swift; sourceTree = "<group>"; };
+		74C8430B26F8FE83001F3ED3 /* SnapshotTesting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapshotTesting.framework; path = Carthage/Build/iOS/SnapshotTesting.framework; sourceTree = "<group>"; };
+		74C8431326F8FFC8001F3ED3 /* SoccerSnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SoccerSnapshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		74C8431526F8FFC8001F3ED3 /* MainViewControllerSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerSnapshotTests.swift; sourceTree = "<group>"; };
+		74C8431726F8FFC8001F3ED3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74D1BA4F26DDA16200A2A88E /* Soccer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Soccer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74D1BA5226DDA16200A2A88E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74D1BA5B26DDA16600A2A88E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -298,6 +311,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74C8431026F8FFC8001F3ED3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74C8431D26F8FFD3001F3ED3 /* SnapshotTesting.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,6 +538,7 @@
 		7489AE0726EAADF800C4E4E9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				74C8430B26F8FE83001F3ED3 /* SnapshotTesting.framework */,
 				74237B1426F84A7D000E6B85 /* AdSupport.framework */,
 				74237AEE26F8498D000E6B85 /* FirebaseAnalytics.xcframework */,
 				74237AF526F8498D000E6B85 /* FirebaseCore.xcframework */,
@@ -544,6 +566,15 @@
 			path = Statistic;
 			sourceTree = "<group>";
 		};
+		74C8431426F8FFC8001F3ED3 /* SoccerSnapshotTests */ = {
+			isa = PBXGroup;
+			children = (
+				74C8431526F8FFC8001F3ED3 /* MainViewControllerSnapshotTests.swift */,
+				74C8431726F8FFC8001F3ED3 /* Info.plist */,
+			);
+			path = SoccerSnapshotTests;
+			sourceTree = "<group>";
+		};
 		74D1BA4626DDA16200A2A88E = {
 			isa = PBXGroup;
 			children = (
@@ -551,6 +582,7 @@
 				74D1BA5126DDA16200A2A88E /* Soccer */,
 				74237A6826F7E664000E6B85 /* SoccerTests */,
 				74237B4D26F8C30C000E6B85 /* SoccerUITests */,
+				74C8431426F8FFC8001F3ED3 /* SoccerSnapshotTests */,
 				74D1BA5026DDA16200A2A88E /* Products */,
 				7489AE0726EAADF800C4E4E9 /* Frameworks */,
 			);
@@ -562,6 +594,7 @@
 				74D1BA4F26DDA16200A2A88E /* Soccer.app */,
 				74237A6726F7E664000E6B85 /* SoccerTests.xctest */,
 				74237B4C26F8C30C000E6B85 /* SoccerUITests.xctest */,
+				74C8431326F8FFC8001F3ED3 /* SoccerSnapshotTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -736,6 +769,25 @@
 			productReference = 74237B4C26F8C30C000E6B85 /* SoccerUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		74C8431226F8FFC8001F3ED3 /* SoccerSnapshotTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 74C8431A26F8FFC8001F3ED3 /* Build configuration list for PBXNativeTarget "SoccerSnapshotTests" */;
+			buildPhases = (
+				74C8430F26F8FFC8001F3ED3 /* Sources */,
+				74C8431026F8FFC8001F3ED3 /* Frameworks */,
+				74C8431126F8FFC8001F3ED3 /* Resources */,
+				74C8431E26F9011D001F3ED3 /* Carthage Script */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				74C8431926F8FFC8001F3ED3 /* PBXTargetDependency */,
+			);
+			name = SoccerSnapshotTests;
+			productName = SoccerSnapshotTests;
+			productReference = 74C8431326F8FFC8001F3ED3 /* SoccerSnapshotTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		74D1BA4E26DDA16200A2A88E /* Soccer */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 74D1BA6326DDA16600A2A88E /* Build configuration list for PBXNativeTarget "Soccer" */;
@@ -771,6 +823,10 @@
 						CreatedOnToolsVersion = 12.5.1;
 						TestTargetID = 74D1BA4E26DDA16200A2A88E;
 					};
+					74C8431226F8FFC8001F3ED3 = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 74D1BA4E26DDA16200A2A88E;
+					};
 					74D1BA4E26DDA16200A2A88E = {
 						CreatedOnToolsVersion = 12.5.1;
 					};
@@ -792,6 +848,7 @@
 				74D1BA4E26DDA16200A2A88E /* Soccer */,
 				74237A6626F7E664000E6B85 /* SoccerTests */,
 				74237B4B26F8C30C000E6B85 /* SoccerUITests */,
+				74C8431226F8FFC8001F3ED3 /* SoccerSnapshotTests */,
 			);
 		};
 /* End PBXProject section */
@@ -810,6 +867,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		74237B4A26F8C30C000E6B85 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74C8431126F8FFC8001F3ED3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -850,6 +914,25 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "${PROJECT_DIR}/scripts/run\n";
+		};
+		74C8431E26F9011D001F3ED3 /* Carthage Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/SnapshotTesting.framework",
+			);
+			name = "Carthage Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 		74D1BA6626DE9E9900A2A88E /* Swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -951,6 +1034,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		74C8430F26F8FFC8001F3ED3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74C8431626F8FFC8001F3ED3 /* MainViewControllerSnapshotTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		74D1BA4B26DDA16200A2A88E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1024,6 +1115,11 @@
 			isa = PBXTargetDependency;
 			target = 74D1BA4E26DDA16200A2A88E /* Soccer */;
 			targetProxy = 74237B5126F8C30C000E6B85 /* PBXContainerItemProxy */;
+		};
+		74C8431926F8FFC8001F3ED3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 74D1BA4E26DDA16200A2A88E /* Soccer */;
+			targetProxy = 74C8431826F8FFC8001F3ED3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1116,6 +1212,56 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Soccer;
+			};
+			name = Release;
+		};
+		74C8431B26F8FFC8001F3ED3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6A53QK7QMA;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = SoccerSnapshotTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.andreev.SoccerSnapshotTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Soccer.app/Soccer";
+			};
+			name = Debug;
+		};
+		74C8431C26F8FFC8001F3ED3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6A53QK7QMA;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = SoccerSnapshotTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.andreev.SoccerSnapshotTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Soccer.app/Soccer";
 			};
 			name = Release;
 		};
@@ -1249,6 +1395,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Soccer/Supports/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1276,6 +1423,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Soccer/Supports/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1309,6 +1457,15 @@
 			buildConfigurations = (
 				74237B5326F8C30C000E6B85 /* Debug */,
 				74237B5426F8C30C000E6B85 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		74C8431A26F8FFC8001F3ED3 /* Build configuration list for PBXNativeTarget "SoccerSnapshotTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				74C8431B26F8FFC8001F3ED3 /* Debug */,
+				74C8431C26F8FFC8001F3ED3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
