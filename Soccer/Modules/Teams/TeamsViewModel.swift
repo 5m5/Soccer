@@ -59,7 +59,7 @@ final class TeamsViewModel: TeamsViewModelProtocol {
   }
 
   func fetchTeamsFromDataBase(completion: @escaping () -> Void) {
-    CoreDataController.shared.teams { [weak self] teamsMO in
+    CoreDataService.shared.teams { [weak self] teamsMO in
       guard let self = self else { return }
       var teamResponseArray: [TeamResponse] = []
 
@@ -119,14 +119,14 @@ final class TeamsViewModel: TeamsViewModelProtocol {
     let teamResponse = teams[index]
 
     precondition(coordinator != nil, "Coordinator should not be nil")
-    CoreDataController.shared.saveTeam(response: teamResponse)
+    CoreDataService.shared.saveTeam(response: teamResponse)
     coordinator?.tableViewCellTapped(teamResponse: teamResponse)
   }
 
   func removeRow(indexPath: IndexPath) {
     let i = indexPath.row
     let team = teams[i].team
-    CoreDataController.shared.removeTeam(id: team.id)
+    CoreDataService.shared.removeTeam(id: team.id)
     teams.remove(at: i)
   }
 

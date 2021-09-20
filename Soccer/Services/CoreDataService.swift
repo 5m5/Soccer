@@ -1,5 +1,5 @@
 //
-//  CoreDataController.swift
+//  CoreDataService.swift
 //  soccer
 //
 //  Created by Mikhail Andreev on 18.09.2021.
@@ -8,10 +8,10 @@
 import CoreData
 import FirebaseAnalytics
 
-final class CoreDataController {
+final class CoreDataService {
 
   // MARK: - Internal Properties
-  static let shared = CoreDataController()
+  static let shared = CoreDataService()
 
   // MARK: - Private Properties
   private lazy var persistentContainer: NSPersistentContainer = {

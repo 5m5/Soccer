@@ -12,7 +12,7 @@
 		74237A7426F7EC70000E6B85 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D1BAE226E0360300A2A88E /* MainViewController.swift */; };
 		74237A7526F7EC70000E6B85 /* MOPlayer+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743A650826F63BB200E0C944 /* MOPlayer+CoreDataProperties.swift */; };
 		74237A7626F7EC70000E6B85 /* APIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7489AE4726EAFCB900C4E4E9 /* APIConfig.swift */; };
-		74237A7726F7EC70000E6B85 /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743A650526F638A200E0C944 /* CoreDataController.swift */; };
+		74237A7726F7EC70000E6B85 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743A650526F638A200E0C944 /* CoreDataService.swift */; };
 		74237A7826F7EC70000E6B85 /* MatchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7489ADD126E414A600C4E4E9 /* MatchTableViewCell.swift */; };
 		74237A7926F7EC70000E6B85 /* MOPlayer+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743A650726F63BB200E0C944 /* MOPlayer+CoreDataClass.swift */; };
 		74237A7A26F7EC70000E6B85 /* URLBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D1BAF326E1421B00A2A88E /* URLBuilder.swift */; };
@@ -113,7 +113,7 @@
 		743A64FD26F57FF400E0C944 /* PlayerCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743A64FC26F57FF400E0C944 /* PlayerCellViewModel.swift */; };
 		743A650026F58EAF00E0C944 /* PlayerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743A64FF26F58EAF00E0C944 /* PlayerBuilder.swift */; };
 		743A650326F6360600E0C944 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 743A650126F6360500E0C944 /* DataModel.xcdatamodeld */; };
-		743A650626F638A300E0C944 /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743A650526F638A200E0C944 /* CoreDataController.swift */; };
+		743A650626F638A300E0C944 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743A650526F638A200E0C944 /* CoreDataService.swift */; };
 		743A650D26F63BB200E0C944 /* MOPlayer+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743A650726F63BB200E0C944 /* MOPlayer+CoreDataClass.swift */; };
 		743A650E26F63BB200E0C944 /* MOPlayer+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743A650826F63BB200E0C944 /* MOPlayer+CoreDataProperties.swift */; };
 		743A650F26F63BB200E0C944 /* MOTeam+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743A650926F63BB200E0C944 /* MOTeam+CoreDataClass.swift */; };
@@ -227,7 +227,7 @@
 		743A64FC26F57FF400E0C944 /* PlayerCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCellViewModel.swift; sourceTree = "<group>"; };
 		743A64FF26F58EAF00E0C944 /* PlayerBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerBuilder.swift; sourceTree = "<group>"; };
 		743A650226F6360500E0C944 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
-		743A650526F638A200E0C944 /* CoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
+		743A650526F638A200E0C944 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		743A650726F63BB200E0C944 /* MOPlayer+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MOPlayer+CoreDataClass.swift"; sourceTree = "<group>"; };
 		743A650826F63BB200E0C944 /* MOPlayer+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MOPlayer+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		743A650926F63BB200E0C944 /* MOTeam+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MOTeam+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -651,7 +651,7 @@
 			children = (
 				74D1BAEB26E1227600A2A88E /* JSONParser.swift */,
 				74D1BB0126E2BDB400A2A88E /* ImageDataService.swift */,
-				743A650526F638A200E0C944 /* CoreDataController.swift */,
+				743A650526F638A200E0C944 /* CoreDataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -895,7 +895,7 @@
 				74237A8126F7EC70000E6B85 /* Statistic.swift in Sources */,
 				74237A8626F7EC70000E6B85 /* TeamResult.swift in Sources */,
 				74237A7426F7EC70000E6B85 /* MainViewController.swift in Sources */,
-				74237A7726F7EC70000E6B85 /* CoreDataController.swift in Sources */,
+				74237A7726F7EC70000E6B85 /* CoreDataService.swift in Sources */,
 				74237A9126F7EC70000E6B85 /* StatisticViewController.swift in Sources */,
 				74237A9426F7EC70000E6B85 /* League.swift in Sources */,
 				74237A9826F7EC70000E6B85 /* TeamCellViewModel.swift in Sources */,
@@ -983,7 +983,7 @@
 				7489AE4F26EC220100C4E4E9 /* StatisticCoordinator.swift in Sources */,
 				74D1BAF426E1421B00A2A88E /* URLBuilder.swift in Sources */,
 				74D1BA5326DDA16200A2A88E /* AppDelegate.swift in Sources */,
-				743A650626F638A300E0C944 /* CoreDataController.swift in Sources */,
+				743A650626F638A300E0C944 /* CoreDataService.swift in Sources */,
 				7489AE4A26EAFE0B00C4E4E9 /* EndPointFactory.swift in Sources */,
 				7489AE4626EAFBF900C4E4E9 /* LeagueBuilder.swift in Sources */,
 				743A64B526F02ACB00E0C944 /* TeamResult.swift in Sources */,
