@@ -14,6 +14,7 @@ final class MatchTableView: UITableView {
 
     rowHeight = 90
     separatorStyle = .none
+    showsVerticalScrollIndicator = false
     translatesAutoresizingMaskIntoConstraints = false
     register(MatchTableViewCell.self, forCellReuseIdentifier: MatchCellViewModel.identifier)
   }
