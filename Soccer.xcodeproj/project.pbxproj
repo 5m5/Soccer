@@ -80,6 +80,7 @@
 		74237AE226F82B03000E6B85 /* MatchResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 74237AE126F82B03000E6B85 /* MatchResponse.json */; };
 		74237AE426F82E94000E6B85 /* StatisticResult.json in Resources */ = {isa = PBXBuildFile; fileRef = 74237AE326F82E94000E6B85 /* StatisticResult.json */; };
 		74237AE626F83230000E6B85 /* StatisticEncodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74237AE526F83230000E6B85 /* StatisticEncodingTests.swift */; };
+		74237AE726F83EFF000E6B85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D1BA5226DDA16200A2A88E /* AppDelegate.swift */; };
 		743A645626ED769300E0C944 /* StatisticTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743A645526ED769300E0C944 /* StatisticTableViewCell.swift */; };
 		743A645926ED7D8000E0C944 /* StatisticCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743A645826ED7D8000E0C944 /* StatisticCellViewModel.swift */; };
 		743A64A526EFD98C00E0C944 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743A64A426EFD98C00E0C944 /* TabBarController.swift */; };
@@ -798,6 +799,7 @@
 				74237AB726F7F827000E6B85 /* ViewModelController.swift in Sources */,
 				74237AD226F802D5000E6B85 /* JSONParserMock.swift in Sources */,
 				74237A8726F7EC70000E6B85 /* URLRequest+QueryItem.swift in Sources */,
+				74237AE726F83EFF000E6B85 /* AppDelegate.swift in Sources */,
 				74237A8F26F7EC70000E6B85 /* Team.swift in Sources */,
 				74237A8226F7EC70000E6B85 /* StatisticBuilder.swift in Sources */,
 				74237AA026F7EC70000E6B85 /* JSONParser.swift in Sources */,
