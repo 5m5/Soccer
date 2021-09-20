@@ -24,9 +24,14 @@ final class TabBarController: UITabBarController {
     return viewController
   }()
 
+  @DefaultsWrapper<Int>(key: "tabBarIndex")
+  var selectedTabBarIndex
+
   // MARK: - Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
+
+    delegate = self
 
     tabBar.tintColor = .systemPink
     tabBar.barTintColor = .systemBackground
@@ -34,6 +39,8 @@ final class TabBarController: UITabBarController {
     setViewControllers([mainViewController, teamsViewController], animated: false)
     mainCoordinator.start()
     teamsCoordinator.start()
+
+    selectedIndex = selectedTabBarIndex ?? 0
   }
 
 }
@@ -50,6 +57,16 @@ private extension TabBarController {
     let tabBarItem = UITabBarItem(title: title, image: image, selectedImage: image)
     viewController.tabBarItem = tabBarItem
     return viewController
+  }
+
+}
+
+extension TabBarController: UITabBarControllerDelegate {
+  func tabBarController(
+    _ tabBarController: UITabBarController,
+    didSelect viewController: UIViewController
+  ) {
+    selectedTabBarIndex = selectedIndex
   }
 
 }

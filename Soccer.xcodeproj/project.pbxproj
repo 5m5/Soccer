@@ -140,6 +140,7 @@
 		7489AE5926ED1FB600C4E4E9 /* MatchProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7489AE5826ED1FB600C4E4E9 /* MatchProxy.swift */; };
 		74C842EC26F8D689001F3ED3 /* TeamDetailsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C842EB26F8D689001F3ED3 /* TeamDetailsPage.swift */; };
 		74C842EE26F8D8E0001F3ED3 /* NavigationBarPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C842ED26F8D8E0001F3ED3 /* NavigationBarPage.swift */; };
+		74C842F026F8E4CB001F3ED3 /* DefaultsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C842EF26F8E4CB001F3ED3 /* DefaultsWrapper.swift */; };
 		74D1BA5326DDA16200A2A88E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D1BA5226DDA16200A2A88E /* AppDelegate.swift */; };
 		74D1BA5C26DDA16600A2A88E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74D1BA5B26DDA16600A2A88E /* Assets.xcassets */; };
 		74D1BA5F26DDA16600A2A88E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74D1BA5D26DDA16600A2A88E /* LaunchScreen.storyboard */; };
@@ -253,6 +254,7 @@
 		7489AE5826ED1FB600C4E4E9 /* MatchProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchProxy.swift; sourceTree = "<group>"; };
 		74C842EB26F8D689001F3ED3 /* TeamDetailsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailsPage.swift; sourceTree = "<group>"; };
 		74C842ED26F8D8E0001F3ED3 /* NavigationBarPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarPage.swift; sourceTree = "<group>"; };
+		74C842EF26F8E4CB001F3ED3 /* DefaultsWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsWrapper.swift; sourceTree = "<group>"; };
 		74D1BA4F26DDA16200A2A88E /* Soccer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Soccer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74D1BA5226DDA16200A2A88E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74D1BA5B26DDA16600A2A88E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -595,6 +597,7 @@
 				7489AE4926EAFE0B00C4E4E9 /* EndPointFactory.swift */,
 				743A64FE26F58E9700E0C944 /* Builders */,
 				743A651326F687BF00E0C944 /* Views */,
+				74C842EF26F8E4CB001F3ED3 /* DefaultsWrapper.swift */,
 			);
 			path = Abstract;
 			sourceTree = "<group>";
@@ -971,6 +974,7 @@
 				74D1BAF826E1913A00A2A88E /* ImageCollectionViewCell.swift in Sources */,
 				7489ADCD26E413D900C4E4E9 /* MatchTableView.swift in Sources */,
 				74D1BAE526E0362700A2A88E /* MainCoordinator.swift in Sources */,
+				74C842F026F8E4CB001F3ED3 /* DefaultsWrapper.swift in Sources */,
 				743A650326F6360600E0C944 /* DataModel.xcdatamodeld in Sources */,
 				743A64B326F027A200E0C944 /* TeamCellViewModel.swift in Sources */,
 				7489AE5526ED0CD000C4E4E9 /* Statistic.swift in Sources */,
