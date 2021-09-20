@@ -20,7 +20,7 @@ protocol MainViewModelProtocol: AnyObject {
   var leaguesParser: JSONParser<LeagueResult> { get }
   var matchesParser: JSONParser<MatchResult> { get }
 
-  var matches: [MatchResponse] { get } // TODO: убрать?
+  var matches: [MatchResponse] { get }
   var matchesCount: Int { get }
   func fetchLeagues(completion: @escaping () -> Void)
   func collectionView(didSelectItemAt indexPath: IndexPath, completion: @escaping () -> Void)

@@ -68,7 +68,7 @@ final class MatchCellViewModel: MatchCellViewModelProtocol {
       group.wait()
     }
 
-    updateWorkItem = DispatchWorkItem { [weak self] in // TODO: возможно, не нужен. Проверить
+    updateWorkItem = DispatchWorkItem { [weak self] in
       guard let self = self else { return }
       self.homeImageData = homeData
       self.awayImageData = awayData
