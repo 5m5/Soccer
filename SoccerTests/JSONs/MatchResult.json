@@ -1,0 +1,152 @@
+{
+    "get": "fixtures",
+    "parameters": {
+        "league": "61",
+        "status": "FT",
+        "season": "2021"
+    },
+    "errors": [],
+    "results": 2,
+    "paging": {
+        "current": 1,
+        "total": 1
+    },
+    "response": [
+        {
+            "fixture": {
+                "id": 718367,
+                "referee": "R. Buquet",
+                "timezone": "UTC",
+                "date": "2021-08-15T18:45:00+00:00",
+                "timestamp": 1629053100,
+                "periods": {
+                    "first": 1629053100,
+                    "second": 1629056700
+                },
+                "venue": {
+                    "id": 667,
+                    "name": "Orange Vélodrome",
+                    "city": "Marseille"
+                },
+                "status": {
+                    "long": "Match Finished",
+                    "short": "FT",
+                    "elapsed": 90
+                }
+            },
+            "league": {
+                "id": 61,
+                "name": "Ligue 1",
+                "country": "France",
+                "logo": "https://media.api-sports.io/football/leagues/61.png",
+                "flag": "https://media.api-sports.io/flags/fr.svg",
+                "season": 2021,
+                "round": "Regular Season - 2"
+            },
+            "teams": {
+                "home": {
+                    "id": 81,
+                    "name": "Marseille",
+                    "logo": "https://media.api-sports.io/football/teams/81.png",
+                    "winner": null
+                },
+                "away": {
+                    "id": 78,
+                    "name": "Bordeaux",
+                    "logo": "https://media.api-sports.io/football/teams/78.png",
+                    "winner": null
+                }
+            },
+            "goals": {
+                "home": 2,
+                "away": 2
+            },
+            "score": {
+                "halftime": {
+                    "home": 2,
+                    "away": 0
+                },
+                "fulltime": {
+                    "home": 2,
+                    "away": 2
+                },
+                "extratime": {
+                    "home": null,
+                    "away": null
+                },
+                "penalty": {
+                    "home": null,
+                    "away": null
+                }
+            }
+        },
+        {
+            "fixture": {
+                "id": 718410,
+                "referee": "Florent Batta, France",
+                "timezone": "UTC",
+                "date": "2021-09-19T13:00:00+00:00",
+                "timestamp": 1632056400,
+                "periods": {
+                    "first": 1632056400,
+                    "second": 1632060000
+                },
+                "venue": {
+                    "id": 684,
+                    "name": "Stade de l'Aube",
+                    "city": "Troyes"
+                },
+                "status": {
+                    "long": "Match Finished",
+                    "short": "FT",
+                    "elapsed": 90
+                }
+            },
+            "league": {
+                "id": 61,
+                "name": "Ligue 1",
+                "country": "France",
+                "logo": "https://media.api-sports.io/football/leagues/61.png",
+                "flag": "https://media.api-sports.io/flags/fr.svg",
+                "season": 2021,
+                "round": "Regular Season - 6"
+            },
+            "teams": {
+                "home": {
+                    "id": 110,
+                    "name": "Estac Troyes",
+                    "logo": "https://media.api-sports.io/football/teams/110.png",
+                    "winner": null
+                },
+                "away": {
+                    "id": 82,
+                    "name": "Montpellier",
+                    "logo": "https://media.api-sports.io/football/teams/82.png",
+                    "winner": null
+                }
+            },
+            "goals": {
+                "home": 1,
+                "away": 1
+            },
+            "score": {
+                "halftime": {
+                    "home": 1,
+                    "away": 0
+                },
+                "fulltime": {
+                    "home": 1,
+                    "away": 1
+                },
+                "extratime": {
+                    "home": null,
+                    "away": null
+                },
+                "penalty": {
+                    "home": null,
+                    "away": null
+                }
+            }
+        }
+    ]
+}

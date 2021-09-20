@@ -44,12 +44,10 @@ enum Value: Codable {
     if let x = try? container.decode(Int.self) {
       self = .integer(x)
       return
-    }
-    if let x = try? container.decode(String.self) {
+    } else if let x = try? container.decode(String.self) {
       self = .string(x)
       return
-    }
-    if container.decodeNil() {
+    } else if container.decodeNil() {
       self = .null
       return
     }

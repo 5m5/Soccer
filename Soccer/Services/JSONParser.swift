@@ -14,13 +14,14 @@ enum NetworkError: Error {
   case serverError
 }
 
-final class JSONParser<T: Codable> {
-  typealias ResultCompletion<T> = (Result<T, Error>) -> Void
+protocol JSONParsing: AnyObject {
+  associatedtype Model: Codable
+  typealias ResultCompletion<Model> = (Result<Model, Error>) -> Void
+  func fetch(urlRequest: URLRequest, completion: @escaping ResultCompletion<Model>)
+}
 
+class JSONParser<T: Codable>: JSONParsing {
   func fetch(urlRequest: URLRequest, completion: @escaping ResultCompletion<T>) {
-    #if DEBUG
-    print(urlRequest)
-    #endif
 
     let dataTask = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
       if let error = error {

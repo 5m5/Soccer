@@ -17,6 +17,9 @@ protocol MainViewModelProtocol: AnyObject {
   var leaguesCount: Int { get }
   var leagueName: String { get }
 
+  var leaguesParser: JSONParser<LeagueResult> { get }
+  var matchesParser: JSONParser<MatchResult> { get }
+
   var matches: [MatchResponse] { get } // TODO: убрать?
   var matchesCount: Int { get }
   func fetchLeagues(completion: @escaping () -> Void)
@@ -37,12 +40,29 @@ final class MainViewModel: MainViewModelProtocol {
   var leaguesCount = 0
   var leagueName = ""
 
+  var leaguesParser = JSONParser<LeagueResult>()
+  var matchesParser = JSONParser<MatchResult>()
+
   var matches: [MatchResponse] = []
   var matchesCount = 0
 
   private var endPoint = EndPointFactory()
 
   private var collectionIndexPath = IndexPath()
+
+  func fetchLeagues(completion: @escaping () -> Void) {
+
+    let urlBuilder = endPoint.leagues()
+    let urlRequest = urlBuilder.urlRequest
+
+    fetch(parser: leaguesParser, urlRequest: urlRequest) { [weak self] leagues in
+      guard let self = self else { return }
+
+      self.leagues = leagues.response
+      self.leaguesCount = leagues.count
+      completion()
+    }
+  }
 
   func collectionView(didSelectItemAt indexPath: IndexPath, completion: @escaping () -> Void) {
     if indexPath == collectionIndexPath { return }
@@ -59,15 +79,13 @@ final class MainViewModel: MainViewModelProtocol {
     guard let season = leagueResponse.seasons.max(by: { $0.year < $1.year }) else { return }
     let seasonYear = season.year
 
-    let parser = JSONParser<MatchResult>()
-
     let urlBuilder = endPoint.matches()
     let urlRequest = urlBuilder
       .with(seasonYear: seasonYear)
       .with(leagueID: leagueId)
       .urlRequest
 
-    fetch(parser: parser, urlRequest: urlRequest) { [weak self] matches in
+    fetch(parser: matchesParser, urlRequest: urlRequest) { [weak self] matches in
       guard let self = self else { return }
 
       self.matches = matches.response.sorted { $0.match.timestamp > $1.match.timestamp }
@@ -82,21 +100,6 @@ final class MainViewModel: MainViewModelProtocol {
 
     precondition(coordinator != nil, "Coordinator should not be nil")
     coordinator?.tableViewCellTapped(matchResponse: matchResponse)
-  }
-
-  func fetchLeagues(completion: @escaping () -> Void) {
-    let parser = JSONParser<LeagueResult>()
-
-    let urlBuilder = endPoint.leagues()
-    let urlRequest = urlBuilder.urlRequest
-
-    fetch(parser: parser, urlRequest: urlRequest) { [weak self] leagues in
-      guard let self = self else { return }
-
-      self.leagues = leagues.response
-      self.leaguesCount = leagues.count
-      completion()
-    }
   }
 
   func leagueCellViewModel(for indexPath: IndexPath) -> ImageCellViewModelProtocol {

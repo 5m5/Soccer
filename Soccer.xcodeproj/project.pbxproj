@@ -50,7 +50,6 @@
 		74237A9A26F7EC70000E6B85 /* MOStadium+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743A650C26F63BB200E0C944 /* MOStadium+CoreDataProperties.swift */; };
 		74237A9B26F7EC70000E6B85 /* LeagueBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7489AE4526EAFBF900C4E4E9 /* LeagueBuilder.swift */; };
 		74237A9C26F7EC70000E6B85 /* TeamsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743A64AB26F0177F00E0C944 /* TeamsCoordinator.swift */; };
-		74237A9D26F7EC70000E6B85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D1BA5226DDA16200A2A88E /* AppDelegate.swift */; };
 		74237A9E26F7EC70000E6B85 /* ImageDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D1BB0126E2BDB400A2A88E /* ImageDataService.swift */; };
 		74237A9F26F7EC70000E6B85 /* TeamsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743A64A926F0176700E0C944 /* TeamsViewModel.swift */; };
 		74237AA026F7EC70000E6B85 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D1BAEB26E1227600A2A88E /* JSONParser.swift */; };
@@ -59,6 +58,28 @@
 		74237AA326F7EC70000E6B85 /* MOTeam+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743A650A26F63BB200E0C944 /* MOTeam+CoreDataProperties.swift */; };
 		74237AA426F7EC70000E6B85 /* TeamBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743A64B626F0331D00E0C944 /* TeamBuilder.swift */; };
 		74237AA526F7EC70000E6B85 /* TeamDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743A64F926F57B1F00E0C944 /* TeamDetailsCoordinator.swift */; };
+		74237AB626F7F6A0000E6B85 /* URLRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74237AB526F7F6A0000E6B85 /* URLRequestTests.swift */; };
+		74237AB726F7F827000E6B85 /* ViewModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D1BAE826E03EC100A2A88E /* ViewModelController.swift */; };
+		74237AC326F7FA1F000E6B85 /* FirebaseCoreDiagnostics.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7489AE1626EAB1D700C4E4E9 /* FirebaseCoreDiagnostics.xcframework */; };
+		74237AC426F7FA1F000E6B85 /* FirebaseCore.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7489AE1526EAB1D700C4E4E9 /* FirebaseCore.xcframework */; };
+		74237AC526F7FA1F000E6B85 /* GoogleAppMeasurement.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7489AE1C26EAB1D700C4E4E9 /* GoogleAppMeasurement.xcframework */; };
+		74237AC626F7FA1F000E6B85 /* GoogleDataTransport.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7489AE1726EAB1D700C4E4E9 /* GoogleDataTransport.xcframework */; };
+		74237AC726F7FA1F000E6B85 /* PromisesObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7489AE1926EAB1D700C4E4E9 /* PromisesObjC.xcframework */; };
+		74237AC826F7FA1F000E6B85 /* GoogleUtilities.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7489AE1B26EAB1D700C4E4E9 /* GoogleUtilities.xcframework */; };
+		74237AC926F7FA1F000E6B85 /* FirebaseAnalytics.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7489AE1E26EAB1D700C4E4E9 /* FirebaseAnalytics.xcframework */; };
+		74237ACA26F7FA1F000E6B85 /* FirebaseInstallations.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7489AE1A26EAB1D700C4E4E9 /* FirebaseInstallations.xcframework */; };
+		74237ACB26F7FA1F000E6B85 /* nanopb.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7489AE1826EAB1D700C4E4E9 /* nanopb.xcframework */; };
+		74237ACC26F7FA1F000E6B85 /* FirebaseCrashlytics.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7489AE0826EAADF800C4E4E9 /* FirebaseCrashlytics.xcframework */; };
+		74237ACD26F7FA23000E6B85 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 747710F726F7DB3100156EF4 /* AdSupport.framework */; };
+		74237AD226F802D5000E6B85 /* JSONParserMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74237AD026F802CC000E6B85 /* JSONParserMock.swift */; };
+		74237AD526F80929000E6B85 /* LeagueResult.json in Resources */ = {isa = PBXBuildFile; fileRef = 74237AD426F80929000E6B85 /* LeagueResult.json */; };
+		74237AD726F80A9A000E6B85 /* XCTestCase+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74237AD626F80A9A000E6B85 /* XCTestCase+JSON.swift */; };
+		74237ADA26F80DE8000E6B85 /* MainViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74237AD926F80DE8000E6B85 /* MainViewModelTests.swift */; };
+		74237ADE26F8208F000E6B85 /* MatchResult.json in Resources */ = {isa = PBXBuildFile; fileRef = 74237ADD26F8208F000E6B85 /* MatchResult.json */; };
+		74237AE026F829BF000E6B85 /* StatisticViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74237ADF26F829BF000E6B85 /* StatisticViewModelTests.swift */; };
+		74237AE226F82B03000E6B85 /* MatchResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 74237AE126F82B03000E6B85 /* MatchResponse.json */; };
+		74237AE426F82E94000E6B85 /* StatisticResult.json in Resources */ = {isa = PBXBuildFile; fileRef = 74237AE326F82E94000E6B85 /* StatisticResult.json */; };
+		74237AE626F83230000E6B85 /* StatisticEncodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74237AE526F83230000E6B85 /* StatisticEncodingTests.swift */; };
 		743A645626ED769300E0C944 /* StatisticTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743A645526ED769300E0C944 /* StatisticTableViewCell.swift */; };
 		743A645926ED7D8000E0C944 /* StatisticCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743A645826ED7D8000E0C944 /* StatisticCellViewModel.swift */; };
 		743A64A526EFD98C00E0C944 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743A64A426EFD98C00E0C944 /* TabBarController.swift */; };
@@ -144,6 +165,16 @@
 		74237A6726F7E664000E6B85 /* SoccerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SoccerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		74237A6B26F7E664000E6B85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74237A7126F7EB86000E6B85 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		74237AB526F7F6A0000E6B85 /* URLRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestTests.swift; sourceTree = "<group>"; };
+		74237AD026F802CC000E6B85 /* JSONParserMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParserMock.swift; sourceTree = "<group>"; };
+		74237AD426F80929000E6B85 /* LeagueResult.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = LeagueResult.json; sourceTree = "<group>"; };
+		74237AD626F80A9A000E6B85 /* XCTestCase+JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+JSON.swift"; sourceTree = "<group>"; };
+		74237AD926F80DE8000E6B85 /* MainViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModelTests.swift; sourceTree = "<group>"; };
+		74237ADD26F8208F000E6B85 /* MatchResult.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MatchResult.json; sourceTree = "<group>"; };
+		74237ADF26F829BF000E6B85 /* StatisticViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticViewModelTests.swift; sourceTree = "<group>"; };
+		74237AE126F82B03000E6B85 /* MatchResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MatchResponse.json; sourceTree = "<group>"; };
+		74237AE326F82E94000E6B85 /* StatisticResult.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = StatisticResult.json; sourceTree = "<group>"; };
+		74237AE526F83230000E6B85 /* StatisticEncodingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticEncodingTests.swift; sourceTree = "<group>"; };
 		743A645526ED769300E0C944 /* StatisticTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticTableViewCell.swift; sourceTree = "<group>"; };
 		743A645826ED7D8000E0C944 /* StatisticCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticCellViewModel.swift; sourceTree = "<group>"; };
 		743A64A426EFD98C00E0C944 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -224,6 +255,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74237AC326F7FA1F000E6B85 /* FirebaseCoreDiagnostics.xcframework in Frameworks */,
+				74237AC526F7FA1F000E6B85 /* GoogleAppMeasurement.xcframework in Frameworks */,
+				74237ACA26F7FA1F000E6B85 /* FirebaseInstallations.xcframework in Frameworks */,
+				74237AC626F7FA1F000E6B85 /* GoogleDataTransport.xcframework in Frameworks */,
+				74237AC426F7FA1F000E6B85 /* FirebaseCore.xcframework in Frameworks */,
+				74237AC926F7FA1F000E6B85 /* FirebaseAnalytics.xcframework in Frameworks */,
+				74237ACC26F7FA1F000E6B85 /* FirebaseCrashlytics.xcframework in Frameworks */,
+				74237ACD26F7FA23000E6B85 /* AdSupport.framework in Frameworks */,
+				74237ACB26F7FA1F000E6B85 /* nanopb.xcframework in Frameworks */,
+				74237AC726F7FA1F000E6B85 /* PromisesObjC.xcframework in Frameworks */,
+				74237AC826F7FA1F000E6B85 /* GoogleUtilities.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,8 +295,42 @@
 			children = (
 				74237A7126F7EB86000E6B85 /* .swiftlint.yml */,
 				74237A6B26F7E664000E6B85 /* Info.plist */,
+				74237AB526F7F6A0000E6B85 /* URLRequestTests.swift */,
+				74237AD926F80DE8000E6B85 /* MainViewModelTests.swift */,
+				74237ADF26F829BF000E6B85 /* StatisticViewModelTests.swift */,
+				74237ADC26F81FED000E6B85 /* JSONs */,
+				74237ADB26F81FDA000E6B85 /* Mocks */,
+				74237AD826F80AA0000E6B85 /* Extensions */,
+				74237AE526F83230000E6B85 /* StatisticEncodingTests.swift */,
 			);
 			path = SoccerTests;
+			sourceTree = "<group>";
+		};
+		74237AD826F80AA0000E6B85 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				74237AD626F80A9A000E6B85 /* XCTestCase+JSON.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		74237ADB26F81FDA000E6B85 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				74237AD026F802CC000E6B85 /* JSONParserMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		74237ADC26F81FED000E6B85 /* JSONs */ = {
+			isa = PBXGroup;
+			children = (
+				74237AD426F80929000E6B85 /* LeagueResult.json */,
+				74237ADD26F8208F000E6B85 /* MatchResult.json */,
+				74237AE126F82B03000E6B85 /* MatchResponse.json */,
+				74237AE326F82E94000E6B85 /* StatisticResult.json */,
+			);
+			path = JSONs;
 			sourceTree = "<group>";
 		};
 		743A645726ED76C600E0C944 /* Views */ = {
@@ -652,6 +728,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				74237A7226F7EB87000E6B85 /* .swiftlint.yml in Resources */,
+				74237AD526F80929000E6B85 /* LeagueResult.json in Resources */,
+				74237AE426F82E94000E6B85 /* StatisticResult.json in Resources */,
+				74237AE226F82B03000E6B85 /* MatchResponse.json in Resources */,
+				74237ADE26F8208F000E6B85 /* MatchResult.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -715,6 +795,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				74237A8826F7EC70000E6B85 /* Player.swift in Sources */,
+				74237AB726F7F827000E6B85 /* ViewModelController.swift in Sources */,
+				74237AD226F802D5000E6B85 /* JSONParserMock.swift in Sources */,
 				74237A8726F7EC70000E6B85 /* URLRequest+QueryItem.swift in Sources */,
 				74237A8F26F7EC70000E6B85 /* Team.swift in Sources */,
 				74237A8226F7EC70000E6B85 /* StatisticBuilder.swift in Sources */,
@@ -724,6 +806,7 @@
 				74237A9326F7EC70000E6B85 /* StatisticCoordinator.swift in Sources */,
 				74237A9A26F7EC70000E6B85 /* MOStadium+CoreDataProperties.swift in Sources */,
 				74237A9F26F7EC70000E6B85 /* TeamsViewModel.swift in Sources */,
+				74237AE026F829BF000E6B85 /* StatisticViewModelTests.swift in Sources */,
 				74237A8C26F7EC70000E6B85 /* MatchTableView.swift in Sources */,
 				74237AA126F7EC70000E6B85 /* TeamDetailsViewModel.swift in Sources */,
 				74237A7826F7EC70000E6B85 /* MatchTableViewCell.swift in Sources */,
@@ -742,6 +825,7 @@
 				74237A7D26F7EC70000E6B85 /* MatchBuilder.swift in Sources */,
 				74237AA226F7EC70000E6B85 /* MainCoordinator.swift in Sources */,
 				74237A8D26F7EC70000E6B85 /* StatisticCellViewModel.swift in Sources */,
+				74237ADA26F80DE8000E6B85 /* MainViewModelTests.swift in Sources */,
 				74237A9626F7EC70000E6B85 /* TabBarController.swift in Sources */,
 				74237A8B26F7EC70000E6B85 /* MOTeam+CoreDataClass.swift in Sources */,
 				74237A7A26F7EC70000E6B85 /* URLBuilder.swift in Sources */,
@@ -750,10 +834,10 @@
 				74237A9026F7EC70000E6B85 /* Coordinating.swift in Sources */,
 				74237A7526F7EC70000E6B85 /* MOPlayer+CoreDataProperties.swift in Sources */,
 				74237A8526F7EC70000E6B85 /* PlayerBuilder.swift in Sources */,
-				74237A9D26F7EC70000E6B85 /* AppDelegate.swift in Sources */,
 				74237AA326F7EC70000E6B85 /* MOTeam+CoreDataProperties.swift in Sources */,
 				74237A8326F7EC70000E6B85 /* StatisticViewModel.swift in Sources */,
 				74237A9926F7EC70000E6B85 /* ImageCollectionView.swift in Sources */,
+				74237AD726F80A9A000E6B85 /* XCTestCase+JSON.swift in Sources */,
 				74237A8E26F7EC70000E6B85 /* MatchCellViewModel.swift in Sources */,
 				74237A9226F7EC70000E6B85 /* TeamTableViewCell.swift in Sources */,
 				74237A9C26F7EC70000E6B85 /* TeamsCoordinator.swift in Sources */,
@@ -764,7 +848,9 @@
 				74237AA426F7EC70000E6B85 /* TeamBuilder.swift in Sources */,
 				74237A8426F7EC70000E6B85 /* TeamDetailsViewController.swift in Sources */,
 				74237A7E26F7EC70000E6B85 /* Match.swift in Sources */,
+				74237AE626F83230000E6B85 /* StatisticEncodingTests.swift in Sources */,
 				74237A9726F7EC70000E6B85 /* PlayerCellViewModel.swift in Sources */,
+				74237AB626F7F6A0000E6B85 /* URLRequestTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -862,6 +948,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.andreev.SoccerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -881,6 +968,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.andreev.SoccerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1012,6 +1100,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 6A53QK7QMA;
+				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

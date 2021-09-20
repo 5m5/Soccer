@@ -18,6 +18,8 @@ protocol StatisticViewModelProtocol: AnyObject {
   var scoreLabel: String { get }
   var matchDateString: String { get }
   var isTableViewHidden: Bool { get }
+  var parser: JSONParser<StatisticResult> { get }
+
   init(matchResponse: MatchResponse)
 
   func fetchStatistic(completion: @escaping () -> Void)
@@ -68,8 +70,9 @@ final class StatisticViewModel: StatisticViewModelProtocol {
   var statistics: [StatisticResponse] = []
   var statisticsCount = 0
 
+  var parser = JSONParser<StatisticResult>()
+
   func fetchStatistic(completion: @escaping () -> Void) {
-    let parser = JSONParser<StatisticResult>()
 
     let matchId = matchResponse.match.id
     let urlRequest = EndPointFactory().statistics().with(matchId: matchId).urlRequest
